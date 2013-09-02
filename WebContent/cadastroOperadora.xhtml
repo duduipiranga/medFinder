@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<f:view>
+	<h:body>
+		<h:form id="panel">
+			<h:outputText>Inserir novos planos</h:outputText>
+			<br />
+			<h:panelGrid>
+				<h:outputText value="Nome da operadora" styleClass="textField" />
+				<h:inputText value="#{operadoraBean.operadora.ds_operadora}"
+					id="txtNomeOperadora" styleClass="" />
+
+				<p:commandButton value="Incluir" id="btnIncluirOperadora"
+					actionListener="#{operadoraBean.incluirOperadora()}"
+					styleClass="button" update="panel">
+				</p:commandButton>
+
+			</h:panelGrid>
+		</h:form>
+
+		<h:form>
+			<h:outputText>Excluir plano</h:outputText>
+			<br />
+			<h:panelGrid>
+				<h:outputText value="Id da operadora" styleClass="textField" />
+				<h:inputText value="#{operadoraBean.operadora.id_operadora}"
+					id="txtNomeOperadora" styleClass="" />
+
+				<p:commandButton value="Excluir" id="btnIncluirOperadora"
+					actionListener="#{operadoraBean.excluirOperadora()}"
+					styleClass="button">
+				</p:commandButton>
+
+			</h:panelGrid>
+		</h:form>
+
+
+		<p:panel>
+			<p:fieldset>
+				<p:dataTable value="#{operadoraBean.operadoras}" var="op"
+					rendered="#{operadoraBean.operadoras != null}">
+					<p:column headerText="Id">
+						#{op.id_operadora}
+					</p:column>
+					<p:column headerText="Operadoras">
+						#{op.ds_operadora}
+					</p:column>
+				</p:dataTable>
+			</p:fieldset>
+		</p:panel>
+
+
+
+	</h:body>
+</f:view>
+</html>
