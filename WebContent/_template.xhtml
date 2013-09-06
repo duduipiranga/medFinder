@@ -10,10 +10,14 @@
 		<title><ui:insert name="title">Med Finder SP</ui:insert></title>
 
 		<!-- Incluindo os JS -->
-		<h:outputScript library="js" name="jquery.min.js" />
-		<h:outputScript library="js" name="config.js" />
-		<h:outputScript library="js" name="skel.min.js" />
-		<h:outputScript library="js" name="skel-panels.min.js" />
+		<script src="../resources/js/jquery.min.js"></script>
+		<!--  <h:outputScript library="js" name="jquery.min.js" />
+		<h:outputScript library="js" name="config.js" />-->
+		<script src="../resources/js/config.js"></script>
+		<!-- <h:outputScript library="js" name="skel.min.js" /> -->
+		<script src="../resources/js/skel.min.js"></script>
+		<!-- <h:outputScript library="js" name="skel-panels.min.js" />  -->
+		<script src="../resources/js/skel-panels.min.js"></script>
 
 
 		<h:outputStylesheet library="css"
@@ -28,15 +32,25 @@
 			<h:outputStylesheet library="css" name="style-desktop.css" />
 		</noscript>
 
-		<!--[if lte IE 8]><script src="${pageContext.request.contextPath}/js/html5shiv.js"></script><link rel="stylesheet" href="${pageContext.request.contextPath}/css/ie8.css" /><![endif]-->
-		<!--[if lte IE 7]><link rel="stylesheet" href="${pageContext.request.contextPath}/css/ie7.css" /><![endif]-->
+		<!--  <h:conditionalComment if="lt IE 8">
+			<script src="html5shiv.js"></script>
+			<link rel="stylesheet" href="ie8.css" />
+		</h:conditionalComment>
+		
+		<h:conditionalComment if="lt IE 7">
+			<link rel="stylesheet" href="ie7.css" />
+		</h:conditionalComment>
+
+
+		<h:outputStylesheet library="css" name="ie8.css" />  -->
 
 
 		<meta http-equiv="Pragma" content="no-cache" />
 	</h:head>
 
 	<h:body styleClass="homepage">
-		<f:loadBundle var="templateBundle" basename="com.medfinder.utils.bundle.templateBundle"/>
+		<f:loadBundle var="templateBundle"
+			basename="com.medfinder.utils.bundle.templateBundle" />
 		<div id="header-wrapper">
 			<div class="container">
 				<div class="row">
@@ -48,14 +62,16 @@
 							<h1>
 								<a href="#" id="logo">Med Finder</a>
 							</h1>
-							<span>A responsive site template by HTML5 UP</span>
+							<span>Texto a definir</span>
 						</div>
 
 						<!-- Nav --> <nav id="nav">
-						<ul>						
-							<li class="current_page_item"><h:link value="#{templateBundle.home}" outcome="home" /></li>
+						<ul>
+							<li class="current_page_item"><h:link
+									value="#{templateBundle.home}" outcome="home" /></li>
 							<li><h:link value="#{templateBundle.login}" outcome="home" /></li>
-							<li><h:link value="#{templateBundle.cadastro}" outcome="home" /></li>
+							<li><h:link value="#{templateBundle.cadastro}"
+									outcome="home" /></li>
 							<li><h:link value="#{templateBundle.contato}" outcome="home" /></li>
 						</ul>
 						</nav> </header>
@@ -65,35 +81,7 @@
 			</div>
 		</div>
 
-		<div id="banner-wrapper">
-				<div class="container">
-					<div class="row">
-						<div class="12u">
-						
-							<!-- Banner -->
-								<div id="banner" class="box">
-
-									<div>
-										<div class="row">
-											<div class="7u">
-												<h2>Hi. This is Verti.</h2>
-												<p>It's a free responsive HTML5 site template by HTML5 UP</p>
-											</div>
-											<div class="5u">
-												<ul>
-													<li><a href="#" class="button button-big button-icon button-icon-rarrow">Ok let's go</a></li>
-													<li><a href="#" class="button button-alt button-big button-icon button-icon-question">More info</a></li>
-												</ul>
-											</div>
-										</div>
-									</div>
-								
-								</div>
-
-						</div>
-					</div>
-				</div>
-			</div>
+		
 
 
 		<div id="content">
@@ -158,14 +146,18 @@
 					<section class="widget-contact last">
 					<h2>Redes Sociais</h2>
 					<ul>
-						<li><h:link value="Twitter" outcome="home" styleClass="twitter" /></li>
-						<li><h:link value="Facebook" outcome="home" styleClass="facebook" /></li>
-						<li><h:link value="Dribbble" outcome="home" styleClass="dribbble" /></li>
-						<li><h:link value="Google+" outcome="home" styleClass="googleplus" /></li>
+						<li><h:link value="Twitter" outcome="home"
+								styleClass="twitter" /></li>
+						<li><h:link value="Facebook" outcome="home"
+								styleClass="facebook" /></li>
+						<li><h:link value="Dribbble" outcome="home"
+								styleClass="dribbble" /></li>
+						<li><h:link value="Google+" outcome="home"
+								styleClass="googleplus" /></li>
 					</ul>
 					<p>
-						Rua Teste<br /> 00, SP - São Paulo
-						00000-000<br /> (011) 0000-0000
+						Rua Teste<br /> 00, SP - São Paulo 00000-000<br /> (011)
+						0000-0000
 					</p>
 					</section>
 
@@ -173,9 +165,8 @@
 			</div>
 			<div class="row">
 				<div class="12u">
-					<div id="copyright">
-						&copy; Med Finder SP. All rights reserved.
-					</div>
+					<div id="copyright">&copy; Med Finder SP. All rights
+						reserved.</div>
 				</div>
 			</div>
 			</footer>
