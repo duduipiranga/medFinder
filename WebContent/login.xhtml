@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="_template.xhtml">
+	<ui:define name="title">
+		Med Finder SP
+	</ui:define>
+	<ui:define name="content">
+
+		<!-- Main Wrapper -->
+		<div id="main-wrapper">
+			<div class="container">
+				<div class="row">
+					<div class="8u skel-cell-mainContent">
+
+						<!-- Content -->
+						<div id="content">
+							<article class="last">
+
+							<h2>Autenticação de Usuário</h2>
+
+							<h:form id="form">
+
+								<p:panel id="panel" header="New Person"
+									style="margin-bottom:10px;" styleClass="last">
+									<p:messages id="messages" />
+									<h:panelGrid columns="3">
+										<h:outputLabel for="firstname" value="Firstname: *" />
+										<p:inputText id="firstname" value="#{pprBean.firstname}"
+											required="true" label="Firstname">
+											<f:validateLength minimum="2" />
+										</p:inputText>
+										<p:message for="firstname" />
+
+										<h:outputLabel for="surname" value="Surname: *" />
+										<p:inputText id="surname" value="#{pprBean.surname}"
+											required="true" label="Surname" />
+										<p:message for="surname" />
+									</h:panelGrid>
+								</p:panel>
+
+							</h:form> </article>
+						</div>
+
+					</div>
+
+
+					<ui:include src="slider_right.xhtml"></ui:include>
+
+
+				</div>
+			</div>
+		</div>
+
+	</ui:define>
+</ui:composition>
+</html>

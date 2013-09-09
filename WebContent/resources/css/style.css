@@ -19,7 +19,7 @@
 
 	html
 	{
-		background: #f7f7f7 url('css/images/bg.png');
+		background: #f7f7f7 url('../css/images/bg.jpg');
 		height: 100%;
 	}
 
@@ -30,7 +30,7 @@
 		color: #696969;
 		font-weight: 300;
 		background-size: 100% 100%;
-		background: url('css/images/bgshadow.png') top left no-repeat;
+		
 	}
 	
 	a
@@ -182,7 +182,7 @@
 				display: inline-block;
 				width: 48px;
 				height: 48px;
-				background: url('css/images/icons.png');
+				background: url('../css/images/icons.png');
 				position: absolute;
 				right: 0.75em;
 				top: 50%;
@@ -310,7 +310,7 @@
 					display: block;
 					width: 48px;
 					height: 48px;
-					background: url('css/images/icons.png');
+					background: url('../css/images/icons.png');
 					text-indent: -9999px;
 					outul line: 0;
 					opacity: 0.75;
