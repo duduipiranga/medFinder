@@ -25,52 +25,80 @@
 							<div class="row">
 								<div class="7u">
 									<h:form id="form">
-										
+
 										<div>
 											<h4>Realize sua busca:</h4>
 										</div>
-										
+
 										<div>
-											<h:outputLabel value="Cidade : " for="filtroCidade" /> <br/>
-											<p:inputText id="filtroCidade" size="60" /> 
+											<h:outputLabel value="Cidade : " for="filtroCidade"
+												styleClass="desc" />
+											<div>
+												<p:inputText id="filtroCidade" size="60"
+													styleClass="field text fn" tabindex="3" />
+											</div>
 										</div>
 										
 										<div>
-											<h:outputLabel value="Bairro : " for="filtroBairro" /> <br/>
-											<p:inputText id="filtroBairro" size="60" />
+											<h:outputLabel value="Bairro : " for="filtroBairro"
+												styleClass="desc" />
+											<div>
+												<p:inputText id="filtroBairro" size="60"
+													styleClass="field text fn" tabindex="3" />
+											</div>
+										</div>
+
+
+										<div>
+											<h:outputLabel value="Operadora : " for="filtroOperadora"
+												styleClass="desc" />
+											<div>
+												<p:selectOneMenu id="filtroOperadora"
+													styleClass="field select medium" tabindex="1">
+													<f:selectItem id="fsfsdfddf" itemLabel="News" itemValue="1" />
+													<f:selectItem id="itsdfsdfsdfsdfem2" itemLabel="Sports"
+														itemValue="2" />
+													<f:selectItem id="itesdffsssdfsdfm3" itemLabel="Music"
+														itemValue="3" />
+													<f:selectItem id="isdfssfssdtem4" itemLabel="Java"
+														itemValue="4" />
+													<f:selectItem id="ifsdsfsdfftem5" itemLabel="Web"
+														itemValue="5" />
+												</p:selectOneMenu>
+											</div>
 										</div>
 										
 										<div>
-											<h:outputLabel value="Convênio : " for="filtroConvenio" /> <br/>
-											<p:selectOneMenu id="filtroConvenio">
-												<f:selectItem id="item1" itemLabel="News" itemValue="1" />
-												<f:selectItem id="item2" itemLabel="Sports" itemValue="2" />
-												<f:selectItem id="item3" itemLabel="Music" itemValue="3" />
-												<f:selectItem id="item4" itemLabel="Java" itemValue="4" />
-												<f:selectItem id="item5" itemLabel="Web" itemValue="5" />
-											</p:selectOneMenu>
+											<h:outputLabel value="Especialidade : " for="filtroEspecialidade"
+												styleClass="desc" />
+											<div>
+												<p:selectOneMenu id="filtroEspecialidade"
+													styleClass="field select medium" tabindex="1">
+													<f:selectItem id="fsfsddf" itemLabel="News" itemValue="1" />
+													<f:selectItem id="itsdfsdfsdfem2" itemLabel="Sports"
+														itemValue="2" />
+													<f:selectItem id="itesdfssdfsdfm3" itemLabel="Music"
+														itemValue="3" />
+													<f:selectItem id="isdfsssdtem4" itemLabel="Java"
+														itemValue="4" />
+													<f:selectItem id="ifsdsdfftem5" itemLabel="Web"
+														itemValue="5" />
+												</p:selectOneMenu>
+											</div>
 										</div>
-										
-										<div>
-											<h:outputLabel value="Especialidade Médica : " for="filtroEspecialidade" /> <br/>
-											<p:selectOneMenu id="filtroEspecialidade">
-												<f:selectItem id="fsdf" itemLabel="News" itemValue="1" />
-												<f:selectItem id="itsdfsdfem2" itemLabel="Sports" itemValue="2" />
-												<f:selectItem id="itesdfsdfm3" itemLabel="Music" itemValue="3" />
-												<f:selectItem id="isdfsdtem4" itemLabel="Java" itemValue="4" />
-												<f:selectItem id="ifsdftem5" itemLabel="Web" itemValue="5" />
-											</p:selectOneMenu>
-										</div>
-										
+
+
 										<div class="margin_top">
-											<p:commandButton value="Filtrar" oncomplete="PF('dlg').show()"  />  
+											<p:commandButton value="Filtrar"
+												oncomplete="PF('dlg').show()" />
 										</div>
 
 
 									</h:form>
 								</div>
 								<div class="5u">
-									<ul>
+
+									<!-- <ul>
 										<li><h:link value="Sou Médico" outcome="cadastroMedico"
 												styleClass="button button-big button-icon button-icon-rarrow" />
 										</li>
@@ -80,7 +108,13 @@
 										<li><h:link value="Cadastro" outcome="login"
 												styleClass="button button-alt button-big button-icon button-icon-question" />
 										</li>
-									</ul>
+									</ul> -->
+
+									<a href="http://html5up.net/"
+										class="button button-icon button-icon-paper">Cadastra-se</a> <a
+										href="http://html5up.net/"
+										class="button button-icon button-icon-paper">Login</a>
+
 								</div>
 							</div>
 						</div>
