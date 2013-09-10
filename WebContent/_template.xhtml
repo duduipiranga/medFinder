@@ -10,7 +10,7 @@
 		<title><ui:insert name="title">Med Finder SP</ui:insert></title>
 
 		<!-- Incluindo os JS -->
-		<h:outputScript library="js" name="jquery.min.js" />
+		<!-- <h:outputScript library="js" name="jquery-1.9.1.js" /> -->
 		<h:outputScript library="js" name="config.js" />
 		<h:outputScript library="js" name="skel.min.js" />
 		<h:outputScript library="js" name="skel-panels.min.js" />
@@ -48,13 +48,15 @@
 	<h:body styleClass="homepage">
 		<f:loadBundle var="templateBundle"
 			basename="com.medfinder.utils.bundle.templateBundle" />
+
 		<div id="header-wrapper">
 			<div class="container">
 				<div class="row">
 					<div class="12u">
 
 						<!-- Header -->
-						<header id="header"> <!-- Logo -->
+						<header id="header"> 
+						<!-- Logo -->
 						<div id="logo">
 							<h1>
 								<a href="#" id="logo">Med Finder</a>
@@ -62,25 +64,26 @@
 							<span>Texto a definir</span>
 						</div>
 
-						<!-- Nav --> <nav id="nav">
-						<ul>
-							<li class="current_page_item"><h:link
-									value="#{templateBundle.home}" outcome="home" /></li>
-							<li><h:link value="#{templateBundle.login}" outcome="home" /></li>
-							<li><h:link value="#{templateBundle.cadastro}"
-									outcome="home" /></li>
-							<li><h:link value="#{templateBundle.contato}" outcome="home" /></li>
-						</ul>
-						</nav> </header>
-
+						<!-- Nav --> 
+						<nav id="nav">
+							<ul>
+								<li class="current_page_item"><h:link
+										value="#{templateBundle.home}" outcome="home" /></li>
+								<li><h:link value="#{templateBundle.login}" outcome="home" /></li>
+								<li><h:link value="#{templateBundle.cadastro}"
+										outcome="home" /></li>
+								<li><h:link value="#{templateBundle.contato}" outcome="home" /></li>
+							</ul>
+						</nav> 
+												
+						</header>
 					</div>
 				</div>
 			</div>
 		</div>
-
-
-
-
+		
+		
+		
 		<div id="content">
 			<div id="innerContent">
 				<ui:insert name="content">

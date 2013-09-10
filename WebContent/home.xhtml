@@ -12,39 +12,45 @@
 		Med Finder SP
 	</ui:define>
 	<ui:define name="content">
-		<div id="banner-wrapper">
-			<div class="container">
-				<div class="row">
-					<div class="12u">
 
-						<!-- Banner -->
-						<div id="banner" class="box">
 
-							<div>
-								<div class="row">
-									<div class="7u">
-										<h2>Bem Vindo ao Med Finder SP</h2>
-										<p>Escolha uma das opções ao lado para continuar</p>
-									</div>
-									<div class="5u">
-										<ul>
-											<li><h:link value="Login" outcome="login"
-													styleClass="button button-big button-icon button-icon-rarrow" />
-											</li>
-											<li><h:link value="Cadastro" outcome="home"
-													styleClass="button button-alt button-big button-icon button-icon-question" />
-											</li>
-										</ul>
-									</div>
+		<div class="container">
+			<div class="row">
+				<div class="12u">
+
+					<!-- Banner -->
+					<div id="banner" class="box">
+
+						<div>
+							<div class="row">
+								<div class="7u">
+									<h:form id="form">
+										<h:outputLabel value="Cidade : " for="filtroCidade" />
+										<p:autoComplete id="filtroCidade" value="#{buscaBean.cidade}"
+											completeMethod="#{buscaBean.complete}" />
+
+										
+									</h:form>
+								</div>
+								<div class="5u">
+									<ul>
+										<li><h:link value="Login" outcome="login"
+												styleClass="button button-big button-icon button-icon-rarrow" />
+										</li>
+										<li><h:link value="Cadastro" outcome="home"
+												styleClass="button button-alt button-big button-icon button-icon-question" />
+										</li>
+									</ul>
 								</div>
 							</div>
-
 						</div>
 
 					</div>
+
 				</div>
 			</div>
 		</div>
+
 
 
 		<div id="features-wrapper">
@@ -53,10 +59,10 @@
 					<div class="4u">
 
 						<!-- Box -->
-						<section class="box box-feature"> 
-						
-								
-		
+						<section class="box box-feature">
+
+
+
 						<div class="inner">
 							<header>
 							<h2>Total de Usuários</h2>
@@ -71,8 +77,8 @@
 					<div class="4u">
 
 						<!-- Box -->
-						<section class="box box-feature"> 
-								
+						<section class="box box-feature">
+
 						<div class="inner">
 							<header>
 							<h2>Usuários Cadastrados</h2>
@@ -88,10 +94,10 @@
 					<div class="4u">
 
 						<!-- Box -->
-						<section class="box box-feature last"> 
-						
-								
-						
+						<section class="box box-feature last">
+
+
+
 						<div class="inner">
 							<header>
 							<h2>Oh, and finally ...</h2>
@@ -106,46 +112,61 @@
 				</div>
 			</div>
 		</div>
-		
-		
+
+
 		<div id="main-wrapper">
-				<div class="container">
-					<div class="row">
-						<div class="4u">
-						
-							<!-- Sidebar -->
-								<div id="sidebar">
-									<section class="widget-thumbnails">
-										<h3>More free stuff</h3>
-										<div class="grid">
-											<div class="row no-collapse half">
-												<div class="6u"><a href="http://html5up.net/minimaxing/" class="image image-full"><h:graphicImage name="pic04.jpg" library="images" /></a></div>
-												<div class="6u"><a href="http://html5up.net/halcyonic/" class="image image-full"><h:graphicImage name="pic05.jpg" library="images" /></a></div>
-											</div>
-											<div class="row no-collapse half">
-												<div class="6u"><a href="http://html5up.net/arcana/" class="image image-full"><h:graphicImage name="pic06.jpg" library="images" /></a></div>
-												<div class="6u"><a href="http://html5up.net/zerofour/" class="image image-full"><h:graphicImage name="pic07.jpg" library="images" /></a></div>
-											</div>
-										</div>
-										<a href="http://html5up.net/" class="button button-icon button-icon-paper">Saiba Mais</a>
-									</section>
-								</div>
-						
-						</div>
-						<div class="8u">
+			<div class="container">
+				<div class="row">
+					<div class="4u">
 
-							<!-- Content -->
-								<div id="content">
-									<section class="last">
-										<h2>O que fazemos?</h2>
-										
-									</section>
+						<!-- Sidebar -->
+						<div id="sidebar">
+							<section class="widget-thumbnails">
+							<h3>More free stuff</h3>
+							<div class="grid">
+								<div class="row no-collapse half">
+									<div class="6u">
+										<a href="http://html5up.net/minimaxing/"
+											class="image image-full"><h:graphicImage name="pic04.jpg"
+												library="images" /></a>
+									</div>
+									<div class="6u">
+										<a href="http://html5up.net/halcyonic/"
+											class="image image-full"><h:graphicImage name="pic05.jpg"
+												library="images" /></a>
+									</div>
 								</div>
-
+								<div class="row no-collapse half">
+									<div class="6u">
+										<a href="http://html5up.net/arcana/" class="image image-full"><h:graphicImage
+												name="pic06.jpg" library="images" /></a>
+									</div>
+									<div class="6u">
+										<a href="http://html5up.net/zerofour/"
+											class="image image-full"><h:graphicImage name="pic07.jpg"
+												library="images" /></a>
+									</div>
+								</div>
+							</div>
+							<a href="http://html5up.net/"
+								class="button button-icon button-icon-paper">Saiba Mais</a> </section>
 						</div>
+
+					</div>
+					<div class="8u">
+
+						<!-- Content -->
+						<div id="content">
+							<section class="last">
+							<h2>O que fazemos?</h2>
+
+							</section>
+						</div>
+
 					</div>
 				</div>
 			</div>
+		</div>
 
 	</ui:define>
 </ui:composition>
