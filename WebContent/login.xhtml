@@ -23,27 +23,33 @@
 						<div id="content">
 							<article class="last">
 
-							<h2>Autenticação de Usuário</h2>
+							<h3>Autenticação de Usuário</h3>
 
 							<h:form id="form">
-									
-									<div>
-										<h:outputLabel value="Usuário : " for="usuarioLogin" /> <br/>
-										<p:inputText id="usuarioLogin" size="60" />
-									</div>
-									
-									<div>
-										<h:outputLabel value="Senha : " for="senhaLogin" /> <br/>
-										<p:inputText id="senhaLogin" size="60" />
-									</div>
-									
-									<div class="margin_top">
-										<p:commandButton value="Enviar" oncomplete="PF('dlg').show()"  />  
-									</div>
 
-							</h:form> 
-							
-							</article>
+								<div>
+									<h:outputLabel value="Usuário : " for="usuarioLogin"
+										styleClass="desc" />
+									<div>
+										<p:inputText id="usuarioLogin" size="60"
+											styleClass="field text fn" tabindex="3" />
+									</div>
+								</div>
+
+								<div>
+									<h:outputLabel value="Senha : " for="senhaLogin"
+										styleClass="desc" />
+									<div>
+										<p:inputText id="senhaLogin" size="60"
+											styleClass="field text fn" tabindex="4" />
+									</div>
+								</div>
+
+								<div class="margin_top">
+									<p:commandButton value="Enviar" oncomplete="PF('dlg').show()" />
+								</div>
+
+							</h:form> </article>
 						</div>
 
 					</div>

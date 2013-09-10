@@ -12,22 +12,19 @@
 		Med Finder SP
 	</ui:define>
 	<ui:define name="content">
-
 		<!-- Main Wrapper -->
 		<div id="main-wrapper">
 			<div class="container">
 				<div class="row">
 					<div class="8u skel-cell-mainContent">
-
 						<!-- Content -->
 						<div id="content">
 							<article class="last">
 
-
 							<h:form id="form">
 
 								<header>
-									<h2>Cadastro de Usuário</h2>
+									<h3>Cadastro de Usuário</h3>
 									<div>Informe corretamente seus dados</div>
 								</header>
 								
@@ -135,11 +132,8 @@
 
 
 
-								<div>
-									<div>
-										<input id="saveForm" name="saveForm" type="submit"
-											value="Submit" />
-									</div>
+								<div class="margin_top">
+									<p:commandButton value="Enviar" oncomplete="PF('dlg').show()" />
 								</div>
 
 
