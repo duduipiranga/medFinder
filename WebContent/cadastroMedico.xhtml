@@ -1,0 +1,168 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="_template.xhtml">
+	<ui:define name="title">
+		Med Finder SP
+	</ui:define>
+	<ui:define name="content">
+		<!-- Main Wrapper -->
+		<div id="main-wrapper">
+			<div class="container">
+				<div class="row">
+					<div class="8u skel-cell-mainContent">
+						<!-- Content -->
+						<div id="content">
+							<article class="last"> <h:form id="form">
+
+								<header>
+								<h3>Cadastro de Médicos</h3>
+								<div>Informe corretamente seus dados</div>
+								</header>
+
+
+								<div>
+									<h:outputLabel value="Plano : " for="usuarioPlano"
+										styleClass="desc" />
+									<div>
+										<p:selectManyMenu value="#{formBean.selectedOptions}" styleClass="field text fn" tabindex="4">
+											<f:selectItem itemLabel="Option 1" itemValue="Option 1" />
+											<f:selectItem itemLabel="Option 2" itemValue="Option 2" />
+											<f:selectItem itemLabel="Option 3" itemValue="Option 3" />
+										</p:selectManyMenu>
+									</div>
+								</div>
+
+								<div>
+									<h:outputLabel value="Nome : " for="medicoNome"
+										styleClass="desc" />
+									<div>
+										<p:inputText id="medicoNome" size="60"
+											styleClass="field text fn" tabindex="3" />
+									</div>
+								</div>
+
+								<div>
+									<h:outputLabel value="Sobrenome : " for="medicoSobrenome"
+										styleClass="desc" />
+									<div>
+										<p:inputText id="medicoSobrenome" size="60"
+											styleClass="field text fn" tabindex="4" />
+									</div>
+								</div>
+
+								<div>
+									<h:outputLabel value="CRM : " for="medicoCrm" styleClass="desc" />
+									<div>
+										<p:inputText id="medicoCrm" size="60"
+											styleClass="field text fn" tabindex="5" spellcheck="false" />
+									</div>
+								</div>
+
+								<div>
+									<h:outputLabel value="E-mail : " for="medicoEmail"
+										styleClass="desc" />
+									<div>
+										<p:inputText id="medicoEmail" size="60"
+											styleClass="field text fn" tabindex="5" spellcheck="false" />
+									</div>
+								</div>
+
+								<div>
+									<h:outputLabel value="Senha : " for="medicoSenha"
+										styleClass="desc" />
+									<div>
+										<p:password id="medicoSenha"
+											value="#{cadastroClienteBean.senha}" feedback="true"
+											inline="true" tabindex="6" />
+									</div>
+								</div>
+
+								<div>
+									<h:outputLabel value="Valor da Consulta : "
+										for="medicoValorConsulta" styleClass="desc" />
+									<div>
+										<p:inputMask placeHolder="0" id="medicoValorConsulta"
+											mask="99.99" styleClass="field text fn" tabindex="5">
+											<f:convertNumber pattern="#0.00"></f:convertNumber>
+										</p:inputMask>
+									</div>
+								</div>
+
+								<div>
+									<h:outputLabel value="Foto Perfil : " for="usuarioCep"
+										styleClass="desc" />
+									<div>
+										<p:fileUpload mode="simple" />
+									</div>
+								</div>
+
+								<div>
+									<h:outputLabel value="Resumo Profissional : "
+										for="medicoResumoProf" styleClass="desc" />
+									<div>
+										<p:inputTextarea rows="6" cols="33" styleClass="field text fn" />
+									</div>
+								</div>
+
+								<div>
+									<h:outputLabel value="Data Formação : "
+										for="medicoDataFormacao" styleClass="desc" />
+									<div>
+										<p:inputMask value="#{maskController.date}" mask="99/99/9999"
+											styleClass="field text fn" tabindex="4" />
+									</div>
+								</div>
+
+								<div>
+									<h:outputLabel value="Complemento : " for="usuarioComplemento"
+										styleClass="desc" />
+									<div>
+										<p:inputText id="usuarioComplemento" size="60"
+											styleClass="field text fn" tabindex="4" />
+									</div>
+								</div>
+
+								<div>
+									<h:outputLabel value="Especialidades : "
+										for="medicoEspecialidade" styleClass="desc" />
+									<div>
+										<p:selectManyMenu value="#{formBean.selectedOptions}" styleClass="field text fn" tabindex="4">
+											<f:selectItem itemLabel="Option 1" itemValue="Option 1" />
+											<f:selectItem itemLabel="Option 2" itemValue="Option 2" />
+											<f:selectItem itemLabel="Option 3" itemValue="Option 3" />
+										</p:selectManyMenu>
+									</div>
+								</div>
+
+								<div class="margin_top">
+									<p:commandButton value="Enviar" oncomplete="PF('dlg').show()" />
+								</div>
+
+
+
+
+
+
+							</h:form> </article>
+						</div>
+
+					</div>
+
+
+					<ui:include src="slider_right.xhtml"></ui:include>
+
+
+				</div>
+			</div>
+		</div>
+
+	</ui:define>
+</ui:composition>
+</html>

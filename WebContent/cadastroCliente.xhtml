@@ -19,19 +19,19 @@
 					<div class="8u skel-cell-mainContent">
 						<!-- Content -->
 						<div id="content">
-							<article class="last">
-
-							<h:form id="form">
+							<article class="last"> <h:form id="form">
 
 								<header>
-									<h3>Cadastro de Usuário</h3>
-									<div>Informe corretamente seus dados</div>
+								<h3>Cadastro de Usuário</h3>
+								<div>Informe corretamente seus dados</div>
 								</header>
-								
+
 								<div>
-									<h:outputLabel value="Operadora : " for="usuarioOperadora" styleClass="desc" />
+									<h:outputLabel value="Operadora : " for="usuarioOperadora"
+										styleClass="desc" />
 									<div>
-										<p:selectOneMenu id="usuarioOperadora" styleClass="field select medium" tabindex="1">
+										<p:selectOneMenu id="usuarioOperadora"
+											styleClass="field select medium" tabindex="1">
 											<f:selectItem id="fsfsddf" itemLabel="News" itemValue="1" />
 											<f:selectItem id="itsdfsdfsdfem2" itemLabel="Sports"
 												itemValue="2" />
@@ -43,11 +43,13 @@
 										</p:selectOneMenu>
 									</div>
 								</div>
-								
+
 								<div>
-									<h:outputLabel value="Plano : " for="usuarioPlano"  styleClass="desc" />
+									<h:outputLabel value="Plano : " for="usuarioPlano"
+										styleClass="desc" />
 									<div>
-										<p:selectOneMenu id="usuarioPlano" styleClass="field select medium" tabindex="2">
+										<p:selectOneMenu id="usuarioPlano"
+											styleClass="field select medium" tabindex="2">
 											<f:selectItem id="fsfsddfsdf" itemLabel="News" itemValue="1" />
 											<f:selectItem id="itsdfsfsddfsdfem2" itemLabel="Sports"
 												itemValue="2" />
@@ -55,78 +57,101 @@
 												itemValue="3" />
 											<f:selectItem id="isdfsssfsddtem4" itemLabel="Java"
 												itemValue="4" />
-											<f:selectItem id="ifsdsdfsfftem5" itemLabel="Web" itemValue="5" />
+											<f:selectItem id="ifsdsdfsfftem5" itemLabel="Web"
+												itemValue="5" />
 										</p:selectOneMenu>
 									</div>
 								</div>
 
 								<div>
-									<h:outputLabel value="Nome : " for="usuarioNome" styleClass="desc" />
+									<h:outputLabel value="Nome : " for="usuarioNome"
+										styleClass="desc" />
 									<div>
-										<p:inputText id="usuarioNome" size="60" styleClass="field text fn" tabindex="3"  />
+										<p:inputText id="usuarioNome" size="60"
+											styleClass="field text fn" tabindex="3" />
 									</div>
 								</div>
-								
+
 								<div>
-									<h:outputLabel value="Sobrenome : " for="usuarioSobrenome" styleClass="desc" />
+									<h:outputLabel value="Sobrenome : " for="usuarioSobrenome"
+										styleClass="desc" />
 									<div>
-										<p:inputText id="usuarioSobrenome" size="60" styleClass="field text fn" tabindex="4"  />
+										<p:inputText id="usuarioSobrenome" size="60"
+											styleClass="field text fn" tabindex="4" />
 									</div>
 								</div>
-								
+
 								<div>
-									<h:outputLabel value="E-mail : " for="usuarioEmail" styleClass="desc" />
+									<h:outputLabel value="E-mail : " for="usuarioEmail"
+										styleClass="desc" />
 									<div>
-										<p:inputText id="usuarioEmail" size="60" styleClass="field text fn" tabindex="5" spellcheck="false"  />
+										<p:inputText id="usuarioEmail" size="60"
+											styleClass="field text fn" tabindex="5" spellcheck="false" />
 									</div>
 								</div>
-								
+
 								<div>
-									<h:outputLabel value="Senha : " for="usuarioSenha" styleClass="desc" />
+									<h:outputLabel value="Senha : " for="usuarioSenha"
+										styleClass="desc" />
 									<div>
-										<p:password id="inlineFeedback" value="#{cadastroClienteBean.senha}" feedback="true" inline="true" tabindex="6" />  
+										<p:password id="inlineFeedback"
+											value="#{cadastroClienteBean.senha}" feedback="true"
+											inline="true" tabindex="6" />
 									</div>
 								</div>
-								
+
 								<div>
-									<h:outputLabel value="Data de Nascimento : " for="usuarioDataNasc" styleClass="desc" />
+									<h:outputLabel value="Data de Nascimento : "
+										for="usuarioDataNasc" styleClass="desc" />
 									<div>
-										<p:calendar value="#{cadastroClienteBean.dataNasc}" id="popupCal" />  
+										<p:calendar value="#{cadastroClienteBean.dataNasc}"
+											id="popupCal" />
 									</div>
 								</div>
-								
+
 								<div>
-									<h:outputLabel value="CEP : " for="usuarioCep" styleClass="desc" />
+									<h:outputLabel value="CEP : " for="usuarioCep"
+										styleClass="desc" />
 									<div>
-										<p:inputMask id="usuarioCep" size="60" styleClass="field text fn" tabindex="5" value="#{cadastroClienteBean.cep}" mask="99999-999"/> 
+										<p:inputMask id="usuarioCep" size="60"
+											styleClass="field text fn" tabindex="5"
+											value="#{cadastroClienteBean.cep}" mask="99999-999" />
 									</div>
 								</div>
-								
+
 								<div>
-									<h:outputLabel value="Endereço : " for="usuarioEndereco" styleClass="desc" />
+									<h:outputLabel value="Endereço : " for="usuarioEndereco"
+										styleClass="desc" />
 									<div>
-										<p:inputText id="usuarioEndereco" size="60" styleClass="field text fn" tabindex="4"  />
+										<p:inputText id="usuarioEndereco" size="60"
+											styleClass="field text fn" tabindex="4" />
 									</div>
 								</div>
-								
+
 								<div>
-									<h:outputLabel value="Número : " for="usuarioNumero" styleClass="desc" />
+									<h:outputLabel value="Número : " for="usuarioNumero"
+										styleClass="desc" />
 									<div>
-										<p:inputText id="usuarioNumero" size="60" styleClass="field text fn" tabindex="4"  />
+										<p:inputText id="usuarioNumero" size="60"
+											styleClass="field text fn" tabindex="4" />
 									</div>
 								</div>
-								
+
 								<div>
-									<h:outputLabel value="Complemento : " for="usuarioComplemento" styleClass="desc" />
+									<h:outputLabel value="Complemento : " for="usuarioComplemento"
+										styleClass="desc" />
 									<div>
-										<p:inputText id="usuarioComplemento" size="60" styleClass="field text fn" tabindex="4"  />
+										<p:inputText id="usuarioComplemento" size="60"
+											styleClass="field text fn" tabindex="4" />
 									</div>
 								</div>
-								
+
 								<div>
-									<h:outputLabel value="Bairro : " for="usuarioBairro" styleClass="desc" />
+									<h:outputLabel value="Bairro : " for="usuarioBairro"
+										styleClass="desc" />
 									<div>
-										<p:inputText id="usuarioBairro" size="60" styleClass="field text fn" tabindex="4"  />
+										<p:inputText id="usuarioBairro" size="60"
+											styleClass="field text fn" tabindex="4" />
 									</div>
 								</div>
 
