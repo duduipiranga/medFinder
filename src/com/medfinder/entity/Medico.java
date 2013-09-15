@@ -2,12 +2,21 @@ package com.medfinder.entity;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.Lob;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 
 
 @Entity
@@ -33,18 +42,22 @@ public class Medico implements Serializable {
 	private String resumo_profissional;
 	private String ds_formacao;
 	
-	@Transient
-	private HorarioAtendimento[] horarios;
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)	
+	 @JoinTable(name = "AM_HORARIO_ATENDIMENTO", joinColumns = {
+		        @JoinColumn(name = "ID_MEDICO")}, inverseJoinColumns = {
+		        @JoinColumn(name = "ID_MEDICO")})	
+	private List<HorarioAtendimento> horarios;
 	
 	
 	
 	
-	public HorarioAtendimento[] getHorarios() {
+	
+	public List<HorarioAtendimento> getHorarios() {
 		return horarios;
 	}
-	public void setHorarios(HorarioAtendimento[] horarios) {
+	public void setHorarios(List<HorarioAtendimento> horarios) {
 		this.horarios = horarios;
-	}
+	}	
 	public String getId_medico() {
 		return id_medico;
 	}

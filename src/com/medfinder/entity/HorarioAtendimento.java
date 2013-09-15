@@ -21,6 +21,10 @@ public class HorarioAtendimento implements Serializable {
 	private int id_horario;	
 	
 	@ManyToOne
+	@JoinColumn(name = "ID_MEDICO")
+	private Medico medico;
+	
+	@ManyToOne
 	@JoinColumn(name = "ID_CONSULTORIO")
 	private Consultorio consultorio;
 	
