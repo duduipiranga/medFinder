@@ -10,9 +10,7 @@ import javax.persistence.Table;
 @Table(name="AM_ESPECIALIDADE")
 public class Especialidade implements Serializable {
 
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 7122420261975133740L;
 
 	@Id

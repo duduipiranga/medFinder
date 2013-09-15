@@ -14,13 +14,14 @@ import javax.persistence.Lob;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
 @Entity
 @Table(name = "AM_MEDICO")
 public class Medico implements Serializable {
 
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 2686422646871037810L;
 
 	@Id
@@ -41,14 +42,30 @@ public class Medico implements Serializable {
 	private List<HorarioAtendimento> horarios;
 
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@Fetch(FetchMode.SUBSELECT)
 	@JoinTable(name = "AM_PLANO_MEDICO",
 	joinColumns = { @JoinColumn(name = "id_medico", referencedColumnName = "id_medico") },
 	inverseJoinColumns = { @JoinColumn(name = "id_plano", referencedColumnName = "id_plano")})
 	private List<Plano> planos;
 	
 	
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)	
+	@JoinTable(name = "AM_MEDICO_ESPECIALIDADE",
+	joinColumns = { @JoinColumn(name = "id_medico", referencedColumnName = "id_medico") },
+	inverseJoinColumns = { @JoinColumn(name = "id_especialidade", referencedColumnName = "id_especialidade")})
+	private List<Especialidade> especialidades;
 	
 	
+	
+	
+
+	public List<Especialidade> getEspecialidades() {
+		return especialidades;
+	}
+
+	public void setEspecialidades(List<Especialidade> especialidades) {
+		this.especialidades = especialidades;
+	}
 
 	public List<Plano> getPlanos() {
 		return planos;

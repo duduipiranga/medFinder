@@ -33,7 +33,7 @@ public abstract class HibernateDAO<T, K> implements GenericDAO<T, K> {
 	}
 	
 	@Override
-	public void insert(T entity) {
+	public void insert(T entity) {		
 		em.persist(entity);
 		em.getTransaction().commit();
 
