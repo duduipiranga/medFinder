@@ -6,7 +6,7 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 
-import com.medfinder.dao.impl.OperadoraDAOImpl;
+import com.medfinder.dao.impl.OperadoraDAO;
 import com.medfinder.entity.Operadora;
 
 @ManagedBean
@@ -21,7 +21,7 @@ public class OperadoraBean {
 	
 	private int id_operadora;
 
-	OperadoraDAOImpl dao = new OperadoraDAOImpl();
+	OperadoraDAO dao = new OperadoraDAO();
 	
 	
 	

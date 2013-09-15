@@ -2,31 +2,31 @@ package com.medfinder.teste;
 
 import java.util.List;
 
-import com.medfinder.dao.impl.ConsultorioDAOImpl;
+import com.medfinder.dao.impl.ConsultorioDAO;
 import com.medfinder.entity.Consultorio;
-import com.medfinder.entity.Telefone_Consultorio;
+import com.medfinder.entity.TelefoneConsultorio;
 
 public class Teste1 {
 	
 	public static void main(String[] args) {
 		
-		ConsultorioDAOImpl cdao = new ConsultorioDAOImpl();
+		ConsultorioDAO cdao = new ConsultorioDAO();
 		
 		List<Consultorio> c = cdao.listAll();
 		
-		List<Telefone_Consultorio> telefones = null;
+		List<TelefoneConsultorio> telefones = null;
 		
 		for (Consultorio consultorio : c) {
 			
 			telefones = consultorio.getTelefones();
 			
-			for (Telefone_Consultorio telefone_Consultorio : telefones) {
-				System.out.println(telefone_Consultorio.getNumero());
+			for (TelefoneConsultorio telefoneConsultorio : telefones) {
+				System.out.println(telefoneConsultorio.getNumero());
 			}
 			
 		}
 		
-		/*OperadoraDAOImpl opdao = new OperadoraDAOImpl();
+		/*OperadoraDAO opdao = new OperadoraDAO();
 		
 		
 		List<Operadora> op = opdao.listAll();

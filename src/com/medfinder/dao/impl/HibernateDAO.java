@@ -7,10 +7,10 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
-import com.medfinder.dao.DAO;
+import com.medfinder.dao.GenericDAO;
 import com.medfinder.persistence.EntityManagerFactorySingleton;
 
-public abstract class HibernateDAO<T, K> implements DAO<T, K> {
+public abstract class HibernateDAO<T, K> implements GenericDAO<T, K> {
 	@PersistenceContext(unitName = "ORACLE")
 	protected EntityManager em;
 	private Class<T> entityClass;

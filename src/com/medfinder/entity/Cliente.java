@@ -40,18 +40,18 @@ public class Cliente implements Serializable {
 	private Endereco endereco;
 	
 	@Transient
-	private Telefone_Cliente[] telefones;
+	private TelefoneCliente[] telefones;
 	
 	
 	
 	
 
 	
-	public Telefone_Cliente[] getTelefones() {
+	public TelefoneCliente[] getTelefones() {
 		return telefones;
 	}
 
-	public void setTelefones(Telefone_Cliente[] telefones) {
+	public void setTelefones(TelefoneCliente[] telefones) {
 		this.telefones = telefones;
 	}
 

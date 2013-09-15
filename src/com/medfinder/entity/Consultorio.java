@@ -29,16 +29,16 @@ public class Consultorio implements Serializable {
 
 	@OneToMany(cascade = { CascadeType.ALL })
 	@JoinColumn(name = "id_telefone")
-	private List<Telefone_Consultorio> telefones;
+	private List<TelefoneConsultorio> telefones;
 
 	@Transient
-	private Foto_Consultorio[] fotos;
+	private FotoConsultorio[] fotos;
 
-	public List<Telefone_Consultorio> getTelefones() {
+	public List<TelefoneConsultorio> getTelefones() {
 		return telefones;
 	}
 
-	public void setTelefones(List<Telefone_Consultorio> telefones) {
+	public void setTelefones(List<TelefoneConsultorio> telefones) {
 		this.telefones = telefones;
 	}
 
