@@ -7,6 +7,7 @@ import com.medfinder.dao.impl.HorarioAtendimentoDAO;
 import com.medfinder.dao.impl.MedicoDAO;
 import com.medfinder.entity.HorarioAtendimento;
 import com.medfinder.entity.Medico;
+import com.medfinder.entity.Plano;
 
 public class Teste1 {
 	
@@ -46,9 +47,20 @@ public class Teste1 {
 		
 		List<HorarioAtendimento> horarios = new ArrayList<HorarioAtendimento>();
 		
+		List<Plano> planos = new ArrayList<Plano>();
 		
-		for (int i = 0; i < meds.size(); i++) {
-			System.out.println(meds.get(i).getSobrenome());
+		for (Medico m : meds) {
+			planos = m.getPlanos();
+			
+			for (Plano plano : planos) {
+				System.out.println(plano.getId_plano());
+			}
+		}
+		
+		
+		
+		
+		/*for (int i = 0; i < meds.size(); i++) {			
 			horarios = meds.get(i).getHorarios();
 			
 			
@@ -57,7 +69,7 @@ public class Teste1 {
 				System.out.println("Proximo");
 			}
 		}
-		
+		*/
 		
 		
 	}
