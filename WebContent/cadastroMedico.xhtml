@@ -30,12 +30,13 @@
 								<div>
 									<h:outputLabel value="Plano : " for="usuarioPlano"
 										styleClass="desc" />
+										
+										<p:pickList id="pickList" value="#{cadastroMedicoMB.dualPlanos}"
+											var="plano" itemLabel="#{plano.ds_plano}" itemValue="#{plano}"  >
+											</p:pickList>
 									<div>
-										<p:selectManyMenu value="#{formBean.selectedOptions}" styleClass="field text fn" tabindex="4">
-											<f:selectItem itemLabel="Option 1" itemValue="Option 1" />
-											<f:selectItem itemLabel="Option 2" itemValue="Option 2" />
-											<f:selectItem itemLabel="Option 3" itemValue="Option 3" />
-										</p:selectManyMenu>
+
+										
 									</div>
 								</div>
 
@@ -133,7 +134,8 @@
 									<h:outputLabel value="Especialidades : "
 										for="medicoEspecialidade" styleClass="desc" />
 									<div>
-										<p:selectManyMenu value="#{formBean.selectedOptions}" styleClass="field text fn" tabindex="4">
+										<p:selectManyMenu value="#{formBean.selectedOptions}"
+											styleClass="field text fn" tabindex="4">
 											<f:selectItem itemLabel="Option 1" itemValue="Option 1" />
 											<f:selectItem itemLabel="Option 2" itemValue="Option 2" />
 											<f:selectItem itemLabel="Option 3" itemValue="Option 3" />
