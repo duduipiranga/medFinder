@@ -16,7 +16,11 @@ public class ConversorPlano implements Converter{
 	@Override
 	public Object getAsObject(FacesContext arg0, UIComponent arg1, String id) {
 		 if(id != null) {  
+			 try{
 	            return pdao.find(Integer.getInteger(id));
+			 }catch(Exception e){
+				 e.printStackTrace();
+			 }
 		 }
 		return null;
 	}
@@ -24,8 +28,12 @@ public class ConversorPlano implements Converter{
 	@Override
 	public String getAsString(FacesContext arg0, UIComponent arg1, Object object) {
 		 if(object != null && object instanceof Plano) {  
+			 try{
 			 Integer idc = ((Plano)object).getId_plano();
 	            return idc.toString();  
+			 }catch(Exception e){
+				 e.printStackTrace();
+			 }
 	        }  
 		return null;
 	}
