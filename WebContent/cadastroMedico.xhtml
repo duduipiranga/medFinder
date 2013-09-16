@@ -19,7 +19,9 @@
 					<div class="8u skel-cell-mainContent">
 						<!-- Content -->
 						<div id="content">
-							<article class="last"> <h:form id="form">
+							<article class="last"> 
+							
+							<h:form id="form">
 
 								<header>
 								<h3>Cadastro de Médicos</h3>
@@ -130,26 +132,26 @@
 									</div>
 								</div>
 
-								<div>
 									<h:outputLabel value="Especialidades : "
 										for="medicoEspecialidade" styleClass="desc" />
+								<div>
 									
-										<p:pickList id="pickList2" converter="ConversorEspecialidade"
+										<p:pickList id="medicoEspecialidade" converter="ConversorEspecialidade"
 											value="#{cadastroMedicoMB.dualEspecialidades}" var="esp"
 											itemLabel="#{esp.nm_especialidade}" itemValue="#{esp}">
 										</p:pickList>
-									
-									
+								</div>
+								
 										<h:outputLabel value="Plano : " for="usuarioPlano"
 											styleClass="desc" />
+								<div>
 
-										<p:pickList id="pickList" converter="ConversorPlano"
+										<p:pickList id="usuarioPlano" converter="ConversorPlano"
 											value="#{cadastroMedicoMB.dualPlanos}" var="plano"
 											itemLabel="#{plano.ds_plano}" itemValue="#{plano}">
 										</p:pickList>
-									
 								</div>
-
+								
 								<div class="margin_top">
 									<p:commandButton value="Enviar"
 										action="#{cadastroMedicoMB.salvarMedico()}" />
