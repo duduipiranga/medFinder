@@ -141,17 +141,21 @@ public class CadastroMedicoMB {
 	
 	public void salvarMedico(){
 		
-		medico.setPlanos(this.dualPlanos.getTarget());
+		escolhidosPlanos = this.dualPlanos.getTarget();
 		
-	/*	for (Plano p : this.dualPlanos.getTarget()) {
+		medico.setPlanos(escolhidosPlanos);
+		
+		for (Plano p : escolhidosPlanos) {
 			System.out.println(p.getDs_plano());
-		}*/
+		}
 		
-	//	medico.setEspecialidades(this.dualEspecialidades.getTarget());
+		especialidades = this.dualEspecialidades.getTarget();
 		
-		/*for (Especialidade e : this.dualEspecialidades.getTarget()) {
+		medico.setEspecialidades(especialidades);
+		
+		for (Especialidade e : especialidades) {
 			System.out.println(e.getDs_especialidade());
-		}*/
+		}
 		
 		medao.insert(medico);
 		
