@@ -8,14 +8,11 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.persistence.Transient;
+
 @Entity
 @Table(name="AM_CLIENTE")
 public class Cliente implements Serializable {
-
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = -3319870289667091764L;
 
 	@Id
@@ -39,22 +36,9 @@ public class Cliente implements Serializable {
 	@OneToOne(targetEntity = Endereco.class)
 	private Endereco endereco;
 	
-	@Transient
-	private TelefoneCliente[] telefones;
 	
 	
 	
-	
-
-	
-	public TelefoneCliente[] getTelefones() {
-		return telefones;
-	}
-
-	public void setTelefones(TelefoneCliente[] telefones) {
-		this.telefones = telefones;
-	}
-
 	public String getId_cliente() {
 		return id_cliente;
 	}

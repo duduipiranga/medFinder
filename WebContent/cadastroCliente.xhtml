@@ -49,16 +49,14 @@
 										styleClass="desc" />
 									<div>
 										<p:selectOneMenu id="usuarioPlano"
-											styleClass="field select medium" tabindex="2">
-											<f:selectItem id="fsfsddfsdf" itemLabel="News" itemValue="1" />
-											<f:selectItem id="itsdfsfsddfsdfem2" itemLabel="Sports"
-												itemValue="2" />
-											<f:selectItem id="itesdfssdfsdfsdfm3" itemLabel="Music"
-												itemValue="3" />
-											<f:selectItem id="isdfsssfsddtem4" itemLabel="Java"
-												itemValue="4" />
-											<f:selectItem id="ifsdsdfsfftem5" itemLabel="Web"
-												itemValue="5" />
+											value="#{cadastroClienteBean.plano}"
+											converter="ConversorPlano" styleClass="field select medium"
+											tabindex="2">
+
+											<f:selectItem id="default" itemLabel="Selecione" itemValue="" />
+											<f:selectItem  value="#{cadastroClienteBean.planos}" var="plano" 												 
+												itemValue="#{plano}" itemLabel="#{plano.ds_plano}" />
+
 										</p:selectOneMenu>
 									</div>
 								</div>

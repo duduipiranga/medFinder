@@ -27,15 +27,16 @@
 								</header>
 
 
-								<div>	
+								<div>
 
 									<div></div>
 								</div>
-								
+
 								<div>
 									<h:outputLabel value="CPF : " for="medicoCPF" styleClass="desc" />
 									<div>
-										<p:inputText id="medicoCPF" size="60" value="#{cadastroMedicoMB.medico.id_medico}"
+										<p:inputText id="medicoCPF" size="60"
+											value="#{cadastroMedicoMB.medico.id_medico}"
 											styleClass="field text fn" tabindex="5" spellcheck="false" />
 									</div>
 								</div>
@@ -44,7 +45,8 @@
 									<h:outputLabel value="Nome : " for="medicoNome"
 										styleClass="desc" />
 									<div>
-										<p:inputText id="medicoNome" size="60" value="#{cadastroMedicoMB.medico.nome}"
+										<p:inputText id="medicoNome" size="60"
+											value="#{cadastroMedicoMB.medico.nome}"
 											styleClass="field text fn" tabindex="3" />
 									</div>
 								</div>
@@ -53,7 +55,8 @@
 									<h:outputLabel value="Sobrenome : " for="medicoSobrenome"
 										styleClass="desc" />
 									<div>
-										<p:inputText id="medicoSobrenome" size="60" value="#{cadastroMedicoMB.medico.sobrenome}"
+										<p:inputText id="medicoSobrenome" size="60"
+											value="#{cadastroMedicoMB.medico.sobrenome}"
 											styleClass="field text fn" tabindex="4" />
 									</div>
 								</div>
@@ -61,7 +64,8 @@
 								<div>
 									<h:outputLabel value="CRM : " for="medicoCrm" styleClass="desc" />
 									<div>
-										<p:inputText id="medicoCrm" size="60" value="#{cadastroMedicoMB.medico.crm}"
+										<p:inputText id="medicoCrm" size="60"
+											value="#{cadastroMedicoMB.medico.crm}"
 											styleClass="field text fn" tabindex="5" spellcheck="false" />
 									</div>
 								</div>
@@ -70,7 +74,8 @@
 									<h:outputLabel value="E-mail : " for="medicoEmail"
 										styleClass="desc" />
 									<div>
-										<p:inputText id="medicoEmail" size="60" value="#{cadastroMedicoMB.medico.email}"
+										<p:inputText id="medicoEmail" size="60"
+											value="#{cadastroMedicoMB.medico.email}"
 											styleClass="field text fn" tabindex="5" spellcheck="false" />
 									</div>
 								</div>
@@ -89,8 +94,9 @@
 									<h:outputLabel value="Valor da Consulta : "
 										for="medicoValorConsulta" styleClass="desc" />
 									<div>
-										<p:inputMask placeHolder="0" id="medicoValorConsulta" value="#{cadastroMedicoMB.medico.vl_consulta}"
-											mask="999.99" styleClass="field text fn" tabindex="5">
+										<p:inputMask placeHolder="0" id="medicoValorConsulta"
+											value="#{cadastroMedicoMB.medico.vl_consulta}" mask="999.99"
+											styleClass="field text fn" tabindex="5">
 											<f:convertNumber pattern="#000.00"></f:convertNumber>
 										</p:inputMask>
 									</div>
@@ -108,40 +114,45 @@
 									<h:outputLabel value="Resumo Profissional : "
 										for="medicoResumoProf" styleClass="desc" />
 									<div>
-										<p:inputTextarea rows="6" value="#{cadastroMedicoMB.medico.resumo_profissional}" cols="33" styleClass="field text fn" />
+										<p:inputTextarea rows="6"
+											value="#{cadastroMedicoMB.medico.resumo_profissional}"
+											cols="33" styleClass="field text fn" />
 									</div>
 								</div>
 
 								<div>
-									<h:outputLabel value="Formação : "
-										for="medicoFormacao" styleClass="desc" />
+									<h:outputLabel value="Formação : " for="medicoFormacao"
+										styleClass="desc" />
 									<div>
-										<p:inputTextarea rows="6" id="medicoFormacao" value="#{cadastroMedicoMB.medico.ds_formacao}" cols="33" styleClass="field text fn" />
+										<p:inputTextarea rows="6" id="medicoFormacao"
+											value="#{cadastroMedicoMB.medico.ds_formacao}" cols="33"
+											styleClass="field text fn" />
 									</div>
-								</div>							
+								</div>
 
 								<div>
 									<h:outputLabel value="Especialidades : "
 										for="medicoEspecialidade" styleClass="desc" />
-									<div>
-										<p:pickList id="pickList2"
+									
+										<p:pickList id="pickList2" converter="ConversorEspecialidade"
 											value="#{cadastroMedicoMB.dualEspecialidades}" var="esp"
 											itemLabel="#{esp.nm_especialidade}" itemValue="#{esp}">
 										</p:pickList>
-									</div>
-									<div>
+									
+									
 										<h:outputLabel value="Plano : " for="usuarioPlano"
 											styleClass="desc" />
 
-										<p:pickList id="pickList"
+										<p:pickList id="pickList" converter="ConversorPlano"
 											value="#{cadastroMedicoMB.dualPlanos}" var="plano"
 											itemLabel="#{plano.ds_plano}" itemValue="#{plano}">
 										</p:pickList>
-									</div>
+									
 								</div>
 
 								<div class="margin_top">
-									<p:commandButton value="Enviar" action="#{cadastroMedicoMB.salvarMedico()}" />
+									<p:commandButton value="Enviar"
+										action="#{cadastroMedicoMB.salvarMedico()}" />
 								</div>
 
 

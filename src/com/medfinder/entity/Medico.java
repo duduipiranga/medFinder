@@ -41,11 +41,10 @@ public class Medico implements Serializable {
 	@OneToMany(mappedBy = "medico", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<HorarioAtendimento> horarios;
 
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	@Fetch(FetchMode.SUBSELECT)
+	@OneToMany	
 	@JoinTable(name = "AM_PLANO_MEDICO",
-	joinColumns = { @JoinColumn(name = "id_medico", referencedColumnName = "id_medico") },
-	inverseJoinColumns = { @JoinColumn(name = "id_plano", referencedColumnName = "id_plano")})
+	joinColumns = @JoinColumn(name = "id_medico") ,
+	inverseJoinColumns = @JoinColumn(name = "id_plano"))
 	private List<Plano> planos;
 	
 	

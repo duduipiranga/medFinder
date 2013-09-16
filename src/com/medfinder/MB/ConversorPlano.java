@@ -12,15 +12,20 @@ import com.medfinder.entity.Plano;
 public class ConversorPlano implements Converter{
 
 	PlanoDAO pdao = new PlanoDAO();
+	Plano p = new Plano();
 	
 	@Override
 	public Object getAsObject(FacesContext arg0, UIComponent arg1, String id) {
+		
 		 if(id != null) {  
+			 System.out.println(id);
 			 try{
-	            return pdao.find(Integer.getInteger(id));
+				 int ind = Integer.parseInt(id);
+				 p = pdao.find(ind);				            
 			 }catch(Exception e){
 				 e.printStackTrace();
 			 }
+			 return p;
 		 }
 		return null;
 	}
