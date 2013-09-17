@@ -50,7 +50,7 @@ public abstract class HibernateDAO<T, K> implements GenericDAO<T, K> {
 
 	@Override
 	public void remove(T entity) {
-		// para forçar a entidade ser gerenciada pelo em
+	// para forçar a entidade ser gerenciada pelo em
 		
 		em.remove(em.merge(entity));
 		em.getTransaction().commit();
