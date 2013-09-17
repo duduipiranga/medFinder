@@ -34,8 +34,14 @@ public abstract class HibernateDAO<T, K> implements GenericDAO<T, K> {
 	
 	@Override
 	public void insert(T entity) {		
+		
+		try{
 		em.persist(entity);
 		em.getTransaction().commit();
+		
+		}catch(org.hibernate.HibernateException e){
+			e.printStackTrace();
+		}
 
 	}
 
