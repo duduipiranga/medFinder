@@ -15,11 +15,7 @@ public class ConversorEspecialidade implements Converter {
 	Especialidade e = new Especialidade();
 	
 	@Override
-	public Object getAsObject(FacesContext arg0, UIComponent arg1, String id) {
-		/*if (id != null) {
-			return espdao.find(Integer.getInteger(id));
-		}*/
-		
+	public Object getAsObject(FacesContext arg0, UIComponent arg1, String id) {		
 		if (id != null) {
 			System.out.println(id);
 			try {

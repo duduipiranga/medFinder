@@ -115,9 +115,11 @@ public class CadastroMedicoMB {
 		escolhidosPlanos = this.dualPlanos.getTarget();
 
 		medico.setPlanos(escolhidosPlanos);
-
+		
+		
+		
 		for (Plano p : escolhidosPlanos) {
-			System.out.println(p.getDs_plano());
+			System.out.println("Plano: "+p.getDs_plano());
 		}
 
 		especialidades = this.dualEspecialidades.getTarget();
@@ -125,7 +127,7 @@ public class CadastroMedicoMB {
 		medico.setEspecialidades(especialidades);
 
 		for (Especialidade e : especialidades) {
-			System.out.println(e.getDs_especialidade());
+			System.out.println("Especialidade: "+e.getDs_especialidade());
 		}
 
 		medao.insert(medico);
