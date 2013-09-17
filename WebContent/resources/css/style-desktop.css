@@ -52,7 +52,7 @@
 		body.left-sidebar #content,
 		body.homepage #content
 		{
-			padding-left: 1.75em;
+			/* padding-left: 1.75em; */
 		}
 
 	body.right-sidebar

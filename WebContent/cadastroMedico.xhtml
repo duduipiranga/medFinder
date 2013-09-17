@@ -8,6 +8,7 @@
 	xmlns:p="http://primefaces.org/ui">
 
 <ui:composition template="_template.xhtml">
+
 	<ui:define name="title">
 		Med Finder SP
 	</ui:define>
@@ -19,9 +20,7 @@
 					<div class="8u skel-cell-mainContent">
 						<!-- Content -->
 						<div id="content">
-							<article class="last"> 
-							
-							<h:form id="form">
+							<article class="last"> <h:form id="form">
 
 								<header>
 								<h3>Cadastro de Médicos</h3>
@@ -132,19 +131,19 @@
 									</div>
 								</div>
 
+								<div>
 									<h:outputLabel value="Especialidades : "
 										for="medicoEspecialidade" styleClass="desc" />
-								<div>
 									
 										<p:pickList id="medicoEspecialidade" converter="ConversorEspecialidade"
 											value="#{cadastroMedicoMB.dualEspecialidades}" var="esp"
-											itemLabel="#{esp.nm_especialidade}" itemValue="#{esp}">
+											itemLabel="#{esp.nm_especialidade}" itemValue="#{esp}" styleClass="testeTabela">
 										</p:pickList>
 								</div>
 								
+								<div>
 										<h:outputLabel value="Plano : " for="usuarioPlano"
 											styleClass="desc" />
-								<div>
 
 										<p:pickList id="usuarioPlano" converter="ConversorPlano"
 											value="#{cadastroMedicoMB.dualPlanos}" var="plano"

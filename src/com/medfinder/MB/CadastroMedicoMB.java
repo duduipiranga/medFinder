@@ -99,7 +99,7 @@ public class CadastroMedicoMB {
 		medico = new Medico();
 		todosPlanos = pldao.listAll();
 		escolhidosPlanos = new ArrayList<Plano>();
-
+		escolhidosPlanos.add(todosPlanos.get(1));
 		dualPlanos = new DualListModel<Plano>(todosPlanos, escolhidosPlanos);
 
 		todasEspecialidades = espdao.listAll();
