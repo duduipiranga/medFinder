@@ -11,11 +11,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinTable;
 import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.Fetch;
-import org.hibernate.annotations.FetchMode;
 
 @Entity
 @Table(name = "AM_MEDICO")
@@ -41,17 +40,17 @@ public class Medico implements Serializable {
 	@OneToMany(mappedBy = "medico", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<HorarioAtendimento> horarios;
 
-	@OneToMany	
+	@ManyToMany	
 	@JoinTable(name = "AM_PLANO_MEDICO",
 	joinColumns = @JoinColumn(name = "id_medico") ,
 	inverseJoinColumns = @JoinColumn(name = "id_plano"))
 	private List<Plano> planos;
 	
 	
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)	
+	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)	
 	@JoinTable(name = "AM_MEDICO_ESPECIALIDADE",
-	joinColumns = { @JoinColumn(name = "id_medico", referencedColumnName = "id_medico") },
-	inverseJoinColumns = { @JoinColumn(name = "id_especialidade", referencedColumnName = "id_especialidade")})
+	joinColumns = @JoinColumn(name = "id_medico"),
+	inverseJoinColumns = @JoinColumn(name = "id_especialidade"))
 	private List<Especialidade> especialidades;
 	
 	

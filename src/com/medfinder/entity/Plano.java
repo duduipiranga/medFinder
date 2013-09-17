@@ -1,10 +1,12 @@
 package com.medfinder.entity;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -26,10 +28,20 @@ public class Plano implements Serializable{
 	private Operadora operadora;
 	
 	
+	@ManyToMany(mappedBy="planos")
+	private List<Medico> medico;
 	
 	
 	
 	
+
+	public List<Medico> getMedico() {
+		return medico;
+	}
+
+	public void setMedico(List<Medico> medico) {
+		this.medico = medico;
+	}
 
 	public int getId_plano() {
 		return id_plano;

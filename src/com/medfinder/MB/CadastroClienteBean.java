@@ -1,14 +1,11 @@
 package com.medfinder.MB;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import javax.faces.model.SelectItem;
-
 import com.medfinder.dao.impl.PlanoDAO;
 import com.medfinder.entity.Cliente;
 import com.medfinder.entity.Plano;

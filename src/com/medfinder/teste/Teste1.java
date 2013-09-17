@@ -3,7 +3,6 @@ package com.medfinder.teste;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.medfinder.dao.impl.HorarioAtendimentoDAO;
 import com.medfinder.dao.impl.MedicoDAO;
 import com.medfinder.entity.HorarioAtendimento;
 import com.medfinder.entity.Medico;

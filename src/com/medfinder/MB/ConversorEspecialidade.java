@@ -7,7 +7,6 @@ import javax.faces.convert.FacesConverter;
 
 import com.medfinder.dao.impl.EspecialidadeDAO;
 import com.medfinder.entity.Especialidade;
-import com.medfinder.entity.Especialidade;
 
 @FacesConverter(value = "ConversorEspecialidade", forClass = Especialidade.class)
 public class ConversorEspecialidade implements Converter {

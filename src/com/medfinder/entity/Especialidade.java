@@ -1,9 +1,11 @@
 package com.medfinder.entity;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -20,9 +22,20 @@ public class Especialidade implements Serializable {
 	
 	private String ds_especialidade;
 	
+	@ManyToMany(mappedBy="especialidades")
+	private List<Medico> medico;
 	
 	
 	
+	
+	public List<Medico> getMedico() {
+		return medico;
+	}
+
+	public void setMedico(List<Medico> medico) {
+		this.medico = medico;
+	}
+
 	public int getId_especialidade() {
 		return id_especialidade;
 	}
