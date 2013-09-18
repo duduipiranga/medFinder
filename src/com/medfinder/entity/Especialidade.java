@@ -22,7 +22,7 @@ public class Especialidade implements Serializable {
 	
 	private String ds_especialidade;
 	
-	@ManyToMany(mappedBy="especialidades")
+	/*@ManyToMany(mappedBy="especialidades")
 	private List<Medico> medico;
 	
 	
@@ -34,7 +34,7 @@ public class Especialidade implements Serializable {
 
 	public void setMedico(List<Medico> medico) {
 		this.medico = medico;
-	}
+	}*/
 
 	public int getId_especialidade() {
 		return id_especialidade;

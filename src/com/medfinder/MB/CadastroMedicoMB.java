@@ -33,8 +33,9 @@ public class CadastroMedicoMB {
 
 	MedicoDAO medao = new MedicoDAO();
 	PlanoDAO pldao = new PlanoDAO();
-
 	EspecialidadeDAO espdao = new EspecialidadeDAO();
+	
+	
 
 	public List<Especialidade> getEspecialidades() {
 		return especialidades;
@@ -97,13 +98,13 @@ public class CadastroMedicoMB {
 	public void init() {
 
 		medico = new Medico();
+		
 		todosPlanos = pldao.listAll();
 		escolhidosPlanos = new ArrayList<Plano>();		
 		dualPlanos = new DualListModel<Plano>(todosPlanos, escolhidosPlanos);
 
 		todasEspecialidades = espdao.listAll();
 		especialidades = new ArrayList<Especialidade>();
-
 		dualEspecialidades = new DualListModel<Especialidade>(todasEspecialidades, especialidades);
 	}
 
@@ -111,20 +112,18 @@ public class CadastroMedicoMB {
 
 		escolhidosPlanos = this.dualPlanos.getTarget();
 
-		/*medico.setPlanos(escolhidosPlanos);
-		
-		
-		
+		medico.setPlanos(escolhidosPlanos);
+
 		for (Plano p : escolhidosPlanos) {
-			System.out.println("Plano: "+p.getDs_plano());
-		}*/
+			System.out.println(p.getDs_plano());
+		}
 
 		especialidades = this.dualEspecialidades.getTarget();
 
 		medico.setEspecialidades(especialidades);
 
 		for (Especialidade e : especialidades) {
-			System.out.println("Especialidade: "+e.getId_especialidade());
+			System.out.println(e.getDs_especialidade());
 		}
 
 		medao.insert(medico);

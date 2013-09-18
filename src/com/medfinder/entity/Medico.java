@@ -47,7 +47,7 @@ public class Medico implements Serializable {
 	private List<Plano> planos;
 	
 	
-	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)	
+	@ManyToMany(fetch = FetchType.LAZY)	
 	@JoinTable(name = "AM_MEDICO_ESPECIALIDADE",
 	joinColumns = @JoinColumn(name = "id_medico"),
 	inverseJoinColumns = @JoinColumn(name = "id_especialidade"))

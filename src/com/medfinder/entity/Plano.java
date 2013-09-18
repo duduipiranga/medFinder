@@ -28,7 +28,7 @@ public class Plano implements Serializable{
 	private Operadora operadora;
 	
 	
-	@ManyToMany(mappedBy="planos")
+	/*@ManyToMany(mappedBy="planos")
 	private List<Medico> medico;
 	
 	
@@ -41,7 +41,7 @@ public class Plano implements Serializable{
 
 	public void setMedico(List<Medico> medico) {
 		this.medico = medico;
-	}
+	}*/
 
 	public int getId_plano() {
 		return id_plano;
