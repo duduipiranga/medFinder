@@ -31,13 +31,6 @@ public class CadastroClienteBean {
 	private String cep;
 	
 	
-	
-	
-	
-
-	
-	
-	
 	public List<Plano> getPlanosList() {
 		return planosList;
 	}
