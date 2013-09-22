@@ -20,7 +20,7 @@ public class ConversorOperadora implements Converter {
 	public Object getAsObject(FacesContext arg0, UIComponent arg1, String id) {
 
 		if (id != null) {
-			System.out.println(id);
+			System.out.println("ID é :"+id);
 			try {
 				int ind = Integer.parseInt(id);
 				p = opdao.find(ind);
@@ -34,7 +34,7 @@ public class ConversorOperadora implements Converter {
 
 	@Override
 	public String getAsString(FacesContext arg0, UIComponent arg1, Object object) {
-		if (object != null && object instanceof Plano) {
+		if (object != null && object instanceof Operadora) {
 			try {
 				Integer idc = ((Operadora) object).getId_operadora();
 				return idc.toString();

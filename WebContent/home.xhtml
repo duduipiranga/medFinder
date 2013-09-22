@@ -61,7 +61,7 @@
 													<f:selectItem id="default" itemLabel="Selecione"
 														itemValue="Selecione" />
 													<f:selectItems value="#{homeBean.operadoras}" var="o"
-														itemValue="#{o.id_operadora}"
+														itemValue="#{o}"
 														itemLabel="#{o.ds_operadora}" />
 
 												</p:selectOneMenu>
@@ -72,11 +72,11 @@
 											<h:outputLabel value="Plano : " for="filtroPlano"
 												styleClass="desc" />
 											<div>
-												<p:selectOneMenu id="filtroPlano" value="#{homeBean.plano}"
+												<p:selectOneMenu id="filtroPlano" value="#{homeBean.plano}" converter="ConversorPlano"
 													styleClass="field select medium" tabindex="1">
 													<f:selectItem id="planoDefault" itemLabel="Selecione"
 														itemValue="0" />
-													<f:selectItem value="#{homeBean.planos}" var="p"
+													<f:selectItems value="#{homeBean.planos}" var="p"
 														itemValue="#{p.id_plano}" itemLabel="#{p.ds_plano}" />
 
 												</p:selectOneMenu>
