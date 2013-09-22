@@ -8,6 +8,8 @@
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:m="http://code.google.com/p/gmaps4jsf/">
 
+
+
 <ui:composition template="_template.xhtml">
 	<ui:define name="title">
 		Med Finder SP
@@ -23,8 +25,24 @@
 					<div id="banner" class="box">
 
 						<div>
-						
-							
+							<h:form id="form">
+								<m:map width="500px" latitude="10.1" longitude="10.1"
+									height="500px" zoom="6" autoReshape="true">
+									<m:marker />
+									<m:marker address="Jos, Nigeria">
+										<m:icon
+											imageURL="http://google-maps-icons.googlecode.com/files/sun.png" />
+									</m:marker>
+									<ui:repeat var="loc" value="#{locs}">
+										<m:marker latitude="#{loc.latitude}"
+											longitude="#{loc.longitude}">
+											<m:htmlInformationWindow
+												htmlText="&lt;b&gt;#{loc.latitude}-#{loc.longitude}&lt;/b&gt;" />
+										</m:marker>
+									</ui:repeat>
+								</m:map>
+							</h:form>
+
 						</div>
 
 					</div>
