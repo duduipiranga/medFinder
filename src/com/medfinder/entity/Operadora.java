@@ -33,6 +33,13 @@ public class Operadora implements Serializable{
 	private List<Plano> planos;
 	
 	
+	
+	public List<Plano> getPlanos() {
+		return planos;
+	}
+	public void setPlanos(List<Plano> planos) {
+		this.planos = planos;
+	}
 	public int getId_operadora() {
 		return id_operadora;
 	}
