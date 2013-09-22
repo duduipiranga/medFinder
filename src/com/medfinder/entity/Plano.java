@@ -1,6 +1,8 @@
 package com.medfinder.entity;
 
 import java.io.Serializable;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -20,25 +22,10 @@ public class Plano implements Serializable{
 	
 	private String ds_plano;
 	
-	@JoinColumn(name="ID_OPERADORA")
-	@ManyToOne(targetEntity=Operadora.class)
+	@JoinColumn(name="ID_OPERADORA")	
+	@ManyToOne(targetEntity=Operadora.class,cascade=CascadeType.ALL)
 	private Operadora operadora;
 	
-	
-	/*@ManyToMany(mappedBy="planos")
-	private List<Medico> medico;
-	
-	
-	
-	
-
-	public List<Medico> getMedico() {
-		return medico;
-	}
-
-	public void setMedico(List<Medico> medico) {
-		this.medico = medico;
-	}*/
 
 	public int getId_plano() {
 		return id_plano;

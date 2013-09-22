@@ -10,4 +10,8 @@
   <converter-id>ConversorEspecialidade</converter-id>
   <converter-class>com.medfinder.MB.ConversorEspecialidade</converter-class>
  </converter>
+ <converter>
+  <converter-id>ConversorOperadora</converter-id>
+  <converter-class>com.medfinder.MB.ConversorOperadora</converter-class>
+ </converter>
 </faces-config>

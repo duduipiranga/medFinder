@@ -53,43 +53,39 @@
 											<h:outputLabel value="Operadora : " for="filtroOperadora"
 												styleClass="desc" />
 											<div>
-												<p:selectOneMenu id="filtroOperadora"
-													styleClass="field select medium" tabindex="1">
-													<f:selectItem id="fsfsdfddf" itemLabel="News" itemValue="1" />
-													<f:selectItem id="itsdfsdfsdfsdfem2" itemLabel="Sports"
-														itemValue="2" />
-													<f:selectItem id="itesdffsssdfsdfm3" itemLabel="Music"
-														itemValue="3" />
-													<f:selectItem id="isdfssfssdtem4" itemLabel="Java"
-														itemValue="4" />
-													<f:selectItem id="ifsdsfsdfftem5" itemLabel="Web"
-														itemValue="5" />
+												<p:selectOneMenu id="filtroOperadora" converter="ConversorOperadora"
+													styleClass="field select medium"
+													value="#{homeBean.operadora}">
+													<p:ajax listener="#{homeBean.listaPlanosAjax}"
+														update="filtroPlano" process="@this" />
+													<f:selectItem id="default" itemLabel="Selecione"
+														itemValue="Selecione" />
+													<f:selectItems value="#{homeBean.operadoras}" var="o"
+														itemValue="#{o.id_operadora}"
+														itemLabel="#{o.ds_operadora}" />
+
 												</p:selectOneMenu>
 											</div>
 										</div>
 
 										<div>
-											<h:outputLabel value="Especialidade : "
-												for="filtroEspecialidade" styleClass="desc" />
+											<h:outputLabel value="Plano : " for="filtroPlano"
+												styleClass="desc" />
 											<div>
-												<p:selectOneMenu id="filtroEspecialidade"
+												<p:selectOneMenu id="filtroPlano" value="#{homeBean.plano}"
 													styleClass="field select medium" tabindex="1">
-													<f:selectItem id="fsfsddf" itemLabel="News" itemValue="1" />
-													<f:selectItem id="itsdfsdfsdfem2" itemLabel="Sports"
-														itemValue="2" />
-													<f:selectItem id="itesdfssdfsdfm3" itemLabel="Music"
-														itemValue="3" />
-													<f:selectItem id="isdfsssdtem4" itemLabel="Java"
-														itemValue="4" />
-													<f:selectItem id="ifsdsdfftem5" itemLabel="Web"
-														itemValue="5" />
+													<f:selectItem id="planoDefault" itemLabel="Selecione"
+														itemValue="0" />
+													<f:selectItem value="#{homeBean.planos}" var="p"
+														itemValue="#{p.id_plano}" itemLabel="#{p.ds_plano}" />
+
 												</p:selectOneMenu>
 											</div>
 										</div>
 
 
 										<div class="margin_top">
-											<p:commandButton value="Filtrar"  />
+											<p:commandButton value="Filtrar" />
 										</div>
 
 
@@ -177,7 +173,7 @@
 		</div>
 
 
-		
+
 
 	</ui:define>
 </ui:composition>
