@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
@@ -33,6 +34,32 @@ public class Consultorio implements Serializable {
 
 	@Transient
 	private FotoConsultorio[] fotos;
+	
+	
+	@OneToMany(mappedBy = "consultorio", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	private List<Medico> medicos;
+	
+	
+	
+	
+	
+	
+
+	public FotoConsultorio[] getFotos() {
+		return fotos;
+	}
+
+	public void setFotos(FotoConsultorio[] fotos) {
+		this.fotos = fotos;
+	}
+
+	public List<Medico> getMedicos() {
+		return medicos;
+	}
+
+	public void setMedicos(List<Medico> medicos) {
+		this.medicos = medicos;
+	}
 
 	public List<TelefoneConsultorio> getTelefones() {
 		return telefones;

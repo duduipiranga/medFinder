@@ -12,6 +12,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -54,8 +55,20 @@ public class Medico implements Serializable {
 	private List<Especialidade> especialidades;
 	
 	
+	@JoinColumn(name="ID_CONSULTORIO")	
+	@ManyToOne(targetEntity=Consultorio.class,cascade=CascadeType.ALL)
+	private Consultorio consultorio;
 	
 	
+	
+
+	public Consultorio getConsultorio() {
+		return consultorio;
+	}
+
+	public void setConsultorio(Consultorio consultorio) {
+		this.consultorio = consultorio;
+	}
 
 	public List<Especialidade> getEspecialidades() {
 		return especialidades;
