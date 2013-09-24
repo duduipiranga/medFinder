@@ -9,9 +9,11 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.model.SelectItem;
 
+import com.medfinder.dao.impl.EspecialidadeDAO;
 import com.medfinder.dao.impl.MedicoDAO;
 import com.medfinder.dao.impl.OperadoraDAO;
 import com.medfinder.dao.impl.PlanoDAO;
+import com.medfinder.entity.Especialidade;
 import com.medfinder.entity.Medico;
 import com.medfinder.entity.Operadora;
 import com.medfinder.entity.Plano;
@@ -26,6 +28,8 @@ public class BuscaMedicoMB implements Serializable{
 	private List<Medico> medicos;	
 	
 	private List<Plano> planos;
+	
+	private List<Especialidade> especialidades;
 
 	private List<Operadora> operadoras;
 
@@ -37,7 +41,28 @@ public class BuscaMedicoMB implements Serializable{
 	
 	private Operadora operadora;
 	
+	private Especialidade especialidade;
 	
+	
+	
+	
+	
+
+	public List<Especialidade> getEspecialidades() {
+		return especialidades;
+	}
+
+	public void setEspecialidades(List<Especialidade> especialidades) {
+		this.especialidades = especialidades;
+	}
+
+	public Especialidade getEspecialidade() {
+		return especialidade;
+	}
+
+	public void setEspecialidade(Especialidade especialidade) {
+		this.especialidade = especialidade;
+	}
 
 	public Plano getPlano() {
 		return plano;
@@ -58,6 +83,7 @@ public class BuscaMedicoMB implements Serializable{
 	PlanoDAO pdao = new PlanoDAO();
 	OperadoraDAO opdao = new OperadoraDAO();
 	MedicoDAO mdao = new MedicoDAO();
+	EspecialidadeDAO espdao = new EspecialidadeDAO();
 
 	
 	
@@ -120,6 +146,7 @@ public class BuscaMedicoMB implements Serializable{
 	public void init() {
 		operadorasList = new ArrayList<SelectItem>();
 		operadoras = opdao.listAll();
+		especialidades = espdao.listAll();
 
 	}
 	
