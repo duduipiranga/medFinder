@@ -160,6 +160,9 @@ public class BuscaMedicoMB implements Serializable{
 		}
 		}
 	
+	public void buscarMedicos(){
+		
+	}
 	
 
 }
