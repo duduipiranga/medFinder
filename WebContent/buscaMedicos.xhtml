@@ -16,83 +16,79 @@
 	</ui:define>
 	<ui:define name="content">
 
+		<h:form id="form">
+			<div id="features-wrapper">
+				<div class="container">
+					<div class="row">
+						<div class="4u">
 
-		<div class="container">
-			<div class="row">
-				<div class="12u">
+							<!-- Box -->
+							<section class="box box-feature">
 
-					<!-- Banner -->
-					<div id="banner" class="box">
+							<div class="inner">
+								<header>
+								<h4>Busca de Consultórios</h4>
+								</header>
+								<div>
+									<h:outputLabel value="Bairro : " for="filtroBairro"
+										styleClass="desc" />
+								</div>
+								<div>
+									<p:inputText id="filtroBairro" size="60"
+										styleClass="field text fn" tabindex="3" style="width: 150px;" />
+								</div>
+								<div>
+									<h:outputLabel value="Operadora : " for="filtroOperadora"
+										styleClass="desc" />
+								</div>
+								<div>
+									<p:selectOneMenu id="filtroOperadora"
+										converter="ConversorOperadora"
+										styleClass="field select medium" value="#{homeBean.operadora}">
+										<p:ajax listener="#{homeBean.listaPlanosAjax}"
+											update="filtroPlano" process="@this" />
+										<f:selectItem id="default" itemLabel="Selecione"
+											itemValue="Selecione" />
+										<f:selectItems value="#{homeBean.operadoras}" var="o"
+											itemValue="#{o}" itemLabel="#{o.ds_operadora}" />
+									</p:selectOneMenu>
+								</div>
+								<div>
+									<h:outputLabel value="Plano : " for="filtroPlano"
+										styleClass="desc" />
+								</div>
+								<div>
+									<p:selectOneMenu id="filtroPlano" value="#{homeBean.plano}"
+										converter="ConversorPlano" styleClass="field select medium"
+										tabindex="1">
+										<f:selectItem id="planoDefault" itemLabel="Selecione"
+											itemValue="0" />
+										<f:selectItems value="#{homeBean.planos}" var="p"
+											itemValue="#{p.id_plano}" itemLabel="#{p.ds_plano}" />
 
-						<div>
-							<h:form id="form">
-							
-							<div>
-											<h4>Realize sua busca:</h4>
-										</div>
+									</p:selectOneMenu>
+								</div>
 
-										<div class="left">
-											<h:outputLabel value="Cidade : " for="filtroCidade"
-												styleClass="desc" />
-											<div>
-												<p:inputText id="filtroCidade" size="60"
-													styleClass="field text fn" tabindex="3" />
-											</div>
-										</div>
+								<div class="margin_top">
+									<p:commandButton value="Filtrar" />
+								</div>
 
-										<div class="left">
-											<h:outputLabel value="Bairro : " for="filtroBairro"
-												styleClass="desc" />
-											<div>
-												<p:inputText id="filtroBairro" size="60"
-													styleClass="field text fn" tabindex="3" />
-											</div>
-										</div>
+							</div>
+							</section>
+
+						</div>
+						<div class="4u">
+
+							<!-- Box -->
+							<section class="box box-feature" style="width: 700px;">
+
+							<div class="inner">
+
+								<m:map width="650px" latitude="-23.55306353918853"
+									longitude="-46.634509453704815" height="400px" zoom="13"
+									autoReshape="true">
 
 
-										<div class="left">
-											<h:outputLabel value="Operadora : " for="filtroOperadora"
-												styleClass="desc" />
-											<div>
-												<p:selectOneMenu id="filtroOperadora" converter="ConversorOperadora"
-													styleClass="field select medium"
-													value="#{homeBean.operadora}">
-													<p:ajax listener="#{homeBean.listaPlanosAjax}"
-														update="filtroPlano" process="@this" />
-													<f:selectItem id="default" itemLabel="Selecione"
-														itemValue="Selecione" />
-													<f:selectItems value="#{homeBean.operadoras}" var="o"
-														itemValue="#{o}"
-														itemLabel="#{o.ds_operadora}" />
-
-												</p:selectOneMenu>
-											</div>
-										</div>
-
-										<div>
-											<h:outputLabel value="Plano : " for="filtroPlano"
-												styleClass="desc" />
-											<div>
-												<p:selectOneMenu id="filtroPlano" value="#{homeBean.plano}" converter="ConversorPlano"
-													styleClass="field select medium" tabindex="1">
-													<f:selectItem id="planoDefault" itemLabel="Selecione"
-														itemValue="0" />
-													<f:selectItems value="#{homeBean.planos}" var="p"
-														itemValue="#{p.id_plano}" itemLabel="#{p.ds_plano}" />
-
-												</p:selectOneMenu>
-											</div>
-										</div>
-
-
-										<div class="margin_top">
-											<p:commandButton value="Filtrar" />
-										</div>
-							
-								<m:map width="600px" latitude="-23.55306353918853" longitude="-46.634509453704815"
-									height="400px" zoom="13" autoReshape="true">
-									
-									
 									<ui:repeat var="loc" value="#{locs}">
 										<m:marker latitude="#{loc.latitude}"
 											longitude="#{loc.longitude}">
@@ -101,78 +97,16 @@
 										</m:marker>
 									</ui:repeat>
 								</m:map>
-							</h:form>
+
+							</div>
+							</section>
 
 						</div>
-
-					</div>
-
-				</div>
-			</div>
-		</div>
-
-
-
-		<div id="features-wrapper">
-			<div class="container">
-				<div class="row">
-					<div class="4u">
-
-						<!-- Box -->
-						<section class="box box-feature">
-
-
-
-						<div class="inner">
-							<header>
-							<h2>Total de Usuários</h2>
-							<span class="byline">Maybe here as well I think</span> </header>
-							<p>You can put all kinds of stuff here, though I’m not sure
-								what. Maybe a little bit about one of those things you do that’s
-								so cool?</p>
-						</div>
-						</section>
-
-					</div>
-					<div class="4u">
-
-						<!-- Box -->
-						<section class="box box-feature">
-
-						<div class="inner">
-							<header>
-							<h2>Usuários Cadastrados</h2>
-							<span class="byline">This is also an interesting subtitle</span>
-							</header>
-							<p>You can put all kinds of stuff here, though I’m not sure
-								what. Maybe a little bit about one of those things you do that’s
-								so cool?</p>
-						</div>
-						</section>
-
-					</div>
-					<div class="4u">
-
-						<!-- Box -->
-						<section class="box box-feature last">
-
-
-
-						<div class="inner">
-							<header>
-							<h2>Oh, and finally ...</h2>
-							<span class="byline">Here's another intriguing subtitle</span> </header>
-							<p>You can put all kinds of stuff here, though I’m not sure
-								what. Maybe a little bit about one of those things you do that’s
-								so cool?</p>
-						</div>
-						</section>
 
 					</div>
 				</div>
 			</div>
-		</div>
-
+		</h:form>
 
 
 
