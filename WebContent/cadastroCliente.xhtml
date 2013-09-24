@@ -30,16 +30,17 @@
 									<h:outputLabel value="Operadora : " for="usuarioOperadora"
 										styleClass="desc" />
 									<div>
-										<p:selectOneMenu id="usuarioOperadora"
-											styleClass="field select medium" tabindex="1">
-											<f:selectItem id="fsfsddf" itemLabel="News" itemValue="1" />
-											<f:selectItem id="itsdfsdfsdfem2" itemLabel="Sports"
-												itemValue="2" />
-											<f:selectItem id="itesdfssdfsdfm3" itemLabel="Music"
-												itemValue="3" />
-											<f:selectItem id="isdfsssdtem4" itemLabel="Java"
-												itemValue="4" />
-											<f:selectItem id="ifsdsdfftem5" itemLabel="Web" itemValue="5" />
+										<p:selectOneMenu id="filtroOperadora"
+											converter="ConversorOperadora"
+											styleClass="field select medium"
+											value="#{homeBean.operadora}">
+											<p:ajax listener="#{homeBean.listaPlanosAjax}"
+												update="filtroPlano" process="@this" />
+											<f:selectItem id="default" itemLabel="Selecione"
+												itemValue="Selecione" />
+											<f:selectItems value="#{homeBean.operadoras}" var="o"
+												itemValue="#{o}" itemLabel="#{o.ds_operadora}" />
+
 										</p:selectOneMenu>
 									</div>
 								</div>
@@ -48,15 +49,14 @@
 									<h:outputLabel value="Plano : " for="usuarioPlano"
 										styleClass="desc" />
 									<div>
-										<p:selectOneMenu id="usuarioPlano"
-											value="#{cadastroClienteBean.plano}"
-											 styleClass="field select medium"
-											tabindex="2">
-
-											<f:selectItem id="default" itemLabel="Selecione" itemValue="" />
-											
-											<f:selectItems  value="#{cadastroClienteBean.planosList}" var="p" 												 
+										<p:selectOneMenu id="filtroPlano" value="#{homeBean.plano}"
+											converter="ConversorPlano" styleClass="field select medium"
+											tabindex="1">
+											<f:selectItem id="planoDefault" itemLabel="Selecione"
+												itemValue="0" />
+											<f:selectItems value="#{homeBean.planos}" var="p"
 												itemValue="#{p.id_plano}" itemLabel="#{p.ds_plano}" />
+
 										</p:selectOneMenu>
 									</div>
 								</div>
