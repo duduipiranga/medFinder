@@ -69,6 +69,25 @@
 									</p:selectOneMenu>
 								</div>
 
+								<div>
+									<h:outputLabel value="Especialidade : " for="filtroEspecialidade"
+										styleClass="desc" />
+								</div>
+
+								<div>
+									<p:selectOneMenu id="filtroEspecialidade"
+										value="#{buscaMedicoMB.especialidade}"
+										converter="ConversorEspecialidade"
+										styleClass="field select medium" tabindex="1">
+										<f:selectItem id="especialidadeDefault" itemLabel="Selecione"
+											itemValue="0" />
+										<f:selectItems value="#{buscaMedicoMB.especialidades}" var="e"
+											itemValue="#{e}" itemLabel="#{e.ds_especialidade}" />
+
+									</p:selectOneMenu>
+
+								</div>
+
 								<div class="margin_top">
 									<p:commandButton value="Filtrar" />
 								</div>
