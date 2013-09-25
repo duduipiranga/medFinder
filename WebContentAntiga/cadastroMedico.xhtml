@@ -1,0 +1,179 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="_template.xhtml">
+
+	<ui:define name="title">
+		Med Finder SP
+	</ui:define>
+	<ui:define name="content">
+		<!-- Main Wrapper -->
+		<div id="main-wrapper">
+			<div class="container">
+				<div class="row">
+					<div class="8u skel-cell-mainContent">
+						<!-- Content -->
+						<div id="content">
+							<article class="last"> <h:form id="form">
+
+								<header>
+								<h3>Cadastro de Médicos</h3>
+								<div>Informe corretamente seus dados</div>
+								</header>
+
+
+								<div>
+
+									<div></div>
+								</div>
+
+								<div>
+									<h:outputLabel value="CPF : " for="medicoCPF" styleClass="desc" />
+									<div>
+										<p:inputText id="medicoCPF" size="60"
+											value="#{cadastroMedicoMB.medico.id_medico}"
+											styleClass="field text fn" tabindex="5" spellcheck="false" />
+									</div>
+								</div>
+
+								<div>
+									<h:outputLabel value="Nome : " for="medicoNome"
+										styleClass="desc" />
+									<div>
+										<p:inputText id="medicoNome" size="60"
+											value="#{cadastroMedicoMB.medico.nome}"
+											styleClass="field text fn" tabindex="3" />
+									</div>
+								</div>
+
+								<div>
+									<h:outputLabel value="Sobrenome : " for="medicoSobrenome"
+										styleClass="desc" />
+									<div>
+										<p:inputText id="medicoSobrenome" size="60"
+											value="#{cadastroMedicoMB.medico.sobrenome}"
+											styleClass="field text fn" tabindex="4" />
+									</div>
+								</div>
+
+								<div>
+									<h:outputLabel value="CRM : " for="medicoCrm" styleClass="desc" />
+									<div>
+										<p:inputText id="medicoCrm" size="60"
+											value="#{cadastroMedicoMB.medico.crm}"
+											styleClass="field text fn" tabindex="5" spellcheck="false" />
+									</div>
+								</div>
+
+								<div>
+									<h:outputLabel value="E-mail : " for="medicoEmail"
+										styleClass="desc" />
+									<div>
+										<p:inputText id="medicoEmail" size="60"
+											value="#{cadastroMedicoMB.medico.email}"
+											styleClass="field text fn" tabindex="5" spellcheck="false" />
+									</div>
+								</div>
+
+								<div>
+									<h:outputLabel value="Senha : " for="medicoSenha"
+										styleClass="desc" />
+									<div>
+										<p:password id="medicoSenha"
+											value="#{cadastroMedicoMB.medico.senha}" feedback="true"
+											inline="true" tabindex="6" />
+									</div>
+								</div>
+
+								<div>
+									<h:outputLabel value="Valor da Consulta : "
+										for="medicoValorConsulta" styleClass="desc" />
+									<div>
+										<p:inputMask placeHolder="0" id="medicoValorConsulta"
+											value="#{cadastroMedicoMB.medico.vl_consulta}" mask="999.99"
+											styleClass="field text fn" tabindex="5">
+											<f:convertNumber pattern="#000.00"></f:convertNumber>
+										</p:inputMask>
+									</div>
+								</div>
+
+								<div>
+									<h:outputLabel value="Foto Perfil : " for="usuarioCep"
+										styleClass="desc" />
+									<div>
+										<p:fileUpload mode="simple" />
+									</div>
+								</div>
+
+								<div>
+									<h:outputLabel value="Resumo Profissional : "
+										for="medicoResumoProf" styleClass="desc" />
+									<div>
+										<p:inputTextarea rows="6"
+											value="#{cadastroMedicoMB.medico.resumo_profissional}"
+											cols="33" styleClass="field text fn" />
+									</div>
+								</div>
+
+								<div>
+									<h:outputLabel value="Formação : " for="medicoFormacao"
+										styleClass="desc" />
+									<div>
+										<p:inputTextarea rows="6" id="medicoFormacao"
+											value="#{cadastroMedicoMB.medico.ds_formacao}" cols="33"
+											styleClass="field text fn" />
+									</div>
+								</div>
+
+								<div>
+									<h:outputLabel value="Especialidades : "
+										for="medicoEspecialidade" styleClass="desc" />
+									
+										<p:pickList id="medicoEspecialidade" converter="ConversorEspecialidade"
+											value="#{cadastroMedicoMB.dualEspecialidades}" var="esp"
+											itemLabel="#{esp.nm_especialidade}" itemValue="#{esp}" styleClass="testeTabela">
+										</p:pickList>
+								</div>
+								
+								<div>
+										<h:outputLabel value="Plano : " for="usuarioPlano"
+											styleClass="desc" />
+
+										<p:pickList id="usuarioPlano" converter="ConversorPlano"
+											value="#{cadastroMedicoMB.dualPlanos}" var="plano"
+											itemLabel="#{plano.ds_plano}" itemValue="#{plano}">
+										</p:pickList>
+								</div>
+								
+								<div class="margin_top">
+									<p:commandButton value="Enviar"
+										action="#{cadastroMedicoMB.salvarMedico()}" />
+								</div>
+
+
+
+
+
+
+							</h:form> </article>
+						</div>
+
+					</div>
+
+
+					<ui:include src="slider_right.xhtml"></ui:include>
+
+
+				</div>
+			</div>
+		</div>
+
+	</ui:define>
+</ui:composition>
+</html>

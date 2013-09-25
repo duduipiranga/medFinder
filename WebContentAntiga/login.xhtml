@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="_template.xhtml">
+	<ui:define name="title">
+		Med Finder SP
+	</ui:define>
+	<ui:define name="content">
+
+		<!-- Main Wrapper -->
+		<div id="main-wrapper">
+			<div class="container">
+				<div class="row">
+					<div class="8u skel-cell-mainContent">
+
+						<!-- Content -->
+						<div id="content">
+							<article class="last">
+
+							<h3>Autenticação de Usuário</h3>
+
+							<h:form id="form">
+
+								<div>
+									<h:outputLabel value="Usuário : " for="usuarioLogin"
+										styleClass="desc" />
+									<div>
+										<p:inputText id="usuarioLogin" size="60"
+											styleClass="field text fn" tabindex="3" />
+									</div>
+								</div>
+
+								<div>
+									<h:outputLabel value="Senha : " for="senhaLogin"
+										styleClass="desc" />
+									<div>
+										<p:inputText id="senhaLogin" size="60"
+											styleClass="field text fn" tabindex="4" />
+									</div>
+								</div>
+
+								<div class="margin_top">
+									<p:commandButton value="Enviar" oncomplete="PF('dlg').show()" />
+								</div>
+
+							</h:form> </article>
+						</div>
+
+					</div>
+
+
+					<ui:include src="slider_right.xhtml"></ui:include>
+
+
+				</div>
+			</div>
+		</div>
+
+	</ui:define>
+</ui:composition>
+</html>
