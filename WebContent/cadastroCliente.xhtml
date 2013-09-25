@@ -8,172 +8,116 @@
 	xmlns:p="http://primefaces.org/ui">
 
 <ui:composition template="_template.xhtml">
-	<ui:define name="title">
-		Med Finder SP
-	</ui:define>
+	<ui:define name="title"> Med Finder SP</ui:define>
 	<ui:define name="content">
-		<!-- Main Wrapper -->
-		<div id="main-wrapper">
-			<div class="container">
-				<div class="row">
-					<div class="8u skel-cell-mainContent">
-						<!-- Content -->
-						<div id="content">
-							<article class="last"> <h:form id="form">
-
-								<header>
-								<h3>Cadastro de Usuário</h3>
-								<div>Informe corretamente seus dados</div>
-								</header>
-
-								<div>
-									<h:outputLabel value="Operadora : " for="usuarioOperadora"
-										styleClass="desc" />
-									<div>
-										<p:selectOneMenu id="filtroOperadora"
-											converter="ConversorOperadora"
-											styleClass="field select medium"
-											value="#{homeBean.operadora}">
-											<p:ajax listener="#{homeBean.listaPlanosAjax}"
-												update="filtroPlano" process="@this" />
-											<f:selectItem id="default" itemLabel="Selecione"
-												itemValue="Selecione" />
-											<f:selectItems value="#{homeBean.operadoras}" var="o"
-												itemValue="#{o}" itemLabel="#{o.ds_operadora}" />
-
-										</p:selectOneMenu>
-									</div>
-								</div>
-
-								<div>
-									<h:outputLabel value="Plano : " for="usuarioPlano"
-										styleClass="desc" />
-									<div>
-										<p:selectOneMenu id="filtroPlano" value="#{homeBean.plano}"
-											converter="ConversorPlano" styleClass="field select medium"
-											tabindex="1">
-											<f:selectItem id="planoDefault" itemLabel="Selecione"
-												itemValue="0" />
-											<f:selectItems value="#{homeBean.planos}" var="p"
-												itemValue="#{p.id_plano}" itemLabel="#{p.ds_plano}" />
-
-										</p:selectOneMenu>
-									</div>
-								</div>
-
-								<div>
-									<h:outputLabel value="Nome : " for="usuarioNome"
-										styleClass="desc" />
-									<div>
-										<p:inputText id="usuarioNome" size="60"
-											styleClass="field text fn" tabindex="3" />
-									</div>
-								</div>
-
-								<div>
-									<h:outputLabel value="Sobrenome : " for="usuarioSobrenome"
-										styleClass="desc" />
-									<div>
-										<p:inputText id="usuarioSobrenome" size="60"
-											styleClass="field text fn" tabindex="4" />
-									</div>
-								</div>
-
-								<div>
-									<h:outputLabel value="E-mail : " for="usuarioEmail"
-										styleClass="desc" />
-									<div>
-										<p:inputText id="usuarioEmail" size="60"
-											styleClass="field text fn" tabindex="5" spellcheck="false" />
-									</div>
-								</div>
-
-								<div>
-									<h:outputLabel value="Senha : " for="usuarioSenha"
-										styleClass="desc" />
-									<div>
-										<p:password id="inlineFeedback"
-											value="#{cadastroClienteBean.senha}" feedback="true"
-											inline="true" tabindex="6" />
-									</div>
-								</div>
-
-								<div>
-									<h:outputLabel value="Data de Nascimento : "
-										for="usuarioDataNasc" styleClass="desc" />
-									<div>
-										<p:calendar value="#{cadastroClienteBean.dataNasc}"
-											id="popupCal" />
-									</div>
-								</div>
-
-								<div>
-									<h:outputLabel value="CEP : " for="usuarioCep"
-										styleClass="desc" />
-									<div>
-										<p:inputMask id="usuarioCep" size="60"
-											styleClass="field text fn" tabindex="5"
-											value="#{cadastroClienteBean.cep}" mask="99999-999" />
-									</div>
-								</div>
-
-								<div>
-									<h:outputLabel value="Endereço : " for="usuarioEndereco"
-										styleClass="desc" />
-									<div>
-										<p:inputText id="usuarioEndereco" size="60"
-											styleClass="field text fn" tabindex="4" />
-									</div>
-								</div>
-
-								<div>
-									<h:outputLabel value="Número : " for="usuarioNumero"
-										styleClass="desc" />
-									<div>
-										<p:inputText id="usuarioNumero" size="60"
-											styleClass="field text fn" tabindex="4" />
-									</div>
-								</div>
-
-								<div>
-									<h:outputLabel value="Complemento : " for="usuarioComplemento"
-										styleClass="desc" />
-									<div>
-										<p:inputText id="usuarioComplemento" size="60"
-											styleClass="field text fn" tabindex="4" />
-									</div>
-								</div>
-
-								<div>
-									<h:outputLabel value="Bairro : " for="usuarioBairro"
-										styleClass="desc" />
-									<div>
-										<p:inputText id="usuarioBairro" size="60"
-											styleClass="field text fn" tabindex="4" />
-									</div>
-								</div>
-
-
-
-								<div class="margin_top">
-									<p:commandButton value="Enviar" oncomplete="PF('dlg').show()" />
-								</div>
-
-
-
-
-
-
-							</h:form> </article>
-						</div>
-
-					</div>
-
-
-					<ui:include src="slider_right.xhtml"></ui:include>
-
-
+		<!-- main content -->
+		<div id="contentwrapper">
+			<div class="main_content">
+				<nav>
+				<div id="jCrumbs" class="breadCrumb module">
+					<ul>
+						<li><a href="#"><i class="icon-home"></i></a></li>
+						<li><a href="#">Sports Toys</a></li>
+						<li><a href="#">Toys Hobbies</a></li>
+						<li><a href="#">Learning Educational</a></li>
+						<li><a href="#">Astronomy Telescopes</a></li>
+						<li>Telescope 3735SX</li>
+					</ul>
 				</div>
+				</nav>
+
+				<div class="row-fluid">
+					<div class="span12">
+
+
+						<div class="row-fluid">
+							<div class="span6">
+								<form class="form-horizontal well">
+									<fieldset>
+										<p class="f_legend">Cadastro de Usuário</p>
+										<div class="control-group">
+											<h:outputLabel value="Operadora : " for="filtroOperadora"
+												styleClass="control-label" />
+											<div class="controls">
+												<p:selectOneMenu id="filtroOperadora"
+													converter="ConversorOperadora"
+													styleClass="field select medium"
+													value="#{homeBean.operadora}">
+													<p:ajax listener="#{homeBean.listaPlanosAjax}"
+														update="filtroPlano" process="@this" />
+													<f:selectItem id="default" itemLabel="Selecione"
+														itemValue="Selecione" />
+													<f:selectItems value="#{homeBean.operadoras}" var="o"
+														itemValue="#{o}" itemLabel="#{o.ds_operadora}" />
+												</p:selectOneMenu>
+												<span class="help-block">Selecione o seu convênio
+													médico!</span>
+											</div>
+										</div>
+										<div class="control-group">
+											<h:outputLabel value="Plano : " for="filtroPlano"
+												styleClass="control-label" />
+											<div class="controls">
+												<p:selectOneMenu id="filtroPlano" value="#{homeBean.plano}"
+													converter="ConversorPlano" styleClass="field select medium"
+													tabindex="1">
+													<f:selectItem id="planoDefault" itemLabel="Selecione"
+														itemValue="0" />
+													<f:selectItems value="#{homeBean.planos}" var="p"
+														itemValue="#{p.id_plano}" itemLabel="#{p.ds_plano}" />
+
+												</p:selectOneMenu>
+												<span class="help-block">Selecione o plano do seu
+													convênico médico!</span>
+											</div>
+										</div>
+
+										<div class="control-group">
+											<h:outputLabel value="Nome: " for="usuarioNome"
+												styleClass="control-label" />
+											<div class="controls">
+												<p:inputText id="usuarioNome" size="60" styleClass="span10" />
+											</div>
+										</div>
+										
+										<div class="control-group">
+											<h:outputLabel value="Sobrenome: " for="usuarioSobrenome"
+												styleClass="control-label" />
+											<div class="controls">
+												<p:inputText id="usuarioSobrenome" size="60" styleClass="span10" />
+											</div>
+										</div>
+										
+										<div class="control-group">
+											<h:outputLabel value="Sobrenome: " for="usuarioSobrenome"
+												styleClass="control-label" />
+											<div class="controls">
+												<p:inputText id="usuarioSobrenome" size="60" styleClass="span10" />
+											</div>
+										</div>
+
+
+										<div class="control-group">
+											<div class="controls">
+												<button class="btn" type="submit">Form button</button>
+											</div>
+										</div>
+									</fieldset>
+								</form>
+							</div>
+							<div class="span6">
+								<form class="well form-inline">
+									<p class="f_legend">Inline form</p>
+									<input type="text" placeholder="Email" class="input-small" />
+									<input type="password" placeholder="Password"
+										class="input-small" />
+									<button class="btn" type="submit">Sign in</button>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+
 			</div>
 		</div>
 

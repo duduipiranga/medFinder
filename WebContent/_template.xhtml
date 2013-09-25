@@ -1,182 +1,328 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
-          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:m="http://code.google.com/p/gmaps4jsf/"
-	>
+	xmlns:m="http://code.google.com/p/gmaps4jsf/">
 <f:view locale="#{languangeBean.locale}" contentType="text/html">
 	<h:head>
 		<title><ui:insert name="title">Med Finder SP</ui:insert></title>
 
-		<!-- Incluindo os JS -->
-		<h:outputScript library="js" name="config.js" />
-		<h:outputScript library="js" name="skel.min.js" />
-		<h:outputScript library="js" name="skel-panels.min.js" /> 
 
+		<!-- Bootstrap framework -->
+		<h:outputStylesheet name="bootstrap/css/bootstrap.min.css" />
+		<h:outputStylesheet name="bootstrap/css/bootstrap-responsive.min.css" />
+		<!-- breadcrumbs-->
+		<h:outputStylesheet name="lib/jBreadcrumbs/css/BreadCrumb.css" />
+		<!-- tooltips-->
+		<h:outputStylesheet name="lib/qtip2/jquery.qtip.min.css" />
+		<!-- colorbox -->
+		<h:outputStylesheet name="lib/colorbox/colorbox.css" />
+		<!-- code prettify -->
+		<h:outputStylesheet name="lib/google-code-prettify/prettify.css" />
+		<!-- notifications -->
+		<h:outputStylesheet name="lib/sticky/sticky.css" />
+		<!-- splashy icons -->
+		<h:outputStylesheet name="img/splashy/splashy.css" />
+		<!-- flags -->
+		<h:outputStylesheet name="img/flags/flags.css" />
+		<!-- gebo color theme-->
+		<h:outputStylesheet name="css/blue.css" id="link_theme" />
+		<!-- main styles -->
+		<h:outputStylesheet name="css/style.css" />
 
+		<link rel="stylesheet"
+			href="http://fonts.googleapis.com/css?family=PT+Sans" />
 
-		<script type="text/javascript"
-      src="https://maps.googleapis.com/maps/api/js?sensor=true">
-    </script> 
-		<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,800"
-			media="all" rel="stylesheet" type="text/css" />
-		<link href="http://fonts.googleapis.com/css?family=Oleo+Script:400"
-			media="all" rel="stylesheet" type="text/css" />
+		<!-- Favicon -->
+		<link rel="shortcut icon" href="favicon.ico" />
 
-	 	<noscript>
-			<h:outputStylesheet library="css" name="skel-noscript.css" />
-			<h:outputStylesheet library="css" name="style.css" />
-			<h:outputStylesheet library="css" name="style-desktop.css" />
-		</noscript> 
+		<!--[if lte IE 8]>
+            <h:outputStylesheet name="css/ie.css" />
+            <script src="js/ie/html5.js"></script>
+            <script src="js/ie/respond.min.js"></script>
+            <script src="lib/flot/excanvas.min.js"></script>
+        <![endif]-->
 
-		<!--  <h:conditionalComment if="lt IE 8">
-			<script src="html5shiv.js"></script>
-			<link rel="stylesheet" href="ie8.css" />
-		</h:conditionalComment>
-		
-		<h:conditionalComment if="lt IE 7">
-			<link rel="stylesheet" href="ie7.css" />
-		</h:conditionalComment>
-
-
-		<h:outputStylesheet library="css" name="ie8.css" />  -->
-
+		<script>
+			document.documentElement.className += 'js';
+		</script>
 
 		<meta http-equiv="Pragma" content="no-cache" />
-		
+
 	</h:head>
 
-	<h:body styleClass="homepage">
-	<h:outputStylesheet name="css/correcaoPrimefaces.css" />
+	<h:body class="sidebar_hidden menu_hover">
 		<f:loadBundle var="templateBundle"
 			basename="com.medfinder.utils.bundle.templateBundle" />
 
-		<div id="header-wrapper">
-			<div class="container">
-				<div class="row">
-					<div class="12u">
-
-						<!-- Header -->
-						<header id="header"> 
-						<!-- Logo -->
-						<div id="logo">
-							<h1>
-								<a href="#" id="logo">Med Finder</a>
-							</h1>
-							<span>Texto a definir</span>
-						</div>
-
-						<!-- Nav --> 
-						<nav id="nav">
-							<ul>
-								<li class="current_page_item"><h:link
-										value="#{templateBundle.home}" outcome="home" /></li>
-								<li><h:link value="#{templateBundle.login}" outcome="login" /></li>
-								<li><h:link value="#{templateBundle.cadastro}"
-										outcome="cadastroCliente" /></li>
-								<li><h:link value="#{templateBundle.contato}" outcome="home" /></li>
-								<li><h:link value="#{templateBundle.medico}" outcome="indexMedico" /></li>
-							</ul>
-						</nav> 
-												
-						</header>
-					</div>
+<div class="style_switcher">
+			<div class="sepH_c">
+				<p>Colors:</p>
+				<div class="clearfix">
+					<a href="javascript:void(0)" class="style_item jQclr blue_theme style_active" title="blue">blue</a>
+					<a href="javascript:void(0)" class="style_item jQclr dark_theme" title="dark">dark</a>
+					<a href="javascript:void(0)" class="style_item jQclr green_theme" title="green">green</a>
+					<a href="javascript:void(0)" class="style_item jQclr brown_theme" title="brown">brown</a>
+					<a href="javascript:void(0)" class="style_item jQclr eastern_blue_theme" title="eastern_blue">eastern blue</a>
+					<a href="javascript:void(0)" class="style_item jQclr tamarillo_theme" title="tamarillo">tamarillo</a>
 				</div>
+			</div>
+			<div class="sepH_c">
+				<p>Backgrounds:</p>
+				<div class="clearfix">
+					<span class="style_item jQptrn style_active ptrn_def" title=""></span>
+					<span class="ssw_ptrn_a style_item jQptrn" title="ptrn_a"></span>
+					<span class="ssw_ptrn_b style_item jQptrn" title="ptrn_b"></span>
+					<span class="ssw_ptrn_c style_item jQptrn" title="ptrn_c"></span>
+					<span class="ssw_ptrn_d style_item jQptrn" title="ptrn_d"></span>
+					<span class="ssw_ptrn_e style_item jQptrn" title="ptrn_e"></span>
+				</div>
+			</div>
+			<div class="sepH_c">
+				<p>Layout:</p>
+				<div class="clearfix">
+					<label class="radio inline"><input type="radio" name="ssw_layout" id="ssw_layout_fluid" value="" checked="checked" /> Fluid</label>
+					<label class="radio inline"><input type="radio" name="ssw_layout" id="ssw_layout_fixed" value="gebo-fixed" /> Fixed</label>
+				</div>
+			</div>
+			<div class="sepH_c">
+				<p>Sidebar position:</p>
+				<div class="clearfix">
+					<label class="radio inline"><input type="radio" name="ssw_sidebar" id="ssw_sidebar_left" value="" checked="checked" /> Left</label>
+					<label class="radio inline"><input type="radio" name="ssw_sidebar" id="ssw_sidebar_right" value="sidebar_right" /> Right</label>
+				</div>
+			</div>
+			<div class="sepH_c">
+				<p>Show top menu on:</p>
+				<div class="clearfix">
+					<label class="radio inline"><input type="radio" name="ssw_menu" id="ssw_menu_click" value="" checked="checked" /> Click</label>
+					<label class="radio inline"><input type="radio" name="ssw_menu" id="ssw_menu_hover" value="menu_hover" /> Hover</label>
+				</div>
+			</div>
+			
+			<div class="gh_button-group">
+				<a href="#" id="showCss" class="btn btn-primary btn-mini">Show CSS</a>
+				<a href="#" id="resetDefault" class="btn btn-mini">Reset</a>
+			</div>
+			<div class="hide">
+				<ul id="ssw_styles">
+					<li class="small ssw_mbColor sepH_a" style="display:none">body {<span class="ssw_mColor sepH_a" style="display:none"> color: #<span></span>;</span> <span class="ssw_bColor" style="display:none">background-color: #<span></span> </span>}</li>
+					<li class="small ssw_lColor sepH_a" style="display:none">a { color: #<span></span> }</li>
+				</ul>
 			</div>
 		</div>
 		
-		
-		
+		<div id="maincontainer" class="clearfix">
+			<!-- header -->
+            <header>
+                <div class="navbar navbar-fixed-top">
+                    <div class="navbar-inner">
+                        <div class="container-fluid">
+                            <a class="brand" href="home.xhtml"><i class="icon-home icon-white"></i> Med Finder</a>
+                            <ul class="nav user_menu pull-right">
+                                <li class="hidden-phone hidden-tablet">
+                                    <div class="nb_boxes clearfix">
+                                        <a data-toggle="modal" data-backdrop="static" href="#myMail" class="label ttip_b" title="New messages">25 <i class="splashy-mail_light"></i></a>
+                                        <a data-toggle="modal" data-backdrop="static" href="#myTasks" class="label ttip_b" title="New tasks">10 <i class="splashy-calendar_week"></i></a>
+                                    </div>
+                                </li>
+                                <li class="divider-vertical hidden-phone hidden-tablet"></li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Johny Smith <b class="caret"></b></a>
+                                    <ul class="dropdown-menu">
+                                    <li><a href="user_profile.html">Meu Perfil</a></li>
+                                    <li><a href="javascrip:void(0)">Editar Perfil</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="login.html">Sair</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+							<ul class="nav" id="mobile-nav">
+								 <li>
+									<a href="documentation.html"><i class="icon-user icon-white"></i> Cadastro de Usuário</a>
+								</li>
+								<li>
+									<a href="documentation.html"><i class="icon-th icon-white"></i> Busca por Consultórios</a>
+								</li>
+								<li class="dropdown">
+                                    <a data-toggle="dropdown" class="dropdown-toggle" href="#"><i class="icon-folder-close icon-white"></i> Área Médica <b class="caret"></b></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="charts.html">Cadastrar Perfil</a></li>
+                                        <li><a href="calendar.html">Login</a></li>
+                                    </ul>
+                                </li>
+								<li>
+									<a href="documentation.html"><i class="icon-list-alt icon-white"></i> Contato</a>
+								</li>
+							</ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal hide fade" id="myMail">
+                    <div class="modal-header">
+                        <button class="close" data-dismiss="modal">×</button>
+                        <h3>New messages</h3>
+                    </div>
+                    <div class="modal-body">
+                        <div class="alert alert-info">In this table jquery plugin turns a table row into a clickable link.</div>
+                        <table class="table table-condensed table-striped" data-provides="rowlink">
+                            <thead>
+                                <tr>
+                                    <th>Sender</th>
+                                    <th>Subject</th>
+                                    <th>Date</th>
+                                    <th>Size</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Declan Pamphlett</td>
+                                    <td><a href="javascript:void(0)">Lorem ipsum dolor sit amet</a></td>
+                                    <td>23/05/2012</td>
+                                    <td>25KB</td>
+                                </tr>
+                                <tr>
+                                    <td>Erin Church</td>
+                                    <td><a href="javascript:void(0)">Lorem ipsum dolor sit amet</a></td>
+                                    <td>24/05/2012</td>
+                                    <td>15KB</td>
+                                </tr>
+                                <tr>
+                                    <td>Koby Auld</td>
+                                    <td><a href="javascript:void(0)">Lorem ipsum dolor sit amet</a></td>
+                                    <td>25/05/2012</td>
+                                    <td>28KB</td>
+                                </tr>
+                                <tr>
+                                    <td>Anthony Pound</td>
+                                    <td><a href="javascript:void(0)">Lorem ipsum dolor sit amet</a></td>
+                                    <td>25/05/2012</td>
+                                    <td>33KB</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="javascript:void(0)" class="btn">Go to mailbox</a>
+                    </div>
+                </div>
+                <div class="modal hide fade" id="myTasks">
+                    <div class="modal-header">
+                        <button class="close" data-dismiss="modal">×</button>
+                        <h3>New Tasks</h3>
+                    </div>
+                    <div class="modal-body">
+                        <div class="alert alert-info">In this table jquery plugin turns a table row into a clickable link.</div>
+                        <table class="table table-condensed table-striped" data-provides="rowlink">
+                            <thead>
+                                <tr>
+                                    <th>id</th>
+                                    <th>Summary</th>
+                                    <th>Updated</th>
+                                    <th>Priority</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>P-23</td>
+                                    <td><a href="javascript:void(0)">Admin should not break if URLehellip;</a></td>
+                                    <td>23/05/2012</td>
+                                    <td class="tac"><span class="label label-important">High</span></td>
+                                    <td>Open</td>
+                                </tr>
+                                <tr>
+                                    <td>P-18</td>
+                                    <td><a href="javascript:void(0)">Displaying submenus in customehellip;</a></td>
+                                    <td>22/05/2012</td>
+                                    <td class="tac"><span class="label label-warning">Medium</span></td>
+                                    <td>Reopen</td>
+                                </tr>
+                                <tr>
+                                    <td>P-25</td>
+                                    <td><a href="javascript:void(0)">Featured image on post typesehellip;</a></td>
+                                    <td>22/05/2012</td>
+                                    <td class="tac"><span class="label label-success">Low</span></td>
+                                    <td>Updated</td>
+                                </tr>
+                                <tr>
+                                    <td>P-10</td>
+                                    <td><a href="javascript:void(0)">Multiple feed fixes andehellip;</a></td>
+                                    <td>17/05/2012</td>
+                                    <td class="tac"><span class="label label-warning">Medium</span></td>
+                                    <td>Open</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="javascript:void(0)" class="btn">Go to task manager</a>
+                    </div>
+                </div>
+            </header>
+            
 		<div id="content">
 			<div id="innerContent">
 				<ui:insert name="content">
 				</ui:insert>
 			</div>
 		</div>
-
-		<!-- Footer Wrapper -->
-		<div id="footer-wrapper">
-			<footer id="footer" class="container">
-			<div class="row">
-				<div class="3u">
-
-					<!-- Links -->
-					<section class="widget-links">
-					<h2>Random Stuff</h2>
-					<ul class="style2">
-						<li><h:link value="Teste" outcome="home" /></li>
-						<li><h:link value="Teste" outcome="home" /></li>
-						<li><h:link value="Teste" outcome="home" /></li>
-						<li><h:link value="Teste" outcome="home" /></li>
-						<li><h:link value="Teste" outcome="home" /></li>
-					</ul>
-					</section>
-
-				</div>
-				<div class="3u">
-
-					<!-- Links -->
-					<section class="widget-links">
-					<h2>Random Stuff</h2>
-					<ul class="style2">
-						<li><h:link value="Teste" outcome="home" /></li>
-						<li><h:link value="Teste" outcome="home" /></li>
-						<li><h:link value="Teste" outcome="home" /></li>
-						<li><h:link value="Teste" outcome="home" /></li>
-						<li><h:link value="Teste" outcome="home" /></li>
-					</ul>
-					</section>
-
-				</div>
-				<div class="3u">
-
-					<!-- Links -->
-					<section class="widget-links">
-					<h2>Random Stuff</h2>
-					<ul class="style2">
-						<li><h:link value="#{templateBundle.login}" outcome="home" /></li>
-						<li><h:link value="Teste" outcome="home" /></li>
-						<li><h:link value="Teste" outcome="home" /></li>
-						<li><h:link value="Teste" outcome="home" /></li>
-						<li><h:link value="Teste" outcome="home" /></li>
-					</ul>
-					</section>
-
-				</div>
-				<div class="3u">
-
-					<!-- Contact -->
-					<section class="widget-contact last">
-					<h2>Redes Sociais</h2>
-					<ul>
-						<li><h:link value="Twitter" outcome="home"
-								styleClass="twitter" /></li>
-						<li><h:link value="Facebook" outcome="home"
-								styleClass="facebook" /></li>
-						<li><h:link value="Dribbble" outcome="home"
-								styleClass="dribbble" /></li>
-						<li><h:link value="Google+" outcome="home"
-								styleClass="googleplus" /></li>
-					</ul>
-					<p>
-						Rua Teste<br /> 00, SP - São Paulo 00000-000<br /> (011)
-						0000-0000
-					</p>
-					</section>
-
-				</div>
-			</div>
-			<div class="row">
-				<div class="12u">
-					<div id="copyright">&copy; Med Finder SP. All rights
-						reserved.</div>
-				</div>
-			</div>
-			</footer>
+            
+		
 		</div>
+
+
+
+		<!--  <h:outputScript library="js" name="jquery.min.js" /> -->
+		<h:outputScript library="js" name="jquery-migrate.min.js" />
+		<!-- smart resize event -->
+		<h:outputScript library="js" name="jquery.debouncedresize.min.js" />
+		<!-- hidden elements width/height -->
+		<h:outputScript library="js" name="jquery.actual.min.js" />
+		<!-- js cookie plugin -->
+		<h:outputScript library="js" name="jquery_cookie.min.js" />
+		<!-- main bootstrap js -->
+		<h:outputScript library="bootstrap" name="js/bootstrap.min.js" />
+		<!-- bootstrap plugins -->
+		<h:outputScript library="js" name="bootstrap.plugins.min.js" />
+		<!-- tooltips -->
+		<h:outputScript library="lib" name="qtip2/jquery.qtip.min.js" />
+		<!-- jBreadcrumbs -->
+		<h:outputScript library="lib"
+			name="jBreadcrumbs/js/jquery.jBreadCrumb.1.1.min.js" />
+		<!-- lightbox -->
+		<h:outputScript library="lib" name="colorbox/jquery.colorbox.min.js" />
+		<!-- fix for ios orientation change -->
+		<h:outputScript library="js" name="ios-orientationchange-fix.js" />
+		<!-- scrollbar -->
+		<h:outputScript library="lib" name="antiscroll/antiscroll.js" />
+		<h:outputScript library="lib" name="antiscroll/jquery-mousewheel.js" />
+		<!-- to top -->
+		<h:outputScript library="lib" name="UItoTop/jquery.ui.totop.min.js" />
+		<!-- mobile nav -->
+		<h:outputScript library="js" name="selectNav.js" />
+		<!-- common functions -->
+		<h:outputScript library="js" name="gebo_common.js" />
+
+		<h:outputScript library="lib"
+			name="jquery-ui/jquery-ui-1.10.0.custom.min.js" />
+		<!-- touch events for jquery ui-->
+		<h:outputScript library="js" name="forms/jquery.ui.touch-punch.min.js" />
+		<!-- multi-column layout -->
+		<h:outputScript library="js" name="jquery.imagesloaded.min.js" />
+		<h:outputScript library="js" name="jquery.wookmark.js" />
+		<!-- responsive table -->
+		<h:outputScript library="js" name="jquery.mediaTable.min.js" />
+		<!-- dashboard functions -->
+		<h:outputScript library="js" name="gebo_dashboard.js" />
+
+		<script>
+			$(document).ready(function() {
+				setTimeout('$("html").removeClass("js")', 1000);
+			});
+		</script>
 
 	</h:body>
 </f:view>
