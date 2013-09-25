@@ -19,7 +19,7 @@
 		},
 		validation: function(){
 			$('#validate_wizard').stepy({
-				nextLabel:      'Avançar <i class="icon-chevron-right icon-white"></i>',
+				nextLabel:      'Avan&ccedil;ar <i class="icon-chevron-right icon-white"></i>',
 				backLabel:      '<i class="icon-chevron-left"></i> Voltar',
 				block		: true,
 				errorImage	: true,
@@ -62,13 +62,34 @@
 					'filtroDataNasc'	: {
 						required	: true,
 						minlength	: 10
-					}
+					},
+					'filtroCEP'	: {
+						required	: true,
+						minlength	: 9
+					},
+					'filtroEndereco'	: {
+						required	: true,
+						minlength	: 5
+					},
+					'filtroNumero'	: {
+						required	: true,
+						minlength	: 1
+					},
+					'filtroBairro'	: {
+						required	: true,
+						minlength	: 5
+					},
+					
 				}, messages: {
 					'filtroNome'	: { required:  'Digite seu nome',minlength: 'Minimo de 3 caracteres' },
 					'filtroSobrenome'	: { required:  'Digite seu sobrenome',minlength: 'Minimo de 3 caracteres' },
 					'filtroEmail'	: { required:  'Digite seu email',email: 'Por favor insira um e-mail valido' },
 					'filtroSenha'	: { required:  'Digite sua senha',minlength: 'Minimo de 5 caracteres' },
-					'filtroDataNasc'	: { required:  'Digite sua data de nascimento',minlength: 'Minimo de 10 caracteres' }
+					'filtroDataNasc'	: { required:  'Digite sua data de nascimento',minlength: 'Minimo de 10 caracteres' },
+					'filtroCEP'	: { required:  'Digite seu CEP',minlength: 'Minimo de 9 caracteres' },
+					'filtroEndereco'	: { required:  'Digite seu endereco',minlength: 'Minimo de 5 caracteres' },
+					'filtroNumero'	: { required:  'Digite seu numero',minlength: 'Minimo de 1 caracteres' },
+					'filtroBairro'	: { required:  'Digite seu bairro',minlength: 'Minimo de 5 caracteres' },
 				},
 				ignore				: ':hidden'
 			});

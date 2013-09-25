@@ -14,25 +14,13 @@
 		<!-- main content -->
 		<div id="contentwrapper">
 			<div class="main_content">
-				<nav>
-				<div id="jCrumbs" class="breadCrumb module">
-					<ul>
-						<li><a href="#"><i class="icon-home"></i></a></li>
-						<li><a href="#">Sports Toys</a></li>
-						<li><a href="#">Toys Hobbies</a></li>
-						<li><a href="#">Learning Educational</a></li>
-						<li><a href="#">Astronomy Telescopes</a></li>
-						<li>Telescope 3735SX</li>
-					</ul>
-				</div>
-				</nav>
 
 				<div class="row-fluid">
 					<div class="span12">
 					
 						 <div class="row-fluid">
                         <div class="span12">
-                            <h3 class="heading">Wizard with validation</h3>
+                            <h3 class="heading">Cadastro de Usuário</h3>
                             <div class="row-fluid">
                                 <div class="span2"></div>
                                 <div class="span8">
@@ -90,13 +78,13 @@
                                             <div class="formSep control-group">
                                                 <h:outputLabel value="Senha : " for="filtroSenha" styleClass="control-label" />
                                                 <div class="controls">
-                                                    <p:password id="filtroSenha" value="#{cadastroClienteBean.senha}" feedback="true" inline="true" tabindex="6" />
+                                                    <p:password id="filtroSenha" value="#{cadastroClienteBean.senha}"  />
                                                 </div>
                                             </div>
                                             <div class="formSep control-group">
                                                 <h:outputLabel value="Data de Nascimento  : " for="filtroDataNasc" styleClass="control-label" />
                                                 <div class="controls">
-                                                    <p:inputText id="filtroDataNasc" size="10" styleClass="span10" />
+                                                    <p:inputText id="filtroDataNasc" size="10" styleClass="span3" />
                                                 </div>
                                             </div>
                                             
@@ -139,27 +127,8 @@
                             				</div>
                                             
                                         </fieldset>
-                                        <fieldset title="Additional info">
-                                            <legend class="hide">Lorem ipsum dolor&hellip;</legend>
-                                            <div class="formSep control-group">
-                                                <label for="v_message" class="control-label">Your Message:</label>
-                                                <div class="controls">
-                                                    <textarea name="v_message" id="v_message" rows="3"></textarea>
-                                                </div>
-                                            </div>
-                                            <div class="control-group">
-                                                <label class="control-label">Newsletter:</label>
-                                                <div class="controls">
-                                                    <label class="radio inline" for="newsletter_yes">
-                                                        <input type="radio" value="yes" id="newsletter_yes" name="v_newsletter" /> Yes
-                                                    </label>
-                                                    <label class="radio inline" for="newsletter_no">
-                                                        <input type="radio" value="no" id="newsletter_no" name="v_newsletter" /> No
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        </fieldset>
                                         <button type="button" class="finish btn btn-primary"><i class="icon-ok icon-white"></i> Send registration</button>
+
                                     </form>
                                 </div>
                             </div>
