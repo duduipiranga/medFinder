@@ -31,6 +31,8 @@
 		<h:outputStylesheet name="css/blue.css" id="link_theme" />
 		<!-- main styles -->
 		<h:outputStylesheet name="css/style.css" />
+		<!-- wizard -->
+        <h:outputStylesheet name="lib/stepy/css/jquery.stepy.css" />
 
 		<link rel="stylesheet"
 			href="http://fonts.googleapis.com/css?family=PT+Sans" />
@@ -275,7 +277,7 @@
 
 
 
-		<!--  <h:outputScript library="js" name="jquery.min.js" /> -->
+		<h:outputScript library="js" name="jquery.min.js" />
 		<h:outputScript library="js" name="jquery-migrate.min.js" />
 		<!-- smart resize event -->
 		<h:outputScript library="js" name="jquery.debouncedresize.min.js" />
@@ -317,6 +319,16 @@
 		<h:outputScript library="js" name="jquery.mediaTable.min.js" />
 		<!-- dashboard functions -->
 		<h:outputScript library="js" name="gebo_dashboard.js" />
+		<!-- validation -->
+		<h:outputScript library="lib" name="validation/jquery.validate.min.js" />
+		<!-- wizard -->
+		<h:outputScript library="lib" name="stepy/js/jquery.stepy.min.js" />
+		<!-- wizard functions -->
+		<h:outputScript library="js" name="gebo_wizard.js" />
+		<!-- masked inputs -->
+        <h:outputScript library="js" name="forms/jquery.inputmask.min.js" />
+        <!-- form functions -->
+        <h:outputScript library="js" name="gebo_forms.js" />
 
 		<script>
 			$(document).ready(function() {

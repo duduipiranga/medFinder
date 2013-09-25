@@ -8,6 +8,7 @@
 	xmlns:p="http://primefaces.org/ui">
 
 <ui:composition template="_template.xhtml">
+
 	<ui:define name="title"> Med Finder SP</ui:define>
 	<ui:define name="content">
 		<!-- main content -->
@@ -28,17 +29,19 @@
 
 				<div class="row-fluid">
 					<div class="span12">
-
-
-						<div class="row-fluid">
-							<div class="span6">
-								<form class="form-horizontal well">
-									<fieldset>
-										<p class="f_legend">Cadastro de Usuário</p>
-										<div class="control-group">
-											<h:outputLabel value="Operadora : " for="filtroOperadora"
-												styleClass="control-label" />
-											<div class="controls">
+					
+						 <div class="row-fluid">
+                        <div class="span12">
+                            <h3 class="heading">Wizard with validation</h3>
+                            <div class="row-fluid">
+                                <div class="span2"></div>
+                                <div class="span8">
+                                    <form id="validate_wizard" class="stepy-wizzard form-horizontal">
+                                        <fieldset title="Dados Pessoais">
+                                            <legend class="hide">Digite corretamente seus dados pessoais!</legend>
+                                            <div class="formSep control-group">
+                                                <h:outputLabel value="Operadora : " for="filtroOperadora" styleClass="control-label" />
+                                                <div class="controls">
 												<p:selectOneMenu id="filtroOperadora"
 													converter="ConversorOperadora"
 													styleClass="field select medium"
@@ -50,15 +53,12 @@
 													<f:selectItems value="#{homeBean.operadoras}" var="o"
 														itemValue="#{o}" itemLabel="#{o.ds_operadora}" />
 												</p:selectOneMenu>
-												<span class="help-block">Selecione o seu convênio
-													médico!</span>
 											</div>
-										</div>
-										<div class="control-group">
-											<h:outputLabel value="Plano : " for="filtroPlano"
-												styleClass="control-label" />
-											<div class="controls">
-												<p:selectOneMenu id="filtroPlano" value="#{homeBean.plano}"
+                                            </div>
+                                            <div class="formSep control-group">
+                                                <h:outputLabel value="Plano : " for="filtroPlano" styleClass="control-label" />
+                                                <div class="controls">
+                                                    <p:selectOneMenu id="filtroPlano" value="#{homeBean.plano}"
 													converter="ConversorPlano" styleClass="field select medium"
 													tabindex="1">
 													<f:selectItem id="planoDefault" itemLabel="Selecione"
@@ -67,54 +67,106 @@
 														itemValue="#{p.id_plano}" itemLabel="#{p.ds_plano}" />
 
 												</p:selectOneMenu>
-												<span class="help-block">Selecione o plano do seu
-													convênico médico!</span>
-											</div>
-										</div>
+                                                </div>
+                                            </div>
+                                            <div class="formSep control-group">
+                                                <h:outputLabel value="Nome : " for="filtroNome" styleClass="control-label" />
+                                                <div class="controls">
+                                                    <p:inputText id="filtroNome" size="60" styleClass="span10" />
+                                                </div>
+                                            </div>
+                                            <div class="formSep control-group">
+                                                <h:outputLabel value="Sobrenome : " for="filtroSobrenome" styleClass="control-label" />
+                                                <div class="controls">
+                                                    <p:inputText id="filtroSobrenome" size="60" styleClass="span10" />
+                                                </div>
+                                            </div>
+                                            <div class="formSep control-group">
+                                                <h:outputLabel value="E-mail : " for="filtroEmail" styleClass="control-label" />
+                                                <div class="controls">
+                                                    <p:inputText id="filtroEmail" size="60" styleClass="span10" />
+                                                </div>
+                                            </div>
+                                            <div class="formSep control-group">
+                                                <h:outputLabel value="Senha : " for="filtroSenha" styleClass="control-label" />
+                                                <div class="controls">
+                                                    <p:password id="filtroSenha" value="#{cadastroClienteBean.senha}" feedback="true" inline="true" tabindex="6" />
+                                                </div>
+                                            </div>
+                                            <div class="formSep control-group">
+                                                <h:outputLabel value="Data de Nascimento  : " for="filtroDataNasc" styleClass="control-label" />
+                                                <div class="controls">
+                                                    <p:inputText id="filtroDataNasc" size="10" styleClass="span10" />
+                                                </div>
+                                            </div>
+                                            
 
-										<div class="control-group">
-											<h:outputLabel value="Nome: " for="usuarioNome"
-												styleClass="control-label" />
-											<div class="controls">
-												<p:inputText id="usuarioNome" size="60" styleClass="span10" />
-											</div>
-										</div>
-										
-										<div class="control-group">
-											<h:outputLabel value="Sobrenome: " for="usuarioSobrenome"
-												styleClass="control-label" />
-											<div class="controls">
-												<p:inputText id="usuarioSobrenome" size="60" styleClass="span10" />
-											</div>
-										</div>
-										
-										<div class="control-group">
-											<h:outputLabel value="Sobrenome: " for="usuarioSobrenome"
-												styleClass="control-label" />
-											<div class="controls">
-												<p:inputText id="usuarioSobrenome" size="60" styleClass="span10" />
-											</div>
-										</div>
-
-
-										<div class="control-group">
-											<div class="controls">
-												<button class="btn" type="submit">Form button</button>
-											</div>
-										</div>
-									</fieldset>
-								</form>
-							</div>
-							<div class="span6">
-								<form class="well form-inline">
-									<p class="f_legend">Inline form</p>
-									<input type="text" placeholder="Email" class="input-small" />
-									<input type="password" placeholder="Password"
-										class="input-small" />
-									<button class="btn" type="submit">Sign in</button>
-								</form>
-							</div>
-						</div>
+                                        </fieldset>
+                                        <fieldset title="Dados do Endereço">
+                                            <legend class="hide">Dados completo do endereço!</legend>
+                                            
+                                             <div class="formSep control-group">
+                                                <h:outputLabel value="CEP: " for="filtroCEP" styleClass="control-label" />
+                                                <div class="controls">
+                                                    <p:inputText id="filtroCEP" size="10" styleClass="span10" />
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="formSep control-group">
+                                                <h:outputLabel value="Endereço : " for="filtroEndereco" styleClass="control-label" />
+                                                <div class="controls">
+                                                    <p:inputText id="filtroEndereco" size="60" styleClass="span10" />
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="formSep control-group">
+                                                <h:outputLabel value="Número : " for="filtroNumero" styleClass="control-label" />
+                                                <div class="controls">
+                                                    <p:inputText id="filtroNumero" size="5" styleClass="span10" />
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="formSep control-group">
+                                                <h:outputLabel value="Bairro : " for="filtroBairro" styleClass="control-label" />
+                                                <div class="controls">
+                                                    <p:inputText id="filtroBairro" size="60" styleClass="span10" />
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="alert alert-info">
+                                				<a class="close" data-dismiss="alert">×</a>
+                                				Os campos Cidade e Estado não são solicitados, pois o sistema é somente para a cidade de São Paulo!
+                            				</div>
+                                            
+                                        </fieldset>
+                                        <fieldset title="Additional info">
+                                            <legend class="hide">Lorem ipsum dolor&hellip;</legend>
+                                            <div class="formSep control-group">
+                                                <label for="v_message" class="control-label">Your Message:</label>
+                                                <div class="controls">
+                                                    <textarea name="v_message" id="v_message" rows="3"></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="control-group">
+                                                <label class="control-label">Newsletter:</label>
+                                                <div class="controls">
+                                                    <label class="radio inline" for="newsletter_yes">
+                                                        <input type="radio" value="yes" id="newsletter_yes" name="v_newsletter" /> Yes
+                                                    </label>
+                                                    <label class="radio inline" for="newsletter_no">
+                                                        <input type="radio" value="no" id="newsletter_no" name="v_newsletter" /> No
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                        <button type="button" class="finish btn btn-primary"><i class="icon-ok icon-white"></i> Send registration</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+						
+						
 					</div>
 				</div>
 
