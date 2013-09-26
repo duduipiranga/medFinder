@@ -52,7 +52,7 @@
 		init: function() {
 			$("#filtroDataNasc").inputmask("99/99/9999",{placeholder:"dd/mm/aaaa"});
 			$("#filtroCEP").inputmask("99999-999",{placeholder:"00000-000"});
-			filtroCEP
+			$("#filtroCpf").inputmask("999.999.999-99",{placeholder:"000.000.000-00"});
 		}
 	};
 	
@@ -252,9 +252,9 @@
                     return false;
                 });
             }
-            if($('#optgroup').length) {
+            if($('#filtroEspecialidades').length) {
                 //* optgroup
-                $('#optgroup').multiSelect()
+                $('#filtroEspecialidades').multiSelect();
             }
 			if($('#custom-headers').length) {
                 //* custom headers
@@ -263,10 +263,10 @@
                     selectionHeader: "<div class='custom-header'>Selected items</div>"
                 });
             }
-            if($('#searchable').length) {
+            if($('#filtroEspecialidades').length) {
                 //* searchable
-                $('#searchable').multiSelect({
-                    selectableHeader: '<div class="search-header"><input type="text" class="span12" id="ms-search" autocomplete="off" placeholder="country name"></div>',
+                $('#filtroEspecialidades').multiSelect({
+                    selectableHeader: '<div class="search-header"><input type="text" class="span12" id="ms-search" autocomplete="off" placeholder="especialidades"></div>',
                     selectionHeader: "<div class='search-selected'></div>"
                 });
             }

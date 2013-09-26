@@ -52,6 +52,10 @@
 						required	: true,
 						minlength	: 3
 					},
+					'filtroCpf'	: {
+						required	: true,
+						minlength	: 14
+					},
 					'filtroEmail'	: {
 						required: true, email: true
 					},
@@ -83,6 +87,7 @@
 				}, messages: {
 					'filtroNome'	: { required:  'Digite seu nome',minlength: 'Minimo de 3 caracteres' },
 					'filtroSobrenome'	: { required:  'Digite seu sobrenome',minlength: 'Minimo de 3 caracteres' },
+					'filtroCpf'	: { required:  'Digite seu cpf',minlength: 'Minimo de 14 caracteres' },
 					'filtroEmail'	: { required:  'Digite seu email',email: 'Por favor insira um e-mail valido' },
 					'filtroSenha'	: { required:  'Digite sua senha',minlength: 'Minimo de 5 caracteres' },
 					'filtroDataNasc'	: { required:  'Digite sua data de nascimento',minlength: 'Minimo de 10 caracteres' },

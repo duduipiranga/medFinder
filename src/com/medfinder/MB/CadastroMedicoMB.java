@@ -30,12 +30,22 @@ public class CadastroMedicoMB {
 	private List<Especialidade> especialidades;
 
 	private DualListModel<Especialidade> dualEspecialidades;
+	
+	private Especialidade especialidade;
 
 	MedicoDAO medao = new MedicoDAO();
 	PlanoDAO pldao = new PlanoDAO();
 	EspecialidadeDAO espdao = new EspecialidadeDAO();
 	
 	
+
+	public Especialidade getEspecialidade() {
+		return especialidade;
+	}
+
+	public void setEspecialidade(Especialidade especialidade) {
+		this.especialidade = especialidade;
+	}
 
 	public List<Especialidade> getEspecialidades() {
 		return especialidades;
