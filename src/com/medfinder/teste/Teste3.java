@@ -18,11 +18,10 @@ public class Teste3 {
 		p.setId_plano(13);
 		
 		Especialidade e = new Especialidade();
-		e.setId_especialidade(23);
+		e.setId_especialidade(2);
 		
 		
 		medicos = mdao.retornaMedicosPorEspecialidadePorPlano(e, p);
-		
 		System.out.println("Teste comecando");
 		for (Medico medico : medicos) {
 			System.out.println(medico.getNome());

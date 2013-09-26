@@ -16,7 +16,7 @@ public class MedicoDAO extends HibernateDAO<Medico, String> {
 	public List<Medico> retornaMedicosSoPorEspecialidade(
 			Especialidade especialidade) {
 		Query q = em
-				.createQuery("From Medico m where m.especialidades = :id_especialidade");
+				.createQuery("select m from Medico m inner join m.especialidades e where e.id_especialidade = :id_especialidade");
 		q.setParameter("id_especialidade", especialidade.getId_especialidade());
 
 		medicos = q.getResultList();
@@ -27,13 +27,12 @@ public class MedicoDAO extends HibernateDAO<Medico, String> {
 	public List<Medico> retornaMedicosPorEspecialidadePorPlano(
 			Especialidade especialidade, Plano plano) {
 		Query q = em
-				.createQuery("From Medico m where m.especialidades = :id_especialidade and m.planos = :id_plano");
+				.createQuery("select m from Medico m inner join m.especialidades e inner join m.planos p where e.id_especialidade = :id_especialidade and p.id_plano = :id_plano ");
 		q.setParameter("id_especialidade", especialidade.getId_especialidade());
 		q.setParameter("id_plano", plano.getId_plano());
-		
+
 		medicos = q.getResultList();
-		
-		
+
 		return medicos;
 	}
 
