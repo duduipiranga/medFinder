@@ -122,147 +122,42 @@
                 <div class="navbar navbar-fixed-top">
                     <div class="navbar-inner">
                         <div class="container-fluid">
-                            <h:link styleClass="brand" ><i class="icon-home icon-white"></i> Med Finder</h:link>
+                            <h:link styleClass="brand" outcome="home" ><i class="icon-home icon-white"></i>#{templateBundle.home}</h:link>
                             <ul class="nav user_menu pull-right">
-                                <li class="hidden-phone hidden-tablet">
-                                    <div class="nb_boxes clearfix">
-                                        <a data-toggle="modal" data-backdrop="static" href="#myMail" class="label ttip_b" title="New messages">25 <i class="splashy-mail_light"></i></a>
-                                        <a data-toggle="modal" data-backdrop="static" href="#myTasks" class="label ttip_b" title="New tasks">10 <i class="splashy-calendar_week"></i></a>
-                                    </div>
-                                </li>
                                 <li class="divider-vertical hidden-phone hidden-tablet"></li>
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Johny Smith <b class="caret"></b></a>
                                     <ul class="dropdown-menu">
-                                    <li><a href="user_profile.html">Meu Perfil</a></li>
-                                    <li><a href="javascrip:void(0)">Editar Perfil</a></li>
+                                    <li><h:link outcome="contato">#{templateBundle.meuPerfil}</h:link></li>
+                                    <li><h:link outcome="contato">#{templateBundle.editarPerfil}</h:link></li>
                                     <li class="divider"></li>
-                                    <li><a href="login.html">Sair</a></li>
+                                    <li><h:link outcome="contato">#{templateBundle.sair}</h:link></li>
                                     </ul>
                                 </li>
                             </ul>
 							<ul class="nav" id="mobile-nav">
 								 <li>
-									<a href="documentation.html"><i class="icon-user icon-white"></i> Cadastro de Usuário</a>
+									<h:link outcome="cadastroCliente"><i class="icon-user icon-white"></i>#{templateBundle.cadastro}</h:link>
 								</li>
 								<li>
-									<a href="documentation.html"><i class="icon-th icon-white"></i> Busca por Consultórios</a>
+									<h:link outcome="buscaMedicos"><i class="icon-th icon-white"></i>#{templateBundle.busca}</h:link>
 								</li>
 								<li class="dropdown">
-                                    <a data-toggle="dropdown" class="dropdown-toggle" href="#"><i class="icon-folder-close icon-white"></i> Área Médica <b class="caret"></b></a>
+                                    <a data-toggle="dropdown" class="dropdown-toggle" href="#"><i class="icon-folder-close icon-white"></i> #{templateBundle.areaMedica} <b class="caret"></b></a>
                                     <ul class="dropdown-menu">
-                                        <li><a href="charts.html">Cadastrar Perfil</a></li>
-                                        <li><a href="calendar.html">Login</a></li>
+                                        <li><h:link outcome="cadastroMedico">#{templateBundle.cadastrarPerfil}</h:link></li>
+                                        <li><h:link outcome="loginMedico">#{templateBundle.login}</h:link></li>
                                     </ul>
                                 </li>
 								<li>
-									<a href="documentation.html"><i class="icon-list-alt icon-white"></i> Contato</a>
+									<h:link outcome="contato">#{templateBundle.contato}</h:link>
 								</li>
 							</ul>
                         </div>
                     </div>
                 </div>
-                <div class="modal hide fade" id="myMail">
-                    <div class="modal-header">
-                        <button class="close" data-dismiss="modal">×</button>
-                        <h3>New messages</h3>
-                    </div>
-                    <div class="modal-body">
-                        <div class="alert alert-info">In this table jquery plugin turns a table row into a clickable link.</div>
-                        <table class="table table-condensed table-striped" data-provides="rowlink">
-                            <thead>
-                                <tr>
-                                    <th>Sender</th>
-                                    <th>Subject</th>
-                                    <th>Date</th>
-                                    <th>Size</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Declan Pamphlett</td>
-                                    <td><a href="javascript:void(0)">Lorem ipsum dolor sit amet</a></td>
-                                    <td>23/05/2012</td>
-                                    <td>25KB</td>
-                                </tr>
-                                <tr>
-                                    <td>Erin Church</td>
-                                    <td><a href="javascript:void(0)">Lorem ipsum dolor sit amet</a></td>
-                                    <td>24/05/2012</td>
-                                    <td>15KB</td>
-                                </tr>
-                                <tr>
-                                    <td>Koby Auld</td>
-                                    <td><a href="javascript:void(0)">Lorem ipsum dolor sit amet</a></td>
-                                    <td>25/05/2012</td>
-                                    <td>28KB</td>
-                                </tr>
-                                <tr>
-                                    <td>Anthony Pound</td>
-                                    <td><a href="javascript:void(0)">Lorem ipsum dolor sit amet</a></td>
-                                    <td>25/05/2012</td>
-                                    <td>33KB</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="modal-footer">
-                        <a href="javascript:void(0)" class="btn">Go to mailbox</a>
-                    </div>
-                </div>
-                <div class="modal hide fade" id="myTasks">
-                    <div class="modal-header">
-                        <button class="close" data-dismiss="modal">×</button>
-                        <h3>New Tasks</h3>
-                    </div>
-                    <div class="modal-body">
-                        <div class="alert alert-info">In this table jquery plugin turns a table row into a clickable link.</div>
-                        <table class="table table-condensed table-striped" data-provides="rowlink">
-                            <thead>
-                                <tr>
-                                    <th>id</th>
-                                    <th>Summary</th>
-                                    <th>Updated</th>
-                                    <th>Priority</th>
-                                    <th>Status</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>P-23</td>
-                                    <td><a href="javascript:void(0)">Admin should not break if URLehellip;</a></td>
-                                    <td>23/05/2012</td>
-                                    <td class="tac"><span class="label label-important">High</span></td>
-                                    <td>Open</td>
-                                </tr>
-                                <tr>
-                                    <td>P-18</td>
-                                    <td><a href="javascript:void(0)">Displaying submenus in customehellip;</a></td>
-                                    <td>22/05/2012</td>
-                                    <td class="tac"><span class="label label-warning">Medium</span></td>
-                                    <td>Reopen</td>
-                                </tr>
-                                <tr>
-                                    <td>P-25</td>
-                                    <td><a href="javascript:void(0)">Featured image on post typesehellip;</a></td>
-                                    <td>22/05/2012</td>
-                                    <td class="tac"><span class="label label-success">Low</span></td>
-                                    <td>Updated</td>
-                                </tr>
-                                <tr>
-                                    <td>P-10</td>
-                                    <td><a href="javascript:void(0)">Multiple feed fixes andehellip;</a></td>
-                                    <td>17/05/2012</td>
-                                    <td class="tac"><span class="label label-warning">Medium</span></td>
-                                    <td>Open</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="modal-footer">
-                        <a href="javascript:void(0)" class="btn">Go to task manager</a>
-                    </div>
-                </div>
+
+
             </header>
             
 		<div id="content">
