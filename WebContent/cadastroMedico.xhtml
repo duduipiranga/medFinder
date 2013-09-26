@@ -20,7 +20,7 @@
 					
 						 <div class="row-fluid">
                         <div class="span12">
-                            <h3 class="heading">Wizard with validation</h3>
+                            <h3 class="heading">Cadastro Médico</h3>
                             <div class="row-fluid">
                                 <div class="span2"></div>
                                 <div class="span8">
@@ -28,36 +28,7 @@
                                     
                                         <fieldset title="Dados Pessoais">
                                             <legend class="hide">Digite corretamente seus dados pessoais!</legend>
-                                            <div class="formSep control-group">
-                                                <h:outputLabel value="Operadora : " for="filtroOperadora" styleClass="control-label" />
-                                                <div class="controls">
-												<p:selectOneMenu id="filtroOperadora"
-													converter="ConversorOperadora"
-													styleClass="field select medium"
-													value="#{homeBean.operadora}">
-													<p:ajax listener="#{homeBean.listaPlanosAjax}"
-														update="filtroPlano" process="@this" />
-													<f:selectItem id="default" itemLabel="Selecione"
-														itemValue="Selecione" />
-													<f:selectItems value="#{homeBean.operadoras}" var="o"
-														itemValue="#{o}" itemLabel="#{o.ds_operadora}" />
-												</p:selectOneMenu>
-											</div>
-                                            </div>
-                                            <div class="formSep control-group">
-                                                <h:outputLabel value="Plano : " for="filtroPlano" styleClass="control-label" />
-                                                <div class="controls">
-                                                    <p:selectOneMenu id="filtroPlano" value="#{homeBean.plano}"
-													converter="ConversorPlano" styleClass="field select medium"
-													tabindex="1">
-													<f:selectItem id="planoDefault" itemLabel="Selecione"
-														itemValue="0" />
-													<f:selectItems value="#{homeBean.planos}" var="p"
-														itemValue="#{p.id_plano}" itemLabel="#{p.ds_plano}" />
 
-												</p:selectOneMenu>
-                                                </div>
-                                            </div>
                                             <div class="formSep control-group">
                                                 <h:outputLabel value="Nome : " for="filtroNome" styleClass="control-label" />
                                                 <div class="controls">
@@ -71,6 +42,12 @@
                                                 </div>
                                             </div>
                                             <div class="formSep control-group">
+                                                <h:outputLabel value="CRM : " for="filtroCrm" styleClass="control-label" />
+                                                <div class="controls">
+                                                    <p:inputText id="filtroCrm" size="10" styleClass="span10" />
+                                                </div>
+                                            </div>
+                                            <div class="formSep control-group">
                                                 <h:outputLabel value="E-mail : " for="filtroEmail" styleClass="control-label" />
                                                 <div class="controls">
                                                     <p:inputText id="filtroEmail" size="60" styleClass="span10" />
@@ -79,14 +56,27 @@
                                             <div class="formSep control-group">
                                                 <h:outputLabel value="Senha : " for="filtroSenha" styleClass="control-label" />
                                                 <div class="controls">
-                                                    <p:password id="filtroSenha" value="#{cadastroClienteBean.senha}" feedback="true" inline="true" tabindex="6" />
+                                                    <p:password id="filtroSenha"  />
                                                 </div>
                                             </div>
                                             <div class="formSep control-group">
-                                                <h:outputLabel value="Data de Nascimento  : " for="filtroDataNasc" styleClass="control-label" />
+                                                <h:outputLabel value="Valor da Consulta  : " for="filtroValorConsulta" styleClass="control-label" />
                                                 <div class="controls">
-                                                    <p:inputText id="filtroDataNasc" size="10" styleClass="span10" />
+                                                    <p:inputText id="filtroValorConsulta" size="10" styleClass="span10" />
                                                 </div>
+                                            </div>
+                                            <div class="formSep control-group">
+                                                <h:outputLabel value="Foto Perfil  : " for="filtroFoto" styleClass="control-label" />
+                                                <div class="span4">
+													<div data-provides="fileupload" class="fileupload fileupload-new"><input type="hidden" />
+														<div style="width: 200px; height: 150px; line-height: 150px;" class="fileupload-preview thumbnail"></div>
+														<div>
+															<span class="btn btn-file"><span class="fileupload-new">Selecionar Imagem</span><span class="fileupload-exists">Alterar</span>
+															<input type="file" id="filtroFoto" /></span>
+															<a data-dismiss="fileupload" class="btn fileupload-exists" href="#">Remover</a>
+														</div>
+													</div>
+												</div>
                                             </div>
                                             
 

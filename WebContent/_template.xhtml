@@ -33,6 +33,8 @@
 		<h:outputStylesheet name="css/style.css" />
 		<!-- wizard -->
         <h:outputStylesheet name="lib/stepy/css/jquery.stepy.css" />
+        <!-- upload -->
+       	<h:outputStylesheet name="lib/plupload/js/jquery.plupload.queue/css/plupload-gebo.css" />
 
 		<link rel="stylesheet"
 			href="http://fonts.googleapis.com/css?family=PT+Sans" />
@@ -220,9 +222,43 @@
 		<h:outputScript library="lib" name="stepy/js/jquery.stepy.min.js" />
 		<!-- wizard functions -->
 		<h:outputScript library="js" name="gebo_wizard.js" />
-		<!-- masked inputs -->
+		<!-- globalize for jQuery UI-->
+        <h:outputScript library="lib" name="jquery-ui/external/globalize.js" />
+        <!-- touch events for jquery ui-->
+        <h:outputScript library="js" name="forms/jquery.ui.touch-punch.min.js" />
+        <!-- masked inputs -->
         <h:outputScript library="js" name="forms/jquery.inputmask.min.js" />
-        <!-- form functions -->
+        <!-- autosize textareas -->
+        <h:outputScript library="js" name="forms/jquery.autosize.min.js" />
+        <!-- textarea limiter/counter -->
+        <h:outputScript library="js" name="forms/jquery.counter.min.js" />
+        <!-- datepicker -->
+        <h:outputScript library="lib" name="datepicker/bootstrap-datepicker.min.js" />
+        <!-- timepicker -->
+        <h:outputScript library="lib" name="datepicker/bootstrap-timepicker.min.js" />
+        <!-- tag handler -->
+        <h:outputScript library="lib" name="tag_handler/jquery.taghandler.min.js" />
+        <!-- styled form elements -->
+        <h:outputScript library="lib" name="uniform/jquery.uniform.min.js" />
+        <!-- animated progressbars -->
+        <h:outputScript library="js" name="forms/jquery.progressbar.anim.js" />
+        <!-- multiselect -->
+		<h:outputScript library="lib" name="multi-select/js/jquery.multi-select.js" />
+		<h:outputScript library="lib" name="multi-select/js/jquery.quicksearch.js" />
+        <!-- enhanced select (chosen) -->
+        <h:outputScript library="lib" name="chosen/chosen.jquery.min.js" />
+        <!-- TinyMce WYSIWG editor -->
+        <h:outputScript library="lib" name="tiny_mce/jquery.tinymce.js" />
+		<!-- plupload and all it's runtimes and the jQuery queue widget (attachments) -->
+		<h:outputScript library="lib" name="plupload/js/plupload.full.js" />
+		<h:outputScript library="lib" name="plupload/js/jquery.plupload.queue/jquery.plupload.queue.full.js" />
+        <!-- colorpicker -->
+		<h:outputScript library="lib" name="colorpicker/bootstrap-colorpicker.js" />
+		<!-- password strength checker -->
+		<h:outputScript library="lib" name="complexify/jquery.complexify.min.js" />
+        <!-- toggle buttons -->
+        <h:outputScript library="lib" name="toggle_buttons/jquery.toggle.buttons.js" />
+		<!-- form functions -->
         <h:outputScript library="js" name="gebo_forms.js" />
 
 		<script>
