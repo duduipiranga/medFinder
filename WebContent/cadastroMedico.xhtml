@@ -24,7 +24,7 @@
                             <div class="row-fluid">
                                 <div class="span2"></div>
                                 <div class="span8">
-                                    <form id="validate_wizard" class="stepy-wizzard form-horizontal">
+                                    <form id="validate_wizard_1" class="stepy-wizzard form-horizontal">
                                     
                                         <fieldset title="Dados Pessoais">
                                             <legend class="hide">Digite corretamente seus dados pessoais!</legend>
@@ -44,7 +44,7 @@
                                             <div class="formSep control-group">
                                                 <h:outputLabel value="CRM : " for="filtroCrm" styleClass="control-label" />
                                                 <div class="controls">
-                                                    <p:inputText id="filtroCrm" size="10" styleClass="span10" />
+                                                    <p:inputText id="filtroCrm" size="10" styleClass="span3" />
                                                 </div>
                                             </div>
                                             <div class="formSep control-group">
@@ -56,7 +56,10 @@
                                             <div class="formSep control-group">
                                                 <h:outputLabel value="Senha : " for="filtroSenha" styleClass="control-label" />
                                                 <div class="controls">
-                                                    <p:password id="filtroSenha"  />
+                                                    <p:password id="filtroSenha" styleClass="span8"   />
+													<div id="pass_progress" class="progress progress-danger" style="width:60%">
+														<div class="bar" style="width: 0"></div>
+													</div>
                                                 </div>
                                             </div>
                                             <div class="formSep control-group">

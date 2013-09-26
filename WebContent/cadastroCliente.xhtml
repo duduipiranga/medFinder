@@ -79,7 +79,10 @@
                                             <div class="formSep control-group">
                                                 <h:outputLabel value="Senha : " for="filtroSenha" styleClass="control-label" />
                                                 <div class="controls">
-                                                    <p:password id="filtroSenha" value="#{cadastroClienteBean.senha}" feedback="true" inline="true" tabindex="6" />
+                                                    <p:password id="filtroSenha" styleClass="span8"   />
+													<div id="pass_progress" class="progress progress-danger" style="width:60%">
+														<div class="bar" style="width: 0"></div>
+													</div>
                                                 </div>
                                             </div>
                                             <div class="formSep control-group">
@@ -97,21 +100,21 @@
                                              <div class="formSep control-group">
                                                 <h:outputLabel value="CEP: " for="filtroCEP" styleClass="control-label" />
                                                 <div class="controls">
-                                                    <p:inputText id="filtroCEP" size="10" styleClass="span10" />
+                                                    <p:inputText id="filtroCEP" styleClass="span8" onblur="getEndereco()" />
                                                 </div>
                                             </div>
                                             
                                             <div class="formSep control-group">
                                                 <h:outputLabel value="Endereço : " for="filtroEndereco" styleClass="control-label" />
                                                 <div class="controls">
-                                                    <p:inputText id="filtroEndereco" size="60" styleClass="span10" />
+                                                    <p:inputText id="filtroEndereco" styleClass="span10" />
                                                 </div>
                                             </div>
                                             
                                             <div class="formSep control-group">
                                                 <h:outputLabel value="Número : " for="filtroNumero" styleClass="control-label" />
                                                 <div class="controls">
-                                                    <p:inputText id="filtroNumero" size="5" styleClass="span10" />
+                                                    <p:inputText id="filtroNumero" styleClass="span8" />
                                                 </div>
                                             </div>
                                             

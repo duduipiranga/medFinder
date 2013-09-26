@@ -124,7 +124,7 @@
                 <div class="navbar navbar-fixed-top">
                     <div class="navbar-inner">
                         <div class="container-fluid">
-                            <h:link styleClass="brand" outcome="home" ><i class="icon-home icon-white"></i>#{templateBundle.home}</h:link>
+                            <h:link styleClass="brand" outcome="contato" ><i class="icon-home icon-white"></i>#{templateBundle.home}</h:link>
                             <ul class="nav user_menu pull-right">
                                 <li class="divider-vertical hidden-phone hidden-tablet"></li>
                                 <li class="dropdown">
@@ -260,11 +260,13 @@
         <h:outputScript library="lib" name="toggle_buttons/jquery.toggle.buttons.js" />
 		<!-- form functions -->
         <h:outputScript library="js" name="gebo_forms.js" />
+        <!-- CEP functions -->
+        <h:outputScript library="js" name="cep.js" />
 
 		<script>
-			$(document).ready(function() {
+			 $(document).ready(function() {
 				setTimeout('$("html").removeClass("js")', 1000);
-			});
+			}); 
 		</script>
 
 	</h:body>

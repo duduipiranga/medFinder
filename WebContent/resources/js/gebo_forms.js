@@ -17,8 +17,6 @@
 		gebo_spinners.init();
 		//* nice form elements
         gebo_uniform.init();
-		//* jQuery UI sliders
-		gebo_sliders.init();
 		//* animated jQuery UI progressbars
 		gebo_progressbars.init();
 		//* 2col multiselect
@@ -52,10 +50,9 @@
 	//* masked input
 	gebo_mask_input = {
 		init: function() {
-			$("#mask_date").inputmask("99/99/9999",{placeholder:"dd/mm/yyyy"});
-			$("#mask_phone").inputmask("(999) 999-9999");
-			$("#mask_ssn").inputmask("999-99-9999");
-			$("#mask_product").inputmask("AA-999-A999");
+			$("#filtroDataNasc").inputmask("99/99/9999",{placeholder:"dd/mm/aaaa"});
+			$("#filtroCEP").inputmask("99999-999",{placeholder:"00000-000"});
+			filtroCEP
 		}
 	};
 	
@@ -229,55 +226,6 @@
 		}
 	};
 
-	//* sliders
-	gebo_sliders = {
-		init: function(){
-			//* default slider
-			$( ".ui_slider1" ).slider({
-				value:100,
-				min: 0,
-				max: 500,
-				step: 50,
-				slide: function( event, ui ) {
-					$( ".ui_slider1_val" ).text( "$" + ui.value );
-					$( "#ui_slider_default_val" ).val( "$" + ui.value );
-				}
-			});
-			$( ".ui_slider1_val" ).text( "$" + $( ".ui_slider1" ).slider( "value" ) );
-			$( "#ui_slider_default_val" ).val( "$" + $( ".ui_slider1" ).slider( "value" ) );
-
-			//* range slider
-			$( ".ui_slider2" ).slider({
-				range: true,
-				min: 0,
-				max: 500,
-				values: [ 75, 300 ],
-				slide: function( event, ui ) {
-					$( ".ui_slider2_val" ).text( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
-					$( "#ui_slider_min_val" ).val( "$" + ui.values[ 0 ] );
-					$( "#ui_slider_max_val" ).val( "$" + ui.values[ 1 ] );
-				}
-			});
-			$( ".ui_slider2_val" ).text( "$" + $( ".ui_slider2" ).slider( "values", 0 ) + " - $" + $( ".ui_slider2" ).slider( "values", 1 ) );
-			$( "#ui_slider_min_val" ).val( "$" + $( ".ui_slider2" ).slider( "values", 0 ) );
-			$( "#ui_slider_max_val" ).val( "$" + $( ".ui_slider2" ).slider( "values", 1 ) );
-			
-			//* slider with select
-			var select = $( "#ui_slider3_sel" );
-			var slider = $( "<div id='ui_slider3'></div>" ).insertAfter( select ).slider({
-				min: 1,
-				max: 6,
-				range: "min",
-				value: select[ 0 ].selectedIndex + 1,
-				slide: function( event, ui ) {
-					select[ 0 ].selectedIndex = ui.value - 1;
-				}
-			});
-			$( "#ui_slider3_sel" ).change(function() {
-				slider.slider( "value", this.selectedIndex + 1 );
-			});
-		}
-	};
 	
 	//* multiselect
 	gebo_multiselect = {
@@ -337,10 +285,7 @@
 	//* enhanced select elements
 	gebo_chosen = {
 		init: function(){
-			$(".chzn_a").chosen({
-				allow_single_deselect: true
-			});
-			$(".chzn_b").chosen();
+			//$("#filtroOperadora").chosen();
 		}
 	};
     
@@ -453,7 +398,7 @@
 	//* password strength checker
 	gebo_pass_check = {
 		init: function() {
-			$("#pass_check").complexify({
+			$("#filtroSenha").complexify({
 					minimumChars: '6',
 					strengthScaleFactor: '0.8'
 				}, function (valid, complexity) {
