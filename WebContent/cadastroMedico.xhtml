@@ -26,8 +26,8 @@
                                 <div class="span8">
                                     <form id="validate_wizard_1" class="stepy-wizzard form-horizontal">
                                     
-                                        <fieldset title="Dados Pessoais">
-                                            <legend class="hide">Digite corretamente seus dados pessoais!</legend>
+                                        <fieldset title="Pessoais">
+                                            <legend class="hide">Dados Pessoais!</legend>
 
                                             <div class="formSep control-group">
                                                 <h:outputLabel value="Nome : " for="filtroNome" styleClass="control-label" />
@@ -62,14 +62,16 @@
 													</div>
                                                 </div>
                                             </div>
+                                            
                                             <div class="formSep control-group">
-                                                <h:outputLabel value="Valor da Consulta  : " for="filtroValorConsulta" styleClass="control-label" />
+                                                <h:outputLabel value="Descrição Formação  : " for="filtroDescricaoFormacao" styleClass="control-label" />
                                                 <div class="controls">
-                                                    <p:inputText id="filtroValorConsulta" size="10" styleClass="span10" />
+                                                    <h:inputTextarea id="filtroDescricaoFormacao" styleClass="span10" ></h:inputTextarea>
                                                 </div>
                                             </div>
+                                            
                                             <div class="formSep control-group">
-                                                <h:outputLabel value="Foto Perfil  : " for="filtroFoto" styleClass="control-label" />
+                                                <h:outputLabel value="Foto Perfil  : "  styleClass="control-label" />
                                                 <div class="span4">
 													<div data-provides="fileupload" class="fileupload fileupload-new"><input type="hidden" />
 														<div style="width: 200px; height: 150px; line-height: 150px;" class="fileupload-preview thumbnail"></div>
@@ -84,27 +86,47 @@
                                             
 
                                         </fieldset>
-                                        <fieldset title="Dados do Endereço">
-                                            <legend class="hide">Dados completo do endereço!</legend>
+                                        
+                                        <fieldset title="Profissionais">
+                                            <legend class="hide">Dados profissionais!</legend>
+
+                                             <div class="formSep control-group">
+                                                <h:outputLabel value="Valor da Consulta  : " for="filtroValorConsulta" styleClass="control-label" />
+                                                <div class="controls">
+                                                    <p:inputText id="filtroValorConsulta" size="10" styleClass="span3" />
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="formSep control-group">
+                                                <h:outputLabel value="Descrição Profissional  : " for="filtroDescricaoProf" styleClass="control-label" />
+                                                <div class="controls">
+                                                    <h:inputTextarea id="filtroDescricaoProf" styleClass="span10" ></h:inputTextarea>
+                                                </div>
+                                            </div>
+
+                                        </fieldset>
+                                        
+                                        <fieldset title="Consultório">
+                                            <legend class="hide">Dados Consultório!</legend>
                                             
                                              <div class="formSep control-group">
                                                 <h:outputLabel value="CEP: " for="filtroCEP" styleClass="control-label" />
                                                 <div class="controls">
-                                                    <p:inputText id="filtroCEP" size="10" styleClass="span10" />
+                                                    <p:inputText id="filtroCEP" styleClass="span10" onblur="getEndereco()" />
                                                 </div>
                                             </div>
                                             
                                             <div class="formSep control-group">
                                                 <h:outputLabel value="Endereço : " for="filtroEndereco" styleClass="control-label" />
                                                 <div class="controls">
-                                                    <p:inputText id="filtroEndereco" size="60" styleClass="span10" />
+                                                    <p:inputText id="filtroEndereco" styleClass="span10" />
                                                 </div>
                                             </div>
                                             
                                             <div class="formSep control-group">
                                                 <h:outputLabel value="Número : " for="filtroNumero" styleClass="control-label" />
                                                 <div class="controls">
-                                                    <p:inputText id="filtroNumero" size="5" styleClass="span10" />
+                                                    <p:inputText id="filtroNumero" styleClass="span10" />
                                                 </div>
                                             </div>
                                             
@@ -119,29 +141,10 @@
                                 				<a class="close" data-dismiss="alert">×</a>
                                 				Os campos Cidade e Estado não são solicitados, pois o sistema é somente para a cidade de São Paulo!
                             				</div>
-                                            
-                                        </fieldset>
-                                        <fieldset title="Additional info">
-                                            <legend class="hide">Lorem ipsum dolor&hellip;</legend>
-                                            <div class="formSep control-group">
-                                                <label for="v_message" class="control-label">Your Message:</label>
-                                                <div class="controls">
-                                                    <textarea name="v_message" id="v_message" rows="3"></textarea>
-                                                </div>
-                                            </div>
-                                            <div class="control-group">
-                                                <label class="control-label">Newsletter:</label>
-                                                <div class="controls">
-                                                    <label class="radio inline" for="newsletter_yes">
-                                                        <input type="radio" value="yes" id="newsletter_yes" name="v_newsletter" /> Yes
-                                                    </label>
-                                                    <label class="radio inline" for="newsletter_no">
-                                                        <input type="radio" value="no" id="newsletter_no" name="v_newsletter" /> No
-                                                    </label>
-                                                </div>
-                                            </div>
                                         </fieldset>
                                         <button type="button" class="finish btn btn-primary"><i class="icon-ok icon-white"></i> Send registration</button>
+                                        
+                                        
                                     </form>
                                 </div>
                             </div>

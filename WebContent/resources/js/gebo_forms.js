@@ -140,7 +140,8 @@
 	//* textarea autosize
 	gebo_auto_expand = {
 		init: function() {
-			$('#auto_expand').autosize();
+			$('#filtroDescricaoFormacao').autosize();
+			$('#filtroDescricaoProf').autosize();
 		}
 	};
     

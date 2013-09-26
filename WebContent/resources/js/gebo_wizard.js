@@ -133,6 +133,14 @@
 						required	: true,
 						minlength	: 5
 					},
+					'filtroDescricaoFormacao'	: {
+						required	: true,
+						minlength	: 15
+					},
+					'filtroDescricaoProf'	: {
+						required	: true,
+						minlength	: 15
+					},
 					'filtroEmail'	: {
 						required: true, email: true
 					},
@@ -165,6 +173,8 @@
 					'filtroNome'	: { required:  'Digite seu nome',minlength: 'Minimo de 3 caracteres' },
 					'filtroSobrenome'	: { required:  'Digite seu sobrenome',minlength: 'Minimo de 3 caracteres' },
 					'filtroCrm'	: { required:  'Digite seu CRM',minlength: 'Minimo de 5 caracteres' },
+					'filtroDescricaoFormacao'	: { required:  'Digite sua forma&ccedil;&atilde;o',minlength: 'Minimo de 15 caracteres' },
+					'filtroDescricaoProf'	: { required:  'Digite sua descri&ccedil;&atilde;o profissional',minlength: 'Minimo de 15 caracteres' },
 					'filtroEmail'	: { required:  'Digite seu email',email: 'Por favor insira um e-mail valido' },
 					'filtroSenha'	: { required:  'Digite sua senha',minlength: 'Minimo de 5 caracteres' },
 					'filtroDataNasc'	: { required:  'Digite sua data de nascimento',minlength: 'Minimo de 10 caracteres' },
