@@ -2,22 +2,23 @@
 
 	$(document).ready(function() {
 		//* simple wizard
-		gebo_wizard.simple();
+		//gebo_wizard.simple();
 		//* wizard with validation
 		gebo_wizard.validation();
+		gebo_wizard.validation2();
 		//* add step numbers to titles
 		gebo_wizard.steps_nb();
 	});
 
 	gebo_wizard = {
-		simple: function(){
+/*		simple: function(){
 			$('#simple_wizard').stepy({
 				titleClick	: true,
 				nextLabel:      'Next <i class="icon-chevron-right icon-white"></i>',
 				backLabel:      '<i class="icon-chevron-left"></i> Back'
 			});
-		},
-		validation: function(){
+		},*/
+		validation2: function(){
 			$('#validate_wizard').stepy({
 				nextLabel:      'Avan&ccedil;ar <i class="icon-chevron-right icon-white"></i>',
 				backLabel:      '<i class="icon-chevron-left"></i> Voltar',
