@@ -5,8 +5,7 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:p="http://primefaces.org/ui"
-	xmlns:m="http://code.google.com/p/gmaps4jsf/">
+	xmlns:p="http://primefaces.org/ui">
 
 
 
@@ -102,19 +101,25 @@
 
 							<div class="inner">
 
-								<m:map width="650px" latitude="-23.55306353918853"
-									longitude="-46.634509453704815" height="400px" zoom="13"
-									autoReshape="true">
-
-
-									<ui:repeat var="loc" value="#{locs}">
-										<m:marker latitude="#{loc.latitude}"
-											longitude="#{loc.longitude}">
-											<m:htmlInformationWindow
-												htmlText="&lt;b&gt;#{loc.latitude}-#{loc.longitude}&lt;/b&gt;" />
-										</m:marker>
-									</ui:repeat>
-								</m:map>
+								<h:form>  
+  
+    <p:gmap center="36.890257,30.707417" zoom="13" type="HYBRID" model="#{mapBean.advancedModel}" style="width:600px;height:400px">  
+  
+        <p:ajax event="overlaySelect" listener="#{mapBean.onMarkerSelect}" />  
+  
+        <p:gmapInfoWindow>  
+            <p:outputPanel style="text-align:center;display:block;margin:auto:">  
+  
+                    <p:graphicImage value="/images/antalya/#{mapBean.marker.data}" height="150"/>  
+                    <br />  
+                    <h:outputText value="#{mapBean.marker.title}" />  
+  
+            </p:outputPanel>  
+  
+        </p:gmapInfoWindow>  
+    </p:gmap>  
+  
+</h:form>  
 
 							</div>
 							</section>
