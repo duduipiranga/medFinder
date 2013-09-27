@@ -3,8 +3,7 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui"
-	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:m="http://code.google.com/p/gmaps4jsf/">
+	xmlns:f="http://java.sun.com/jsf/core">
 <f:view locale="#{languangeBean.locale}" contentType="text/html">
 	<h:head>
 		<title><ui:insert name="title">Med Finder SP</ui:insert></title>
@@ -126,7 +125,7 @@
                 <div class="navbar navbar-fixed-top">
                     <div class="navbar-inner">
                         <div class="container-fluid">
-                            <h:link styleClass="brand" outcome="contato" ><i class="icon-home icon-white"></i>#{templateBundle.home}</h:link>
+                            <h:link styleClass="brand" outcome="contato" ><i class="icon-home icon-white"></i> #{templateBundle.home}</h:link>
                             <ul class="nav user_menu pull-right">
                                 <li class="divider-vertical hidden-phone hidden-tablet"></li>
                                 <li class="dropdown">
@@ -141,20 +140,20 @@
                             </ul>
 							<ul class="nav" id="mobile-nav">
 								 <li>
-									<h:link outcome="cadastroCliente"><i class="icon-user icon-white"></i>#{templateBundle.cadastro}</h:link>
+									<h:link outcome="cadastroCliente"><i class="icon-user icon-white"></i> #{templateBundle.cadastro}</h:link>
 								</li>
 								<li>
-									<h:link outcome="buscaMedicos"><i class="icon-th icon-white"></i>#{templateBundle.busca}</h:link>
+									<h:link outcome="buscaMedicos"><i class="icon-th icon-white"></i> #{templateBundle.busca}</h:link>
 								</li>
 								<li class="dropdown">
                                     <a data-toggle="dropdown" class="dropdown-toggle" href="#"><i class="icon-folder-close icon-white"></i> #{templateBundle.areaMedica} <b class="caret"></b></a>
                                     <ul class="dropdown-menu">
-                                        <li><h:link outcome="cadastroMedico">#{templateBundle.cadastrarPerfil}</h:link></li>
-                                        <li><h:link outcome="loginMedico">#{templateBundle.login}</h:link></li>
+                                        <li><h:link outcome="cadastroMedico"> #{templateBundle.cadastrarPerfil}</h:link></li>
+                                        <li><h:link outcome="loginMedico"> #{templateBundle.login}</h:link></li>
                                     </ul>
                                 </li>
 								<li>
-									<h:link outcome="contato">#{templateBundle.contato}</h:link>
+									<h:link outcome="contato"><i class="icon-user icon-white"></i> #{templateBundle.contato}</h:link>
 								</li>
 							</ul>
                         </div>
