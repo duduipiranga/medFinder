@@ -23,7 +23,7 @@
 					
 						 <div class="row-fluid">
                         <div class="span12">
-<<<<<<< HEAD
+
                             <h3 class="heading">Busca</h3>
                             <pm:page title="Maps">
 
@@ -67,37 +67,14 @@
 
                 <p:separator />
 
-                <p:commandButton type="button" value="My Location" onclick="findMe()"/>
+               
             </pm:content>
 
         </pm:view>
 
     </pm:page>
                             
-=======
-                            <h3 class="heading">Busca de Médicos</h3>
-                            
-                            
-                            <h:form>  
-  
-    <p:gmap center="36.890257,30.707417" zoom="13" type="HYBRID" model="#{mapBean.advancedModel}" style="width:600px;height:400px">  
-  
-        <p:ajax event="overlaySelect" listener="#{mapBean.onMarkerSelect}" />  
-  
-        <p:gmapInfoWindow>  
-            <p:outputPanel style="text-align:center;display:block;margin:auto:">  
-  
-                    <p:graphicImage value="/images/antalya/#{mapBean.marker.data}" height="150"/>  
-                    <br />  
-                    <h:outputText value="#{mapBean.marker.title}" />  
-  
-            </p:outputPanel>  
-  
-        </p:gmapInfoWindow>  
-    </p:gmap>  
-  
-</h:form>  
->>>>>>> 7ba35a90ae960b7109297199c977960491609fc4
+
                             
                         </div>
                     </div>
