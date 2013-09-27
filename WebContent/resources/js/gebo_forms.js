@@ -142,6 +142,8 @@
 		init: function() {
 			$('#filtroDescricaoFormacao').autosize();
 			$('#filtroDescricaoProf').autosize();
+			$('#contatoMsg').autosize();
+			
 		}
 	};
     
@@ -287,6 +289,8 @@
 	gebo_chosen = {
 		init: function(){
 			//$("#filtroOperadora").chosen();
+			//$("#filtroPlano").chosen();
+			
 		}
 	};
     

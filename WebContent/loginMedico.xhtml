@@ -20,7 +20,30 @@
 					
 						 <div class="row-fluid">
                         <div class="span12">
-                            <h3 class="heading">Cadastro de Usuário</h3>
+                            <h3 class="heading">Autenticação de Médico</h3>
+                            
+                            <form class="form-horizontal well">
+										<fieldset>
+											<p class="f_legend">Informe corretamente seus dados nos campos abaixo:</p>
+											<div class="control-group">
+												<h:outputLabel value="E-mail : " for="loginEmailMedico" styleClass="control-label" />
+												<div class="controls">
+													<p:inputText id="loginEmailMedico" styleClass="span10" />
+												</div>
+											</div>
+											<div class="control-group">
+												<h:outputLabel value="Senha : " for="loginSenhaMedico" styleClass="control-label" />
+												<div class="controls">
+													 <p:password id="loginSenhaMedico" styleClass="span10"   />
+												</div>
+											</div>
+											<div class="control-group">
+												<div class="controls">
+													<button class="btn btn-inverse" type="submit">Acessar</button>
+												</div>
+											</div>
+										</fieldset>
+									</form>
                             
                         </div>
                     </div>

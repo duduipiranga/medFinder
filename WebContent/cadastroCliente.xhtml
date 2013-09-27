@@ -31,7 +31,7 @@
                                             <div class="formSep control-group">
                                                 <h:outputLabel value="Operadora : " for="filtroOperadora" styleClass="control-label" />
                                                 <div class="controls">
-												<p:selectOneMenu id="filtroOperadora"
+												<h:selectOneMenu id="filtroOperadora"
 													converter="ConversorOperadora"
 													styleClass="field select medium"
 													value="#{homeBean.operadora}">
@@ -41,13 +41,13 @@
 														itemValue="Selecione" />
 													<f:selectItems value="#{homeBean.operadoras}" var="o"
 														itemValue="#{o}" itemLabel="#{o.ds_operadora}" />
-												</p:selectOneMenu>
+												</h:selectOneMenu>
 											</div>
                                             </div>
                                             <div class="formSep control-group">
                                                 <h:outputLabel value="Plano : " for="filtroPlano" styleClass="control-label" />
                                                 <div class="controls">
-                                                    <p:selectOneMenu id="filtroPlano" value="#{homeBean.plano}"
+                                                    <h:selectOneMenu id="filtroPlano" value="#{homeBean.plano}"
 													converter="ConversorPlano" styleClass="field select medium"
 													tabindex="1">
 													<f:selectItem id="planoDefault" itemLabel="Selecione"
@@ -55,7 +55,7 @@
 													<f:selectItems value="#{homeBean.planos}" var="p"
 														itemValue="#{p.id_plano}" itemLabel="#{p.ds_plano}" />
 
-												</p:selectOneMenu>
+												</h:selectOneMenu>
                                                 </div>
                                             </div>
                                             <div class="formSep control-group">

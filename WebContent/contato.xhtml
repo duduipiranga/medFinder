@@ -20,7 +20,48 @@
 					
 						 <div class="row-fluid">
                         <div class="span12">
-                            <h3 class="heading">Cadastro de Usuário</h3>
+                            <h3 class="heading">#{templateBundle.contato}</h3>
+                            
+                             <form class="form-horizontal well">
+										<fieldset>
+											<p class="f_legend">#{templateBundle.tit_contato}</p>
+											
+											<div class="control-group">
+												<h:outputLabel value="#{templateBundle.lbl_nome}" for="contatoNome" styleClass="control-label" />
+												<div class="controls">
+													<p:inputText id="contatoNome" styleClass="span10" />
+												</div>
+											</div>
+											
+											<div class="control-group">
+												<h:outputLabel value="#{templateBundle.lbl_email}" for="contatoEmail" styleClass="control-label" />
+												<div class="controls">
+													<p:inputText id="contatoEmail" styleClass="span10" />
+												</div>
+											</div>
+											
+											<div class="control-group">
+												<h:outputLabel value="#{templateBundle.lbl_assunto}" for="contatoAssunto" styleClass="control-label" />
+												<div class="controls">
+													<p:inputText id="contatoAssunto" styleClass="span10" />
+												</div>
+											</div>
+											
+											<div class="control-group">
+												<h:outputLabel value="#{templateBundle.lbl_mensagem}" for="contatoMsg" styleClass="control-label" />
+												<div class="controls">
+													<h:inputTextarea styleClass="span10" id="contatoMsg"></h:inputTextarea>
+												</div>
+											</div>
+											
+											
+											<div class="control-group">
+												<div class="controls">
+													<button class="btn btn-inverse" type="submit">#{templateBundle.btn_enviar}</button>
+												</div>
+											</div>
+										</fieldset>
+									</form>
                             
                         </div>
                     </div>

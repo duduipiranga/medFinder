@@ -25,6 +25,38 @@
                         <div class="span12">
 
                             <h3 class="heading">Busca</h3>
+                            
+                            
+                            <form class="well form-inline">
+										<p class="f_legend">Preencha os campos abaixo conforme sua necessidade.</p>
+										<p:inputText id="filtroBairro" value="Bairro" styleClass="input-small"/>
+										
+										<h:selectOneMenu id="filtroOperadora" converter="ConversorOperadora"
+													styleClass="field select medium"
+													value="#{homeBean.operadora}">
+													<p:ajax listener="#{homeBean.listaPlanosAjax}"
+														update="filtroPlano" process="@this" />
+													<f:selectItem id="default" itemLabel="Selecione sua Operadora"
+														itemValue="Selecione" />
+													<f:selectItems value="#{homeBean.operadoras}" var="o"
+														itemValue="#{o}"
+														itemLabel="#{o.ds_operadora}" />
+
+												</h:selectOneMenu>
+												
+											<h:selectOneMenu id="filtroPlano" value="#{homeBean.plano}" converter="ConversorPlano"
+													styleClass="field select medium" tabindex="1">
+													<f:selectItem id="planoDefault" itemLabel="Selecione seu Plano"
+														itemValue="0" />
+													<f:selectItems value="#{homeBean.planos}" var="p"
+														itemValue="#{p.id_plano}" itemLabel="#{p.ds_plano}" />
+
+												</h:selectOneMenu>
+										
+										<input type="password" placeholder="Password" class="input-small" />
+										<button class="btn" type="submit">Filtrar</button>
+									</form>
+                            
                             <pm:page title="Maps">
 
         <f:facet name="postinit">
