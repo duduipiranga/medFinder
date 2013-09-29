@@ -51,8 +51,8 @@
 	gebo_mask_input = {
 		init: function() {
 			$("#filtroDataNasc").inputmask("99/99/9999",{placeholder:"dd/mm/aaaa"});
-			$("#filtroCEP").inputmask("99999-999",{placeholder:"00000-000"});
-			$("#filtroCpf").inputmask("999.999.999-99",{placeholder:"000.000.000-00"});
+			$("#filtroCEP").inputmask("00000000",{placeholder:"00000000"});
+			$("#filtroCpf").inputmask("99999999999",{placeholder:"00000000000"});
 		}
 	};
 	
