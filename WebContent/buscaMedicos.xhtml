@@ -27,7 +27,9 @@
                             
                             <form class="well form-inline">
 										<p class="f_legend">Preencha os campos abaixo conforme sua necessidade.</p>
-										<p:inputText id="filtroBairro" value="Bairro" styleClass="input-small"/>
+										
+										<p:inputText id="filtroEndereco" styleClass="span3" onfocus="if(this.value=='Endereço') {this.value='';};" onblur="if(this.value=='') {this.value='Endereço';}" value="Endereço"  />
+		
 										
 										<h:selectOneMenu id="filtroOperadora" converter="ConversorOperadora"
 													styleClass="field select medium"
@@ -51,20 +53,23 @@
 
 												</h:selectOneMenu>
 										
-										<input type="password" placeholder="Password" class="input-small" />
+										<h:selectOneMenu id="filtroEspecialidade" converter="ConversorEspecialidade" value="#{cadastroMedicoMB.especialidade}">
+												<f:selectItem id="especialidadeDefault" itemLabel="Selecione a Especialidade"
+														itemValue="0" />
+												<f:selectItems value="#{cadastroMedicoMB.todasEspecialidades}" var="o"
+													itemValue="#{o}" itemLabel="#{o.nm_especialidade}" />
+											</h:selectOneMenu>
+										
 										<button class="btn" type="submit">Filtrar</button>
 									</form>
                             
-                            <div id="mapBusca">
-							<h:form id="form">
-								<m:map width="800px" latitude="-23.54267195958869" longitude="-46.62620671318359"
-									height="500px" zoom="12">									
+                            <div class="span11">
+							<h:form>
+								<m:map width="100%" latitude="-23.54267195958869" longitude="-46.62620671318359" zoom="12">									
 									<ui:repeat var="med" value="#{buscaMedicoMB.medicos}" >
 										<m:marker latitude="#{med.consultorio.endereco.latitude}" longitude="#{med.consultorio.endereco.longitude}"/>	
 										<m:icon imageURL="http://www.google.com/mapfiles/marker.png"/>
 										<m:htmlInformationWindow latitude="#{med.consultorio.endereco.latitude}" longitude="#{med.consultorio.endereco.longitude}"  htmlText="&lt;b&gt;#{med.nome} #{med.sobrenome}&lt;/b&gt;" />									
-										
-										
 									</ui:repeat>
 								</m:map>
 							</h:form>
