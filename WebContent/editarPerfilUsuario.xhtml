@@ -1,0 +1,160 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="_template.xhtml">
+
+	<ui:define name="title"> Med Finder SP</ui:define>
+	<ui:define name="content">
+		<!-- main content -->
+		<div id="contentwrapper">
+			<div class="main_content">
+
+				<div class="row-fluid">
+					<div class="span12">
+					
+						 <div class="row-fluid">
+                        <div class="span12">
+                            <h3 class="heading">Editar Perfil - Nome do Usuário</h3>
+                            
+                             <form class="form-horizontal well">
+										<fieldset>
+											<p class="f_legend">Mantenha seus dados sempre atualizados.</p>
+											
+                                            <fieldset>
+                                            <div class="formSep control-group">
+                                                <h:outputLabel value="Operadora : " for="filtroOperadora" styleClass="control-label" />
+                                                <div class="controls">
+												<h:selectOneMenu id="filtroOperadora"
+													converter="ConversorOperadora"
+													styleClass="field select medium"
+													value="#{homeBean.operadora}">
+													<p:ajax listener="#{homeBean.listaPlanosAjax}"
+														update="filtroPlano" process="@this" />
+													<f:selectItem id="default" itemLabel="Selecione"
+														itemValue="Selecione" />
+													<f:selectItems value="#{homeBean.operadoras}" var="o"
+														itemValue="#{o}" itemLabel="#{o.ds_operadora}" />
+												</h:selectOneMenu>
+											</div>
+                                            </div>
+                                            <div class="formSep control-group">
+                                                <h:outputLabel value="Plano : " for="filtroPlano" styleClass="control-label" />
+                                                <div class="controls">
+                                                    <h:selectOneMenu id="filtroPlano" value="#{homeBean.plano}"
+													converter="ConversorPlano" styleClass="field select medium"
+													tabindex="1">
+													<f:selectItem id="planoDefault" itemLabel="Selecione"
+														itemValue="0" />
+													<f:selectItems value="#{homeBean.planos}" var="p"
+														itemValue="#{p.id_plano}" itemLabel="#{p.ds_plano}" />
+
+												</h:selectOneMenu>
+                                                </div>
+                                            </div>
+                                            <div class="formSep control-group">
+                                                <h:outputLabel value="Nome : " for="filtroNome" styleClass="control-label" />
+                                                <div class="controls">
+                                                    <p:inputText id="filtroNome" value="#{cadastroClienteBean.cliente.nome}" size="60" styleClass="span10" />
+                                                </div>
+                                            </div>
+                                            <div class="formSep control-group">
+                                                <h:outputLabel value="Sobrenome : " for="filtroSobrenome" styleClass="control-label" />
+                                                <div class="controls">
+                                                    <p:inputText id="filtroSobrenome" value="#{cadastroClienteBean.cliente.sobrenome}" size="60" styleClass="span10" />
+                                                </div>
+                                            </div>
+                                            <div class="formSep control-group">
+                                                <h:outputLabel value="E-mail : " for="filtroEmail" styleClass="control-label" />
+                                                <div class="controls">
+                                                    <p:inputText id="filtroEmail" size="60" value="#{cadastroClienteBean.cliente.email}" styleClass="span10" />
+                                                </div>
+                                            </div>
+                                            <div class="formSep control-group">
+                                                <h:outputLabel value="Senha : " for="filtroSenha" styleClass="control-label" />
+                                                <div class="controls">
+                                                    <p:password id="filtroSenha" styleClass="span3" value="#{cadastroClienteBean.cliente.senha}"  />
+													<div id="pass_progress" class="progress progress-danger" style="width:60%">
+														<div class="bar" style="width: 0"></div>
+													</div>
+                                                </div>
+                                            </div>
+                                            <div class="formSep control-group">
+                                                <h:outputLabel value="Data de Nascimento  : " for="filtroDataNasc" styleClass="control-label" />
+                                                <div class="controls">
+                                                    <p:inputText id="filtroDataNasc" value="#{cadastroClienteBean.cliente.dt_nascimento}" styleClass="span2" />
+                                                </div>
+                                            </div>
+                                            
+
+                                        </fieldset>
+                                        <fieldset>
+                                             <div class="formSep control-group">
+                                                <h:outputLabel value="CEP: " for="filtroCEP" styleClass="control-label" />
+                                                <div class="controls">
+                                                    <p:inputText id="filtroCEP" value="#{cadastroClienteBean.cliente.endereco.cep}" styleClass="span2" onblur="getEndereco()" />
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="formSep control-group">
+                                                <h:outputLabel value="Endereço : " for="filtroEndereco" styleClass="control-label" />
+                                                <div class="controls">
+                                                    <p:inputText id="filtroEndereco" value="#{cadastroClienteBean.cliente.endereco.logradouro}" styleClass="span10" />
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="formSep control-group">
+                                                <h:outputLabel value="Número : " for="filtroNumero" styleClass="control-label" />
+                                                <div class="controls">
+                                                    <p:inputText id="filtroNumero" value="#{cadastroClienteBean.cliente.endereco.numero}" styleClass="span1" />
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="formSep control-group">
+                                                <h:outputLabel value="Complemento : " for="filtroComplemento" styleClass="control-label" />
+                                                <div class="controls">
+                                                    <p:inputText id="filtroComplemento" value="#{cadastroClienteBean.cliente.endereco.complemento}" styleClass="span8" />
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="formSep control-group">
+                                                <h:outputLabel value="Bairro : " for="filtroBairro" styleClass="control-label" />
+                                                <div class="controls">
+                                                    <p:inputText id="filtroBairro" value="#{cadastroClienteBean.cliente.endereco.bairro}" size="60" styleClass="span10" />
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="alert alert-info">
+                                				<a class="close" data-dismiss="alert">×</a>
+                                				Os campos Cidade e Estado não são solicitados, pois o sistema é somente para a cidade de São Paulo!
+                            				</div>
+                                            
+                                        </fieldset>
+											
+											
+											<div class="control-group">
+												<div class="controls">
+													<button class="btn btn-inverse" type="submit">#{templateBundle.btn_enviar}</button>
+												</div>
+											</div>
+										</fieldset>
+									</form>
+                            
+                        </div>
+                    </div>
+						
+						
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+	</ui:define>
+</ui:composition>
+</html>

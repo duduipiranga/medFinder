@@ -68,7 +68,8 @@
 					auto : true,
 					pager : false,
 					nav : false,
-					speed : 1000
+					speed : 2000,
+					pause: true
 				});
 
 			});
@@ -102,7 +103,8 @@
 									data-toggle="dropdown">Johny Smith <b class="caret"></b></a>
 									<ul class="dropdown-menu">
 										<li><h:link outcome="perfilMedico">#{templateBundle.meuPerfil}</h:link></li>
-										<li><h:link outcome="contato">#{templateBundle.editarPerfil}</h:link></li>
+										<li><h:link outcome="editarPerfilUsuario">#{templateBundle.editarPerfil}</h:link></li>
+										<li><h:link outcome="editarPerfilMedico">#{templateBundle.editarPerfil}</h:link></li>
 										<li class="divider"></li>
 										<li><h:link outcome="contato">#{templateBundle.sair}</h:link></li>
 									</ul></li>
