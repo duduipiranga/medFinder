@@ -158,6 +158,13 @@
                                             </div>
                                             
                                             <div class="formSep control-group">
+                                                <h:outputLabel value="Complemento : " for="filtroComplemento" styleClass="control-label" />
+                                                <div class="controls">
+                                                    <p:inputText id="filtroComplemento" value="#{cadastroMedicoMB.medico.consultorio.endereco.numero}" styleClass="span10" />
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="formSep control-group">
                                                 <h:outputLabel value="Bairro : " for="filtroBairro" styleClass="control-label" />
                                                 <div class="controls">
                                                     <p:inputText id="filtroBairro" value="#{cadastroMedicoMB.medico.consultorio.endereco.bairro}" size="60" styleClass="span10" />
