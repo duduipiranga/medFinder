@@ -32,37 +32,37 @@
                                             <div class="formSep control-group">
                                                 <h:outputLabel value="Nome : " for="filtroNome" styleClass="control-label" />
                                                 <div class="controls">
-                                                    <p:inputText id="filtroNome" size="60" styleClass="span10" />
+                                                    <p:inputText id="filtroNome" value="#{cadastroMedicoMB.medico.nome}" size="60" styleClass="span10" />
                                                 </div>
                                             </div>
                                             <div class="formSep control-group">
                                                 <h:outputLabel value="Sobrenome : " for="filtroSobrenome" styleClass="control-label" />
                                                 <div class="controls">
-                                                    <p:inputText id="filtroSobrenome" size="60" styleClass="span10" />
+                                                    <p:inputText id="filtroSobrenome" value="#{cadastroMedicoMB.medico.sobrenome}"  size="60" styleClass="span10" />
                                                 </div>
                                             </div>
                                             <div class="formSep control-group">
                                                 <h:outputLabel value="CPF : " for="filtroCpf" styleClass="control-label" />
                                                 <div class="controls">
-                                                    <p:inputText id="filtroCpf" styleClass="span5" />
+                                                    <p:inputText id="filtroCpf" value="#{cadastroMedicoMB.medico.id_medico}"  styleClass="span5" />
                                                 </div>
                                             </div>
                                             <div class="formSep control-group">
                                                 <h:outputLabel value="CRM : " for="filtroCrm" styleClass="control-label" />
                                                 <div class="controls">
-                                                    <p:inputText id="filtroCrm"  styleClass="span3" />
+                                                    <p:inputText id="filtroCrm" value="#{cadastroMedicoMB.medico.crm}"  styleClass="span3" />
                                                 </div>
                                             </div>
                                             <div class="formSep control-group">
                                                 <h:outputLabel value="E-mail : " for="filtroEmail" styleClass="control-label" />
                                                 <div class="controls">
-                                                    <p:inputText id="filtroEmail" size="60" styleClass="span10" />
+                                                    <p:inputText id="filtroEmail" value="#{cadastroMedicoMB.medico.email}"  size="60" styleClass="span10" />
                                                 </div>
                                             </div>
                                             <div class="formSep control-group">
                                                 <h:outputLabel value="Senha : " for="filtroSenha" styleClass="control-label" />
                                                 <div class="controls">
-                                                    <p:password id="filtroSenha" styleClass="span8"   />
+                                                    <p:password id="filtroSenha" value="#{cadastroMedicoMB.medico.senha}"  styleClass="span8"   />
 													<div id="pass_progress" class="progress progress-danger" style="width:60%">
 														<div class="bar" style="width: 0"></div>
 													</div>
@@ -72,7 +72,7 @@
                                             <div class="formSep control-group">
                                                 <h:outputLabel value="Descrição Formação  : " for="filtroDescricaoFormacao" styleClass="control-label" />
                                                 <div class="controls">
-                                                    <h:inputTextarea id="filtroDescricaoFormacao" styleClass="span10" ></h:inputTextarea>
+                                                    <h:inputTextarea id="filtroDescricaoFormacao" value="#{cadastroMedicoMB.medico.ds_formacao}"  styleClass="span10" ></h:inputTextarea>
                                                 </div>
                                             </div>
                                             
@@ -83,7 +83,7 @@
 														<div style="width: 200px; height: 150px; line-height: 150px;" class="fileupload-preview thumbnail"></div>
 														<div>
 															<span class="btn btn-file"><span class="fileupload-new">Selecionar Imagem</span><span class="fileupload-exists">Alterar</span>
-															<p:fileUpload id="filtroFotoConsultorio"  mode="simple"/>
+															<p:fileUpload id="filtroFotoConsultorio" value="#{cadastroMedicoMB.medico.foto}"   mode="simple"/>
 															</span>
 															<a data-dismiss="fileupload" class="btn fileupload-exists" href="#">Remover</a>
 														</div>
@@ -112,14 +112,14 @@
                                             <div class="formSep control-group">
                                                 <h:outputLabel value="Descrição Profissional  : " for="filtroDescricaoProf" styleClass="control-label" />
                                                 <div class="controls">
-                                                    <h:inputTextarea id="filtroDescricaoProf" styleClass="span10" ></h:inputTextarea>
+                                                    <h:inputTextarea id="filtroDescricaoProf" value="#{cadastroMedicoMB.medico.resumo_profissional}"  styleClass="span10" ></h:inputTextarea>
                                                 </div>
                                             </div>
                                             
                                              <div class="formSep control-group">
                                                 <h:outputLabel value="Valor da Consulta  : " for="filtroValorConsulta" styleClass="control-label" />
                                                 <div class="controls">
-                                                    <p:inputText id="filtroValorConsulta" size="10" styleClass="span3" />
+                                                    <p:inputText id="filtroValorConsulta" value="#{cadastroMedicoMB.medico.vl_consulta}"  size="10" styleClass="span3" />
                                                 </div>
                                             </div>
                                             
@@ -132,35 +132,35 @@
                                             <div class="formSep control-group">
                                                 <h:outputLabel value="Nome do Consultório : " for="filtroNomeConsultorio" styleClass="control-label" />
                                                 <div class="controls">
-                                                    <p:inputText id="filtroNomeConsultorio" size="60" styleClass="span10" />
+                                                    <p:inputText id="filtroNomeConsultorio" value="#{cadastroMedicoMB.medico.consultorio.nome}"  size="60" styleClass="span10" />
                                                 </div>
                                             </div>
                                             
                                              <div class="formSep control-group">
                                                 <h:outputLabel value="CEP: " for="filtroCEP" styleClass="control-label" />
                                                 <div class="controls">
-                                                    <p:inputText id="filtroCEP" styleClass="span10" onblur="getEndereco()" />
+                                                    <p:inputText id="filtroCEP" value="#{cadastroMedicoMB.medico.consultorio.endereco.cep}"  styleClass="span10" onblur="getEndereco()" />
                                                 </div>
                                             </div>
                                             
                                             <div class="formSep control-group">
                                                 <h:outputLabel value="Endereço : " for="filtroEndereco" styleClass="control-label" />
                                                 <div class="controls">
-                                                    <p:inputText id="filtroEndereco" styleClass="span10" />
+                                                    <p:inputText id="filtroEndereco" value="#{cadastroMedicoMB.medico.consultorio.endereco.logradouro}"  styleClass="span10" />
                                                 </div>
                                             </div>
                                             
                                             <div class="formSep control-group">
                                                 <h:outputLabel value="Número : " for="filtroNumero" styleClass="control-label" />
                                                 <div class="controls">
-                                                    <p:inputText id="filtroNumero" styleClass="span10" />
+                                                    <p:inputText id="filtroNumero" value="#{cadastroMedicoMB.medico.consultorio.endereco.numero}" styleClass="span10" />
                                                 </div>
                                             </div>
                                             
                                             <div class="formSep control-group">
                                                 <h:outputLabel value="Bairro : " for="filtroBairro" styleClass="control-label" />
                                                 <div class="controls">
-                                                    <p:inputText id="filtroBairro" size="60" styleClass="span10" />
+                                                    <p:inputText id="filtroBairro" value="#{cadastroMedicoMB.medico.consultorio.endereco.bairro}" size="60" styleClass="span10" />
                                                 </div>
                                             </div>
                                             

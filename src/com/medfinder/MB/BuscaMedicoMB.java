@@ -161,6 +161,11 @@ public class BuscaMedicoMB implements Serializable{
 		}
 	
 	public void buscarMedicos(){
+		if(plano == null){
+			mdao.retornaMedicosSoPorEspecialidade(especialidade);
+		}else{
+			mdao.retornaMedicosPorEspecialidadePorPlano(especialidade, plano);
+		}  
 		
 	}
 	
