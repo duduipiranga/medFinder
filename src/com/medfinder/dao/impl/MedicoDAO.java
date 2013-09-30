@@ -35,5 +35,14 @@ public class MedicoDAO extends HibernateDAO<Medico, String> {
 
 		return medicos;
 	}
+	public List<Medico> sortearEspecialidades(){
+		Query q = em
+				.createQuery("from Medico");
+		
+		medicos = q.getResultList();
+
+		return medicos;
+	}
+	
 
 }

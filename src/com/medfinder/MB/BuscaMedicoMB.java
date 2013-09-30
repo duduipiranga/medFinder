@@ -1,12 +1,15 @@
 package com.medfinder.MB;
 
+
+
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.event.ActionEvent;
+import javax.faces.event.AjaxBehaviorEvent;
 import javax.faces.model.SelectItem;
 
 import com.medfinder.dao.impl.EspecialidadeDAO;
@@ -20,10 +23,11 @@ import com.medfinder.entity.Plano;
 
 @ManagedBean
 @ViewScoped
-public class BuscaMedicoMB implements Serializable{	
+public class BuscaMedicoMB implements Serializable{		
+	private static final long serialVersionUID = -2703908329964124708L;
 	
-	private static final long serialVersionUID = 2814850488945255572L;
-
+	
+	
 
 	private List<Medico> medicos;	
 	
@@ -43,10 +47,27 @@ public class BuscaMedicoMB implements Serializable{
 	
 	private Especialidade especialidade;
 	
+	private String enderecoPrefixo;
 	
+	private String enderecoSufixo;
+
 	
-	
-	
+
+	public String getEnderecoPrefixo() {
+		return enderecoPrefixo;
+	}
+
+	public void setEnderecoPrefixo(String enderecoPrefixo) {
+		this.enderecoPrefixo = enderecoPrefixo;
+	}
+
+	public String getEnderecoSufixo() {
+		return enderecoSufixo;
+	}
+
+	public void setEnderecoSufixo(String enderecoSufixo) {
+		this.enderecoSufixo = enderecoSufixo;
+	}
 
 	public List<Especialidade> getEspecialidades() {
 		return especialidades;
@@ -143,14 +164,18 @@ public class BuscaMedicoMB implements Serializable{
 	
 	
 	@PostConstruct
-	public void init() {
-		operadorasList = new ArrayList<SelectItem>();
+	public void init() {		
 		operadoras = opdao.listAll();
+		
+		for (Operadora op : operadoras) {
+			System.out.println(op.getId_operadora());
+		}
+		
 		especialidades = espdao.listAll();
 
 	}
 	
-	public void listaPlanosAjax() {
+	public void listaPlanosAjax(AjaxBehaviorEvent event) {
 		System.out.println("Chegou nos planos");
 		planos = pdao.getPlanosByOperadora(operadora);
 		
@@ -161,11 +186,19 @@ public class BuscaMedicoMB implements Serializable{
 		}
 	
 	public void buscarMedicos(){
+		System.out.println("Chegou aqui");
 		if(plano == null){
-			mdao.retornaMedicosSoPorEspecialidade(especialidade);
+			medicos = mdao.retornaMedicosSoPorEspecialidade(especialidade);
 		}else{
-			mdao.retornaMedicosPorEspecialidadePorPlano(especialidade, plano);
+			medicos = mdao.retornaMedicosPorEspecialidadePorPlano(especialidade, plano);
 		}  
+		
+		enderecoSufixo = " Sao Paulo, Brazil";
+		
+	}
+	
+	public void qqCoisa(ActionEvent ae){
+		System.out.println("Qualquer coisa");
 		
 	}
 	
