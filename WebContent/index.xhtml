@@ -200,7 +200,14 @@
                         </div>
                         
                     <div class="span6">
-						Thiago viado
+                    <h3 class="heading">RSS de Noticias</h3>
+						<p:feedReader value="http://br.noticias.yahoo.com/rss/saude" var="feed" size="2">
+							<h:outputText value="#{feed.title}" style="font-weight: bold" />
+							<br />
+							<h:outputText value="#{feed.description.value}" escape="false" />
+							<p:separator />
+						</p:feedReader>
+						<h:link outcome="todosRss" styleClass="btn btn-inverse">Visualizar Todos</h:link>
 					</div>
 
 

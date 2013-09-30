@@ -11,6 +11,12 @@
 
 	<ui:define name="title"> Med Finder SP</ui:define>
 	<ui:define name="content">
+	<script>
+			function cadastaCliente(){
+				$("#sucesso").fadeIn();
+				return false;
+			}
+		</script>
 		<!-- main content -->
 		<div id="contentwrapper">
 			<div class="main_content">
@@ -24,6 +30,12 @@
                             <div class="row-fluid">
                                 <div class="span2"></div>
                                 <div class="span8">
+                                
+                                <div class="alert alert-success" id="sucesso" style="display: none;">
+                                <a class="close" data-dismiss="alert">×</a>
+                                <strong>Usuário</strong> Cadastrado com sucesso!
+                            </div>
+                                
                                     <form id="validate_wizard_1" class="stepy-wizzard form-horizontal">
                                     
                                         <fieldset title="Pessoais">
@@ -66,6 +78,13 @@
 													<div id="pass_progress" class="progress progress-danger" style="width:60%">
 														<div class="bar" style="width: 0"></div>
 													</div>
+                                                </div>
+                                            </div>
+                                            
+                                             <div class="formSep control-group">
+	                                            <h:outputLabel value="Confirmar Senha : " for="filtroCSenha" styleClass="control-label" />
+                                                <div class="controls">
+                                            		<p:password id="filtroCSenha" styleClass="span6" />
                                                 </div>
                                             </div>
                                             
@@ -191,7 +210,7 @@
                                 				Os campos Cidade e Estado não são solicitados, pois o sistema é somente para a cidade de São Paulo!
                             				</div>
                                         </fieldset>
-                                        <button type="button" class="finish btn btn-primary"><i class="icon-ok icon-white"></i> Send registration</button>
+                                        <button type="button" class="finish btn btn-primary" onclick="cadastaCliente();"><i class="icon-ok icon-white"></i> Cadastrar</button>
                                         
                                         
                                     </form>

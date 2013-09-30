@@ -53,6 +53,10 @@
 						required	: true,
 						minlength	: 3
 					},
+					'filtroRg'	: {
+						required	: true,
+						minlength	: 5
+					},
 					'filtroCpf'	: {
 						required	: true,
 						minlength	: 14
@@ -63,6 +67,11 @@
 					'filtroSenha'	: {
 						required	: true,
 						minlength	: 6
+					},
+					'filtroCSenha'	: {
+						required	: true,
+						minlength	: 6,
+						equalTo: "#filtroSenha"
 					},
 					'filtroDataNasc'	: {
 						required	: true,
@@ -88,9 +97,10 @@
 				}, messages: {
 					'filtroNome'	: { required:  'Digite seu nome',minlength: 'Minimo de 3 caracteres' },
 					'filtroSobrenome'	: { required:  'Digite seu sobrenome',minlength: 'Minimo de 3 caracteres' },
-					'filtroCpf'	: { required:  'Digite seu cpf',minlength: 'Minimo de 14 caracteres' },
+					'filtroRg'	: { required:  'Digite seu RG',minlength: 'Minimo de 5 caracteres' },
 					'filtroEmail'	: { required:  'Digite seu email',email: 'Por favor insira um e-mail valido' },
 					'filtroSenha'	: { required:  'Digite sua senha',minlength: 'Minimo de 5 caracteres' },
+					'filtroCSenha'	: { required:  'Digite sua confirma&ccedil;&atilde;o de senha',minlength: 'Minimo de 5 caracteres',equalTo: "O Campo Confirma Senha tem que ser igual ao campo senha" },
 					'filtroDataNasc'	: { required:  'Digite sua data de nascimento',minlength: 'Minimo de 10 caracteres' },
 					'filtroCEP'	: { required:  'Digite seu CEP',minlength: 'Minimo de 9 caracteres' },
 					'filtroEndereco'	: { required:  'Digite seu endereco',minlength: 'Minimo de 5 caracteres' },

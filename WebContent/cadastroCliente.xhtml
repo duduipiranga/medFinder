@@ -11,6 +11,12 @@
 
 	<ui:define name="title"> Med Finder SP</ui:define>
 	<ui:define name="content">
+		<script>
+			function cadastaCliente(){
+				$("#sucesso").fadeIn();
+				return false;
+			}
+		</script>
 		<!-- main content -->
 		<div id="contentwrapper">
 			<div class="main_content">
@@ -24,6 +30,12 @@
                             <div class="row-fluid">
                                 <div class="span2"></div>
                                 <div class="span8">
+                                
+                                <div class="alert alert-success" id="sucesso" style="display: none;">
+                                <a class="close" data-dismiss="alert">×</a>
+                                <strong>Usuário</strong> Cadastrado com sucesso!
+                            </div>
+                                
                                     <form id="validate_wizard" class="stepy-wizzard form-horizontal">
                                     
                                         <fieldset title="Dados Pessoais">
@@ -64,27 +76,45 @@
                                                     <p:inputText id="filtroNome" value="#{cadastroClienteBean.cliente.nome}" size="60" styleClass="span10" />
                                                 </div>
                                             </div>
+                                            
                                             <div class="formSep control-group">
                                                 <h:outputLabel value="Sobrenome : " for="filtroSobrenome" styleClass="control-label" />
                                                 <div class="controls">
                                                     <p:inputText id="filtroSobrenome" value="#{cadastroClienteBean.cliente.sobrenome}" size="60" styleClass="span10" />
                                                 </div>
                                             </div>
+                                            
+                                            <div class="formSep control-group">
+                                                <h:outputLabel value="RG : " for="filtroRg" styleClass="control-label" />
+                                                <div class="controls">
+                                                    <p:inputText id="filtroRg" size="60" styleClass="span10" />
+                                                </div>
+                                            </div>
+                                            
                                             <div class="formSep control-group">
                                                 <h:outputLabel value="E-mail : " for="filtroEmail" styleClass="control-label" />
                                                 <div class="controls">
                                                     <p:inputText id="filtroEmail" size="60" value="#{cadastroClienteBean.cliente.email}" styleClass="span10" />
                                                 </div>
                                             </div>
+                                            
                                             <div class="formSep control-group">
                                                 <h:outputLabel value="Senha : " for="filtroSenha" styleClass="control-label" />
                                                 <div class="controls">
-                                                    <p:password id="filtroSenha" styleClass="span8" value="#{cadastroClienteBean.cliente.senha}"  />
+                                                    <p:password id="filtroSenha" styleClass="span6" value="#{cadastroClienteBean.cliente.senha}"  />
 													<div id="pass_progress" class="progress progress-danger" style="width:60%">
 														<div class="bar" style="width: 0"></div>
 													</div>
                                                 </div>
                                             </div>
+                                            
+                                             <div class="formSep control-group">
+	                                            <h:outputLabel value="Confirmar Senha : " for="filtroCSenha" styleClass="control-label" />
+                                                <div class="controls">
+                                            		<p:password id="filtroCSenha" styleClass="span6" />
+                                                </div>
+                                            </div>
+                                            
                                             <div class="formSep control-group">
                                                 <h:outputLabel value="Data de Nascimento  : " for="filtroDataNasc" styleClass="control-label" />
                                                 <div class="controls">
@@ -138,8 +168,7 @@
                             				</div>
                                             
                                         </fieldset>
-                                        <button type="button" class="finish btn btn-primary"><i class="icon-ok icon-white"></i> Send registration</button>
-                                        
+                                        <button type="button" class="finish btn btn-primary" onclick="cadastaCliente();"><i class="icon-ok icon-white"></i> Cadastrar</button>
                                     </form>
                                 </div>
                             </div>
