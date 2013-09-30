@@ -7,8 +7,6 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import javax.faces.model.SelectItem;
-
 import com.medfinder.dao.impl.PlanoDAO;
 import com.medfinder.entity.Cliente;
 import com.medfinder.entity.Plano;
@@ -22,22 +20,22 @@ public class CadastroClienteBean {
 	
 	private Plano plano;
 	
-	private List<SelectItem> planos;
+	//private List<SelectItem> planos;
 	
-	private List<Plano> planosList;
+	private List<Plano> planos;
 
 	private Date dataNasc;
 	private String senha;
 	private String cep;
 	
 	
-	public List<Plano> getPlanosList() {
+	/*public List<Plano> getPlanosList() {
 		return planosList;
 	}
 
 	public void setPlanosList(List<Plano> planosList) {
 		this.planosList = planosList;
-	}
+	}*/
 
 	public Cliente getCliente() {
 		return cliente;
@@ -55,11 +53,11 @@ public class CadastroClienteBean {
 		this.plano = plano;
 	}
 
-	public List<SelectItem> getPlanos() {
+	public List<Plano> getPlanos() {
 		return planos;
 	}
 
-	public void setPlanos(List<SelectItem> planos) {
+	public void setPlanos(List<Plano> planos) {
 		this.planos = planos;
 	}
 
@@ -94,14 +92,13 @@ public class CadastroClienteBean {
 	@PostConstruct
 	public void init(){
 		cliente = new Cliente();
-		planosList = pdao.listAll();
-		planos = new ArrayList<SelectItem>();
+		planos = pdao.listAll();
+		plano = new Plano();
 		
-		for (Plano p : planosList) {
+		
+		/*for (Plano p : planos) {
 			planos.add(new SelectItem(p));
-		}		
-		
-		plano = new Plano();		
+		}*/					
 		
 	}
 	

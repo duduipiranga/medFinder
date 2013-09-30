@@ -39,33 +39,17 @@
                                     <form id="validate_wizard" class="stepy-wizzard form-horizontal">
                                     
                                         <fieldset title="Dados Pessoais">
-                                            <legend class="hide">Digite corretamente seus dados pessoais!</legend>
-                                            <div class="formSep control-group">
-                                                <h:outputLabel value="Operadora : " for="filtroOperadora" styleClass="control-label" />
-                                                <div class="controls">
-												<h:selectOneMenu id="filtroOperadora"
-													converter="ConversorOperadora"
-													styleClass="field select medium"
-													value="#{homeBean.operadora}">
-													<p:ajax listener="#{homeBean.listaPlanosAjax}"
-														update="filtroPlano" process="@this" />
-													<f:selectItem id="default" itemLabel="Selecione"
-														itemValue="Selecione" />
-													<f:selectItems value="#{homeBean.operadoras}" var="o"
-														itemValue="#{o}" itemLabel="#{o.ds_operadora}" />
-												</h:selectOneMenu>
-											</div>
-                                            </div>
+                                            <legend class="hide">Digite corretamente seus dados pessoais!</legend>                                            
                                             <div class="formSep control-group">
                                                 <h:outputLabel value="Plano : " for="filtroPlano" styleClass="control-label" />
                                                 <div class="controls">
-                                                    <h:selectOneMenu id="filtroPlano" value="#{homeBean.plano}"
+                                                    <h:selectOneMenu id="filtroPlano" value="#{cadastroClienteBean.plano}"
 													converter="ConversorPlano" styleClass="field select medium"
 													tabindex="1">
 													<f:selectItem id="planoDefault" itemLabel="Selecione"
 														itemValue="0" />
-													<f:selectItems value="#{homeBean.planos}" var="p"
-														itemValue="#{p.id_plano}" itemLabel="#{p.ds_plano}" />
+													<f:selectItems value="#{cadastroClienteBean.planos}" var="p"
+														itemValue="#{p.id_plano}" itemLabel="#{p.operadora.ds_operadora} #{p.ds_plano}" />
 
 												</h:selectOneMenu>
                                                 </div>
