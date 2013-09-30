@@ -19,6 +19,7 @@ public class ConversorOperadora implements Converter {
 	@Override
 	public Object getAsObject(FacesContext arg0, UIComponent arg1, String id) {
 
+		System.out.println("Entrou no conversor");
 		if (id != null) {
 			System.out.println("ID é :"+id);
 			try {

@@ -1,15 +1,12 @@
 package com.medfinder.MB;
 
-
-
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
-import javax.faces.event.ActionEvent;
-import javax.faces.event.AjaxBehaviorEvent;
 import javax.faces.model.SelectItem;
 
 import com.medfinder.dao.impl.EspecialidadeDAO;
@@ -23,16 +20,14 @@ import com.medfinder.entity.Plano;
 
 @ManagedBean
 @ViewScoped
-public class BuscaMedicoMB implements Serializable{		
-	private static final long serialVersionUID = -2703908329964124708L;
-	
-	
-	
+public class BuscaMedicoMB implements Serializable {
 
-	private List<Medico> medicos;	
-	
+	private static final long serialVersionUID = 2814850488945255572L;
+
+	private List<Medico> medicos;
+
 	private List<Plano> planos;
-	
+
 	private List<Especialidade> especialidades;
 
 	private List<Operadora> operadoras;
@@ -40,34 +35,12 @@ public class BuscaMedicoMB implements Serializable{
 	private List<SelectItem> planosList;
 
 	private List<SelectItem> operadorasList;
-	
+
 	private Plano plano;
-	
+
 	private Operadora operadora;
-	
+
 	private Especialidade especialidade;
-	
-	private String enderecoPrefixo;
-	
-	private String enderecoSufixo;
-
-	
-
-	public String getEnderecoPrefixo() {
-		return enderecoPrefixo;
-	}
-
-	public void setEnderecoPrefixo(String enderecoPrefixo) {
-		this.enderecoPrefixo = enderecoPrefixo;
-	}
-
-	public String getEnderecoSufixo() {
-		return enderecoSufixo;
-	}
-
-	public void setEnderecoSufixo(String enderecoSufixo) {
-		this.enderecoSufixo = enderecoSufixo;
-	}
 
 	public List<Especialidade> getEspecialidades() {
 		return especialidades;
@@ -106,8 +79,6 @@ public class BuscaMedicoMB implements Serializable{
 	MedicoDAO mdao = new MedicoDAO();
 	EspecialidadeDAO espdao = new EspecialidadeDAO();
 
-	
-	
 	public List<Plano> getPlanos() {
 		return planos;
 	}
@@ -138,7 +109,7 @@ public class BuscaMedicoMB implements Serializable{
 
 	public void setOperadorasList(List<SelectItem> operadorasList) {
 		this.operadorasList = operadorasList;
-	}	
+	}
 
 	public List<Medico> getMedicos() {
 		return medicos;
@@ -147,7 +118,7 @@ public class BuscaMedicoMB implements Serializable{
 	public void setMedicos(List<Medico> medicos) {
 		this.medicos = medicos;
 	}
-	
+
 	public String cadastrar() {
 		String retorno = "cadastroCliente?faces-redirect=true";
 
@@ -160,47 +131,31 @@ public class BuscaMedicoMB implements Serializable{
 		return retorno;
 
 	}
-	
-	
-	
+
 	@PostConstruct
-	public void init() {		
+	public void init() {
+		operadorasList = new ArrayList<SelectItem>();
 		operadoras = opdao.listAll();
-		
-		for (Operadora op : operadoras) {
-			System.out.println(op.getId_operadora());
-		}
-		
 		especialidades = espdao.listAll();
 
 	}
-	
-	public void listaPlanosAjax(AjaxBehaviorEvent event) {
+
+	public void listaPlanosAjax() {
 		System.out.println("Chegou nos planos");
 		planos = pdao.getPlanosByOperadora(operadora);
-		
-		
+
 		for (Plano p : planos) {
 			System.out.println(p.getDs_plano());
 		}
+	}
+
+	public void buscarMedicos() {
+		if (plano == null) {
+			mdao.retornaMedicosSoPorEspecialidade(especialidade);
+		} else {
+			mdao.retornaMedicosPorEspecialidadePorPlano(especialidade, plano);
 		}
-	
-	public void buscarMedicos(){
-		System.out.println("Chegou aqui");
-		if(plano == null){
-			medicos = mdao.retornaMedicosSoPorEspecialidade(especialidade);
-		}else{
-			medicos = mdao.retornaMedicosPorEspecialidadePorPlano(especialidade, plano);
-		}  
-		
-		enderecoSufixo = " Sao Paulo, Brazil";
-		
+
 	}
-	
-	public void qqCoisa(ActionEvent ae){
-		System.out.println("Qualquer coisa");
-		
-	}
-	
 
 }
