@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<f:view>
+	<h:body>
+		<h:form>
+
+
+			<h:selectOneMenu id="filtroPlano"
+				value="#{cadastroClienteBean.plano}" converter="ConversorPlano"
+				styleClass="field select medium" tabindex="1">
+				<f:selectItem id="planoDefault" itemLabel="0" itemValue="0" />
+				<f:selectItems value="#{cadastroClienteBean.planos}" var="p"
+					itemValue="#{p}"
+					itemLabel="#{p.operadora.ds_operadora} #{p.ds_plano}" />
+
+			</h:selectOneMenu>
+
+			<h:outputLabel value="Nome : " for="filtroNome"
+				styleClass="control-label" />
+
+			<p:inputText id="filtroNome"
+				value="#{cadastroClienteBean.cliente.nome}" size="60"
+				styleClass="span10" />
+
+			<h:outputLabel value="Sobrenome : " for="filtroSobrenome"
+				styleClass="control-label" />
+
+			<p:inputText id="filtroSobrenome"
+				value="#{cadastroClienteBean.cliente.sobrenome}" size="60"
+				styleClass="span10" />
+
+			<h:outputLabel value="RG : " for="filtroRg"
+				styleClass="control-label" />
+
+			<p:inputText id="filtroRg"
+				value="#{cadastroClienteBean.cliente.id_cliente}" size="60"
+				styleClass="span10" />
+
+			<h:outputLabel value="E-mail : " for="filtroEmail"
+				styleClass="control-label" />
+			<p:inputText id="filtroEmail" size="60"
+				value="#{cadastroClienteBean.cliente.email}" styleClass="span10" />
+
+			<h:outputLabel value="Senha : " for="filtroSenha"
+				styleClass="control-label" />
+			<p:password id="filtroSenha"
+				value="#{cadastroClienteBean.cliente.senha}" />
+
+
+			<h:outputLabel value="Confirmar Senha : " for="filtroCSenha"
+				styleClass="control-label" />
+			<p:password id="filtroCSenha" />
+			
+
+			<h:outputLabel value="CEP: " for="filtroCEP"
+				styleClass="control-label" />
+
+			<p:inputText id="filtroCEP"
+				value="#{cadastroClienteBean.endereco.cep}" styleClass="span8"
+				onblur="getEndereco()" />
+
+			<h:outputLabel value="Endereço : " for="filtroEndereco"
+				styleClass="control-label" />
+
+			<p:inputText id="filtroEndereco"
+				value="#{cadastroClienteBean.endereco.logradouro}"
+				styleClass="span10" />
+
+
+			<h:outputLabel value="Número : " for="filtroNumero"
+				styleClass="control-label" />
+			<p:inputText id="filtroNumero"
+				value="#{cadastroClienteBean.endereco.numero}" styleClass="span8" />
+
+			<h:outputLabel value="Complemento : " for="filtroComplemento"
+				styleClass="control-label" />
+
+			<p:inputText id="filtroComplemento"
+				value="#{cadastroClienteBean.endereco.complemento}"
+				styleClass="span8" />
+
+			<h:outputLabel value="Bairro : " for="filtroBairro"
+				styleClass="control-label" />
+			<p:inputText id="filtroBairro"
+				value="#{cadastroClienteBean.endereco.bairro}" size="60"
+				styleClass="span10" />
+
+			<h:commandButton value="Cadastrar"
+				action="#{cadastroClienteBean.salvarCliente}">
+			</h:commandButton>
+		</h:form>
+
+		<h:form>
+			<h:commandButton value="clica aqui" action="#{novoBean.facaAlgo}"></h:commandButton>
+
+		</h:form>
+
+
+
+
+	</h:body>
+</f:view>
+
+</html>
