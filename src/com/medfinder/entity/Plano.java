@@ -11,21 +11,19 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="AM_PLANO")
-@SequenceGenerator(name="seqPlano",
-sequenceName="SEQ_PLANO",allocationSize=1)
-public class Plano implements Serializable{	
+@Table(name = "AM_PLANO")
+@SequenceGenerator(name = "seqPlano", sequenceName = "SEQ_PLANO", allocationSize = 1)
+public class Plano implements  Serializable {
 	private static final long serialVersionUID = 6373208908026122920L;
 
 	@Id
 	private int id_plano;
-	
+
 	private String ds_plano;
-	
-	@JoinColumn(name="ID_OPERADORA")	
-	@ManyToOne(targetEntity=Operadora.class,cascade=CascadeType.ALL)
+
+	@JoinColumn(name = "ID_OPERADORA")
+	@ManyToOne(targetEntity = Operadora.class, cascade = CascadeType.ALL)
 	private Operadora operadora;
-	
 
 	public int getId_plano() {
 		return id_plano;
@@ -50,8 +48,28 @@ public class Plano implements Serializable{
 	public void setOperadora(Operadora operadora) {
 		this.operadora = operadora;
 	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj.getClass() != this.getClass())
+			return true;
+		if ((obj == null) || (obj.getClass() != this.getClass())){
+			return false;
+			}else{
+				return true;
+				}
+	}
 	
 	
 	
+	
+	@Override
+	public int hashCode() {
+		int hash = 7;
+		hash = 31 * hash + id_plano;
+		hash = 31 * hash + (null == ds_plano ? 0 : ds_plano.hashCode());
+		return hash;
+	}
 
 }

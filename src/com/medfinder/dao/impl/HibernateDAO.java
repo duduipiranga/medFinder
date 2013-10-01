@@ -29,6 +29,7 @@ public abstract class HibernateDAO<T, K> implements GenericDAO<T, K> {
 	public List<T> listAll() {
 		Query query = em.createQuery("from "+entityClass.getSimpleName());
 		List<T> resultList = query.getResultList();
+		em.close();
 		return resultList;
 	}
 	
@@ -41,8 +42,11 @@ public abstract class HibernateDAO<T, K> implements GenericDAO<T, K> {
 		
 		}catch(org.hibernate.HibernateException e){
 			e.printStackTrace();
+		}finally{
+			em.close();
 		}
-
+		
+		
 	}
 
 	@Override
@@ -51,6 +55,7 @@ public abstract class HibernateDAO<T, K> implements GenericDAO<T, K> {
 		
 		em.remove(em.merge(entity));
 		em.getTransaction().commit();
+		em.close();
 	}
 	
 
@@ -60,6 +65,7 @@ public abstract class HibernateDAO<T, K> implements GenericDAO<T, K> {
 		
 		em.remove(em.merge(entity));
 		em.getTransaction().commit();
+		em.close();
 	}
 
 	@Override
@@ -71,5 +77,6 @@ public abstract class HibernateDAO<T, K> implements GenericDAO<T, K> {
 	public void update(T entity) {
 		em.merge(entity);
 		em.getTransaction().commit();
+		em.close();
 	}
 }

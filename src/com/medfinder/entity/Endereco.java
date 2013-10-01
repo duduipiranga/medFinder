@@ -3,16 +3,21 @@ package com.medfinder.entity;
 import java.io.Serializable;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 
 @Entity
 @Table(name="AM_ENDERECO")
+@SequenceGenerator(name="seqEndereco", sequenceName="SEQ_ENDERECO", allocationSize=1)
 public class Endereco implements Serializable{		
 	private static final long serialVersionUID = -7163407954172996476L;
 	
 	@Id
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="seqEndereco")
 	private int id_endereco;
 	
 	private String logradouro;

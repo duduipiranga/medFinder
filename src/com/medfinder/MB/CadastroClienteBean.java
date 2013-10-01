@@ -1,41 +1,66 @@
 package com.medfinder.MB;
 
+
+import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
+import javax.faces.model.SelectItem;
+
+import com.medfinder.dao.impl.ClienteDAO;
 import com.medfinder.dao.impl.PlanoDAO;
 import com.medfinder.entity.Cliente;
+import com.medfinder.entity.Endereco;
 import com.medfinder.entity.Plano;
 
-@SessionScoped
+@ViewScoped
 @ManagedBean
-public class CadastroClienteBean {
+public class CadastroClienteBean implements Serializable{	
+
 	
+	private static final long serialVersionUID = 1L;
 	
+	private String id;
+
 	private Cliente cliente;
 	
-	private Plano plano;
-	
-	//private List<SelectItem> planos;
+	private Plano plano;	
 	
 	private List<Plano> planos;
 
-	private Date dataNasc;
-	private String senha;
-	private String cep;
+	private Endereco endereco;
+	
+	private List<SelectItem> listaPlanos;
 	
 	
-	/*public List<Plano> getPlanosList() {
-		return planosList;
+	
+
+	public String getId() {
+		return id;
 	}
 
-	public void setPlanosList(List<Plano> planosList) {
-		this.planosList = planosList;
-	}*/
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public List<SelectItem> getListaPlanos() {
+		return listaPlanos;
+	}
+
+	public void setListaPlanos(List<SelectItem> listaPlanos) {
+		this.listaPlanos = listaPlanos;
+	}
+
+	public Endereco getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(Endereco endereco) {
+		this.endereco = endereco;
+	}
 
 	public Cliente getCliente() {
 		return cliente;
@@ -61,45 +86,35 @@ public class CadastroClienteBean {
 		this.planos = planos;
 	}
 
-	public String getSenha() {
-		return senha;
-	}
-
-	public void setSenha(String senha) {
-		this.senha = senha;
-	}
-
-	public String getCep() {
-		return cep;
-	}
-
-	public void setCep(String cep) {
-		this.cep = cep;
-	}
-
-	public Date getDataNasc() {
-		return dataNasc;
-	}
-
-	public void setDataNasc(Date dataNasc) {
-		this.dataNasc = dataNasc;
-	}
+	
 	
 	PlanoDAO pdao = new PlanoDAO();
-	
+	ClienteDAO cdao = new ClienteDAO();
 	
 	
 	@PostConstruct
 	public void init(){
 		cliente = new Cliente();
+		endereco = new Endereco();
+		
+		listaPlanos = new ArrayList<SelectItem>();
 		planos = pdao.listAll();
-		plano = new Plano();
 		
+		for (Plano p : planos) {
+			listaPlanos.add(new SelectItem(p.getId_plano(), p.getDs_plano()));
+		}
 		
-		/*for (Plano p : planos) {
-			planos.add(new SelectItem(p));
-		}*/					
+		plano = new Plano();			
 		
+	}
+	
+	public void salvarCliente(){
+		
+		System.out.println("Chegou no salvar, porra!");
+		cliente.setPlano(plano);
+		cliente.setEndereco(endereco);
+		
+		cdao.insert(cliente);		
 	}
 	
 	

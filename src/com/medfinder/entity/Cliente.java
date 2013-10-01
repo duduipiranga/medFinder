@@ -3,6 +3,7 @@ package com.medfinder.entity;
 import java.io.Serializable;
 import java.util.Calendar;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -33,7 +34,7 @@ public class Cliente implements Serializable {
 	private Calendar dt_nascimento;
 	
 	@JoinColumn(name = "ID_ENDERECO")
-	@OneToOne(targetEntity = Endereco.class)
+	@OneToOne(targetEntity = Endereco.class, cascade = CascadeType.ALL)
 	private Endereco endereco;
 	
 	

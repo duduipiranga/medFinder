@@ -18,7 +18,7 @@ public class ConversorPlano implements Converter {
 	public Object getAsObject(FacesContext arg0, UIComponent arg1, String id) {
 
 		if (id != null) {
-			System.out.println(id);
+			System.out.println("id vindo do conversor: "+id);
 			try {
 				int ind = Integer.parseInt(id);
 				p = pdao.find(ind);
