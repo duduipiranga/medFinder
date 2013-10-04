@@ -13,18 +13,15 @@ import javax.persistence.Table;
 public class TelefoneConsultorio implements Serializable {
 
 	
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 1388629405596255304L;
 
 	@Id
 	private int id_telefone;
 	
-	private BigInteger numero;
+	private BigInteger numero;		
 	
-	
-	
+
 	
 
 	public int getId_telefone() {

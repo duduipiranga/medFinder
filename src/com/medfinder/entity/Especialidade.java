@@ -44,6 +44,30 @@ public class Especialidade implements Serializable {
 	public void setDs_especialidade(String ds_especialidade) {
 		this.ds_especialidade = ds_especialidade;
 	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj.getClass() != this.getClass())
+			return true;
+		if ((obj == null) || (obj.getClass() != this.getClass())){
+			return false;
+			}else{
+				return true;
+				}
+	}
+	
+	
+	
+	
+	@Override
+	public int hashCode() {
+		int hash = 7;
+		hash = 31 * hash + id_especialidade;
+		hash = 31 * hash + (null == ds_especialidade ? 0 : ds_especialidade.hashCode());
+		return hash;
+	}
 
 	
 	

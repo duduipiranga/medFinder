@@ -6,31 +6,36 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
 @Entity
 @Table(name = "AM_CONSULTORIO")
+@SequenceGenerator(name="seqConsultorio", sequenceName="SEQ_CONSULTORIO", allocationSize=1)
 public class Consultorio implements Serializable {
 
 	private static final long serialVersionUID = 1768343578722643153L;
 
 	@Id
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="seqConsultorio")
 	private int id_consultorio;
 
 	@JoinColumn(name = "ID_ENDERECO")
-	@OneToOne(targetEntity = Endereco.class)
+	@OneToOne(targetEntity = Endereco.class, cascade = CascadeType.ALL)
 	private Endereco endereco;
 
 	private String nome;
 
-	@OneToMany(cascade = { CascadeType.ALL })
-	@JoinColumn(name = "id_telefone")
-	private List<TelefoneConsultorio> telefones;
+	@JoinColumn(name = "ID_CONSULTORIO")
+	@OneToOne(targetEntity = TelefoneConsultorio.class, cascade = CascadeType.ALL)
+	private TelefoneConsultorio telefone;
 
 	@Transient
 	private FotoConsultorio[] fotos;
@@ -44,6 +49,14 @@ public class Consultorio implements Serializable {
 	
 	
 	
+
+	public TelefoneConsultorio getTelefone() {
+		return telefone;
+	}
+
+	public void setTelefone(TelefoneConsultorio telefone) {
+		this.telefone = telefone;
+	}
 
 	public FotoConsultorio[] getFotos() {
 		return fotos;
@@ -60,15 +73,7 @@ public class Consultorio implements Serializable {
 	public void setMedicos(List<Medico> medicos) {
 		this.medicos = medicos;
 	}
-
-	public List<TelefoneConsultorio> getTelefones() {
-		return telefones;
-	}
-
-	public void setTelefones(List<TelefoneConsultorio> telefones) {
-		this.telefones = telefones;
-	}
-
+	
 	public int getId_consultorio() {
 		return id_consultorio;
 	}

@@ -9,9 +9,12 @@ import org.primefaces.model.DualListModel;
 import com.medfinder.dao.impl.EspecialidadeDAO;
 import com.medfinder.dao.impl.MedicoDAO;
 import com.medfinder.dao.impl.PlanoDAO;
+import com.medfinder.entity.Consultorio;
+import com.medfinder.entity.Endereco;
 import com.medfinder.entity.Especialidade;
 import com.medfinder.entity.Medico;
 import com.medfinder.entity.Plano;
+import com.medfinder.entity.TelefoneConsultorio;
 
 @ManagedBean
 @ViewScoped
@@ -32,12 +35,44 @@ public class CadastroMedicoMB {
 	private DualListModel<Especialidade> dualEspecialidades;
 	
 	private Especialidade especialidade;
+	
+	private Consultorio consultorio;
+	
+	private Endereco endereco;
+	
+	private TelefoneConsultorio telefone;
 
 	MedicoDAO medao = new MedicoDAO();
 	PlanoDAO pldao = new PlanoDAO();
 	EspecialidadeDAO espdao = new EspecialidadeDAO();
 	
 	
+	
+	
+
+	public TelefoneConsultorio getTelefone() {
+		return telefone;
+	}
+
+	public void setTelefone(TelefoneConsultorio telefone) {
+		this.telefone = telefone;
+	}
+
+	public Endereco getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(Endereco endereco) {
+		this.endereco = endereco;
+	}
+
+	public Consultorio getConsultorio() {
+		return consultorio;
+	}
+
+	public void setConsultorio(Consultorio consultorio) {
+		this.consultorio = consultorio;
+	}
 
 	public Especialidade getEspecialidade() {
 		return especialidade;
@@ -108,6 +143,9 @@ public class CadastroMedicoMB {
 	public void init() {
 
 		medico = new Medico();
+		consultorio = new Consultorio();
+		endereco = new Endereco();
+		telefone = new TelefoneConsultorio();
 		
 		todosPlanos = pldao.listAll();
 		escolhidosPlanos = new ArrayList<Plano>();		
@@ -131,10 +169,15 @@ public class CadastroMedicoMB {
 		especialidades = this.dualEspecialidades.getTarget();
 
 		medico.setEspecialidades(especialidades);
+		consultorio.setEndereco(endereco);
+		consultorio.setTelefone(telefone);
+		medico.setConsultorio(consultorio);
 
 		for (Especialidade e : especialidades) {
-			System.out.println(e.getDs_especialidade());
+			System.out.println("Especialidade do médico: "+e.getDs_especialidade());
 		}
+		
+		System.out.println("Salvou o médico :)");
 
 		medao.insert(medico);
 
