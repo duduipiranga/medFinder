@@ -79,7 +79,7 @@
 					},
 					'filtroCEP'	: {
 						required	: true,
-						minlength	: 9
+						minlength	: 8
 					},
 					'filtroEndereco'	: {
 						required	: true,
@@ -102,7 +102,7 @@
 					'filtroSenha'	: { required:  'Digite sua senha',minlength: 'Minimo de 5 caracteres' },
 					'filtroCSenha'	: { required:  'Digite sua confirma&ccedil;&atilde;o de senha',minlength: 'Minimo de 5 caracteres',equalTo: "O Campo Confirma Senha tem que ser igual ao campo senha" },
 					'filtroDataNasc'	: { required:  'Digite sua data de nascimento',minlength: 'Minimo de 10 caracteres' },
-					'filtroCEP'	: { required:  'Digite seu CEP',minlength: 'Minimo de 9 caracteres' },
+					'filtroCEP'	: { required:  'Digite seu CEP',minlength: 'Minimo de 8 caracteres' },
 					'filtroEndereco'	: { required:  'Digite seu endereco',minlength: 'Minimo de 5 caracteres' },
 					'filtroNumero'	: { required:  'Digite seu numero',minlength: 'Minimo de 1 caracteres' },
 					'filtroBairro'	: { required:  'Digite seu bairro',minlength: 'Minimo de 5 caracteres' },
