@@ -7,189 +7,238 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
 <f:view>
+<h:head></h:head>
 	<h:body>
 		<h:form>
 
 
 			<div class="formSep control-group">
-                                                <h:outputLabel value="Nome : " for="filtroNome" styleClass="control-label" />
-                                                <div class="controls">
-                                                    <p:inputText id="filtroNome" value="#{cadastroMedicoMB.medico.nome}" size="60" styleClass="span10" />
-                                                </div>
-                                            </div>
-                                            <div class="formSep control-group">
-                                                <h:outputLabel value="Sobrenome : " for="filtroSobrenome" styleClass="control-label" />
-                                                <div class="controls">
-                                                    <p:inputText id="filtroSobrenome" value="#{cadastroMedicoMB.medico.sobrenome}"  size="60" styleClass="span10" />
-                                                </div>
-                                            </div>
-                                            <div class="formSep control-group">
-                                                <h:outputLabel value="CPF : " for="filtroCpf" styleClass="control-label" />
-                                                <div class="controls">
-                                                    <p:inputText id="filtroCpf" value="#{cadastroMedicoMB.medico.id_medico}"  styleClass="span5" />
-                                                </div>
-                                            </div>
-                                            <div class="formSep control-group">
-                                                <h:outputLabel value="CRM : " for="filtroCrm" styleClass="control-label" />
-                                                <div class="controls">
-                                                    <p:inputText id="filtroCrm" value="#{cadastroMedicoMB.medico.crm}"  styleClass="span3" />
-                                                </div>
-                                            </div>
-                                            <div class="formSep control-group">
-                                                <h:outputLabel value="E-mail : " for="filtroEmail" styleClass="control-label" />
-                                                <div class="controls">
-                                                    <p:inputText id="filtroEmail" value="#{cadastroMedicoMB.medico.email}"  size="60" styleClass="span10" />
-                                                </div>
-                                            </div>
-                                            <div class="formSep control-group">
-                                                <h:outputLabel value="Senha : " for="filtroSenha" styleClass="control-label" />
-                                                <div class="controls">
-                                                    <p:password id="filtroSenha" value="#{cadastroMedicoMB.medico.senha}"  styleClass="span8"   />
-													<div id="pass_progress" class="progress progress-danger" style="width:60%">
-														<div class="bar" style="width: 0"></div>
-													</div>
-                                                </div>
-                                            </div>
-                                            
-                                             <div class="formSep control-group">
-	                                            <h:outputLabel value="Confirmar Senha : " for="filtroCSenha" styleClass="control-label" />
-                                                <div class="controls">
-                                            		<p:password id="filtroCSenha" styleClass="span6" />
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="formSep control-group">
-                                                <h:outputLabel value="Descrição Formação  : " for="filtroDescricaoFormacao" styleClass="control-label" />
-                                                <div class="controls">
-                                                    <h:inputTextarea id="filtroDescricaoFormacao" value="#{cadastroMedicoMB.medico.ds_formacao}"  styleClass="span10" ></h:inputTextarea>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="formSep control-group">
-                                                <h:outputLabel value="Foto Perfil  : "  styleClass="control-label" />
-                                                <div class="span4">
-													<div data-provides="fileupload" class="fileupload fileupload-new"><input type="hidden" />
-														<div style="width: 200px; height: 150px; line-height: 150px;" class="fileupload-preview thumbnail"></div>
-														<div>
-															<span class="btn btn-file"><span class="fileupload-new">Selecionar Imagem</span><span class="fileupload-exists">Alterar</span>
-															<p:fileUpload id="filtroFotoMedico" value="#{cadastroMedicoMB.medico.foto}"   mode="simple"/>
-															</span>
-															<a data-dismiss="fileupload" class="btn fileupload-exists" href="#">Remover</a>
-														</div>
-													</div>
-												</div>
-                                            </div>  
+				<h:outputLabel value="Nome : " for="filtroNome"
+					styleClass="control-label" />
+				<div class="controls">
+					<p:inputText id="filtroNome"
+						value="#{cadastroMedicoMB.medico.nome}" size="60"
+						styleClass="span10" />
+				</div>
+			</div>
+			<div class="formSep control-group">
+				<h:outputLabel value="Sobrenome : " for="filtroSobrenome"
+					styleClass="control-label" />
+				<div class="controls">
+					<p:inputText id="filtroSobrenome"
+						value="#{cadastroMedicoMB.medico.sobrenome}" size="60"
+						styleClass="span10" />
+				</div>
+			</div>
+			<div class="formSep control-group">
+				<h:outputLabel value="CPF : " for="filtroCpf"
+					styleClass="control-label" />
+				<div class="controls">
+					<p:inputText id="filtroCpf"
+						value="#{cadastroMedicoMB.medico.id_medico}" styleClass="span5" />
+				</div>
+			</div>
+			<div class="formSep control-group">
+				<h:outputLabel value="CRM : " for="filtroCrm"
+					styleClass="control-label" />
+				<div class="controls">
+					<p:inputText id="filtroCrm" value="#{cadastroMedicoMB.medico.crm}"
+						styleClass="span3" />
+				</div>
+			</div>
+			<div class="formSep control-group">
+				<h:outputLabel value="E-mail : " for="filtroEmail"
+					styleClass="control-label" />
+				<div class="controls">
+					<p:inputText id="filtroEmail"
+						value="#{cadastroMedicoMB.medico.email}" size="60"
+						styleClass="span10" />
+				</div>
+			</div>
+			<div class="formSep control-group">
+				<h:outputLabel value="Senha : " for="filtroSenha"
+					styleClass="control-label" />
+				<div class="controls">
+					<p:password id="filtroSenha"
+						value="#{cadastroMedicoMB.medico.senha}" styleClass="span8" />
+					<div id="pass_progress" class="progress progress-danger"
+						style="width: 60%">
+						<div class="bar" style="width: 0"></div>
+					</div>
+				</div>
+			</div>
 
-                                       
-                                        
-                                        <fieldset title="Profissionais">
-                                            <legend class="hide">Dados profissionais!</legend>
+			<div class="formSep control-group">
+				<h:outputLabel value="Confirmar Senha : " for="filtroCSenha"
+					styleClass="control-label" />
+				<div class="controls">
+					<p:password id="filtroCSenha" styleClass="span6" />
+				</div>
+			</div>
 
-                                            <div class="formSep control-group">
-                                                <h:outputLabel value="Especialidades  : " for="filtroEspecialidades" styleClass="control-label" />
-                                                <div class="controls">
-											
-											<h:selectManyMenu id="filtroEspecialidades" converter="ConversorEspecialidade" value="#{cadastroMedicoMB.especialidades}">
-												<f:selectItems value="#{cadastroMedicoMB.todasEspecialidades}" var="o"
-													itemValue="#{o}" itemLabel="#{o.nm_especialidade}" />
-											</h:selectManyMenu>
-                                                    
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="formSep control-group">
-                                                <h:outputLabel value="Descrição Profissional  : " for="filtroDescricaoProf" styleClass="control-label" />
-                                                <div class="controls">
-                                                    <h:inputTextarea id="filtroDescricaoProf" value="#{cadastroMedicoMB.medico.resumo_profissional}"  styleClass="span10" ></h:inputTextarea>
-                                                </div>
-                                            </div>
-                                            
-                                             <div class="formSep control-group">
-                                                <h:outputLabel value="Valor da Consulta  : " for="filtroValorConsulta" styleClass="control-label" />
-                                                <div class="controls">
-                                                    <p:inputText id="filtroValorConsulta" value="#{cadastroMedicoMB.medico.vl_consulta}"  size="10" styleClass="span3" />
-                                                </div>
-                                            </div>
-                                            
+			<div class="formSep control-group">
+				<h:outputLabel value="Descrição Formação  : "
+					for="filtroDescricaoFormacao" styleClass="control-label" />
+				<div class="controls">
+					<h:inputTextarea id="filtroDescricaoFormacao"
+						value="#{cadastroMedicoMB.medico.ds_formacao}" styleClass="span10"></h:inputTextarea>
+				</div>
+			</div>
 
-                                        </fieldset>
-                                        
-                                        <fieldset title="Consultório">
-                                            <legend class="hide">Dados Consultório!</legend>
-                                            
-                                            <div class="formSep control-group">
-                                                <h:outputLabel value="Nome do Consultório : " for="filtroNomeConsultorio" styleClass="control-label" />
-                                                <div class="controls">
-                                                    <p:inputText id="filtroNomeConsultorio" value="#{cadastroMedicoMB.consultorio.nome}"  size="60" styleClass="span10" />
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="formSep control-group">
-                                                <h:outputLabel value="Telefone do Consultório : " for="filtroTelConsultorio" styleClass="control-label" />
-                                                <div class="controls">
-                                                    <p:inputText id="filtroTelConsultorio" value="#{cadastroMedicoMB.telefone.numero}"  size="60" styleClass="span10" />
-                                                </div>
-                                            </div>
-                                            
-                                             <div class="formSep control-group">
-                                                <h:outputLabel value="CEP: " for="filtroCEP" styleClass="control-label" />
-                                                <div class="controls">
-                                                    <p:inputText id="filtroCEP" value="#{cadastroMedicoMB.endereco.cep}"  styleClass="span10" onblur="getEndereco()" />
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="formSep control-group">
-                                                <h:outputLabel value="Endereço : " for="filtroEndereco" styleClass="control-label" />
-                                                <div class="controls">
-                                                    <p:inputText id="filtroEndereco" value="#{cadastroMedicoMB.endereco.logradouro}"  styleClass="span10" />
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="formSep control-group">
-                                                <h:outputLabel value="Número : " for="filtroNumero" styleClass="control-label" />
-                                                <div class="controls">
-                                                    <p:inputText id="filtroNumero" value="#{cadastroMedicoMB.endereco.numero}" styleClass="span10" />
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="formSep control-group">
-                                                <h:outputLabel value="Complemento : " for="filtroComplemento" styleClass="control-label" />
-                                                <div class="controls">
-                                                    <p:inputText id="filtroComplemento" value="#{cadastroMedicoMB.endereco.complemento}" styleClass="span10" />
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="formSep control-group">
-                                                <h:outputLabel value="Bairro : " for="filtroBairro" styleClass="control-label" />
-                                                <div class="controls">
-                                                    <p:inputText id="filtroBairro" value="#{cadastroMedicoMB.endereco.bairro}" size="60" styleClass="span10" />
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="formSep control-group">
-                                                <h:outputLabel value="Foto Consultório  : "  styleClass="control-label" />
-                                                <div class="span4">
-													<div data-provides="fileupload" class="fileupload fileupload-new"><input type="hidden" />
-														<div style="width: 200px; height: 150px; line-height: 150px;" class="fileupload-preview thumbnail"></div>
-														<div>
-															<span class="btn btn-file"><span class="fileupload-new">Selecionar Imagem</span><span class="fileupload-exists">Alterar</span>
-															<p:fileUpload id="filtroFotoConsultorio"  mode="simple"/>  
-															</span>
-															<a data-dismiss="fileupload" class="btn fileupload-exists" href="#">Remover</a>
-														</div>
-													</div>
-												</div>
-                                            </div>
-                                            
-                                            <div class="alert alert-info">
-                                				<a class="close" data-dismiss="alert">×</a>
-                                				Os campos Cidade e Estado não são solicitados, pois o sistema é somente para a cidade de São Paulo!
-                            				</div>
-                                        </fieldset>
-                                        <h:commandButton value="Cadastrar"
+			<div class="formSep control-group">
+				<h:outputLabel value="Foto Perfil  : " styleClass="control-label" />
+				
+						<div>
+							<p:fileUpload fileUploadListener="#{cadastroMedicoMB.processFileUpload}" mode="advanced" dragDropSupport="false"  
+                  sizeLimit="100000" fileLimit="3" allowTypes="/(\.|\/)(gif|jpe?g|png)$/" /> 
+						</div>
+					</div>
+				
+
+
+
+			<fieldset title="Profissionais">
+				<legend class="hide">Dados profissionais!</legend>
+
+				<div class="formSep control-group">
+					<h:outputLabel value="Especialidades  : "
+						for="filtroEspecialidades" styleClass="control-label" />
+					<div class="controls">
+
+						<h:selectManyMenu id="filtroEspecialidades"
+							converter="ConversorEspecialidade"
+							value="#{cadastroMedicoMB.especialidades}">
+							<f:selectItems value="#{cadastroMedicoMB.todasEspecialidades}"
+								var="o" itemValue="#{o}" itemLabel="#{o.nm_especialidade}" />
+						</h:selectManyMenu>
+
+					</div>
+				</div>
+
+				<div class="formSep control-group">
+					<h:outputLabel value="Descrição Profissional  : "
+						for="filtroDescricaoProf" styleClass="control-label" />
+					<div class="controls">
+						<h:inputTextarea id="filtroDescricaoProf"
+							value="#{cadastroMedicoMB.medico.resumo_profissional}"
+							styleClass="span10"></h:inputTextarea>
+					</div>
+				</div>
+
+				<div class="formSep control-group">
+					<h:outputLabel value="Valor da Consulta  : "
+						for="filtroValorConsulta" styleClass="control-label" />
+					<div class="controls">
+						<p:inputText id="filtroValorConsulta"
+							value="#{cadastroMedicoMB.medico.vl_consulta}" size="10"
+							styleClass="span3" />
+					</div>
+				</div>
+
+
+			</fieldset>
+
+			<fieldset title="Consultório">
+				<legend class="hide">Dados Consultório!</legend>
+
+				<div class="formSep control-group">
+					<h:outputLabel value="Nome do Consultório : "
+						for="filtroNomeConsultorio" styleClass="control-label" />
+					<div class="controls">
+						<p:inputText id="filtroNomeConsultorio"
+							value="#{cadastroMedicoMB.consultorio.nome}" size="60"
+							styleClass="span10" />
+					</div>
+				</div>
+
+				<div class="formSep control-group">
+					<h:outputLabel value="Telefone do Consultório : "
+						for="filtroTelConsultorio" styleClass="control-label" />
+					<div class="controls">
+						<p:inputText id="filtroTelConsultorio"
+							value="#{cadastroMedicoMB.telefone.numero}" size="60"
+							styleClass="span10" />
+					</div>
+				</div>
+
+				<div class="formSep control-group">
+					<h:outputLabel value="CEP: " for="filtroCEP"
+						styleClass="control-label" />
+					<div class="controls">
+						<p:inputText id="filtroCEP"
+							value="#{cadastroMedicoMB.endereco.cep}" styleClass="span10"
+							onblur="getEndereco()" />
+					</div>
+				</div>
+
+				<div class="formSep control-group">
+					<h:outputLabel value="Endereço : " for="filtroEndereco"
+						styleClass="control-label" />
+					<div class="controls">
+						<p:inputText id="filtroEndereco"
+							value="#{cadastroMedicoMB.endereco.logradouro}"
+							styleClass="span10" />
+					</div>
+				</div>
+
+				<div class="formSep control-group">
+					<h:outputLabel value="Número : " for="filtroNumero"
+						styleClass="control-label" />
+					<div class="controls">
+						<p:inputText id="filtroNumero"
+							value="#{cadastroMedicoMB.endereco.numero}" styleClass="span10" />
+					</div>
+				</div>
+
+				<div class="formSep control-group">
+					<h:outputLabel value="Complemento : " for="filtroComplemento"
+						styleClass="control-label" />
+					<div class="controls">
+						<p:inputText id="filtroComplemento"
+							value="#{cadastroMedicoMB.endereco.complemento}"
+							styleClass="span10" />
+					</div>
+				</div>
+
+				<div class="formSep control-group">
+					<h:outputLabel value="Bairro : " for="filtroBairro"
+						styleClass="control-label" />
+					<div class="controls">
+						<p:inputText id="filtroBairro"
+							value="#{cadastroMedicoMB.endereco.bairro}" size="60"
+							styleClass="span10" />
+					</div>
+				</div>
+
+				<div class="formSep control-group">
+					<h:outputLabel value="Foto Consultório  : "
+						styleClass="control-label" />
+					<div class="span4">
+						<div data-provides="fileupload" class="fileupload fileupload-new">
+							<input type="hidden" />
+							<div style="width: 200px; height: 150px; line-height: 150px;"
+								class="fileupload-preview thumbnail"></div>
+							<div>
+								<span class="btn btn-file"><span class="fileupload-new">Selecionar
+										Imagem</span><span class="fileupload-exists">Alterar</span> <p:fileUpload
+										id="filtroFotoConsultorio" mode="simple" /> </span> <a
+									data-dismiss="fileupload" class="btn fileupload-exists"
+									href="#">Remover</a>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="alert alert-info">
+					<a class="close" data-dismiss="alert">×</a> Os campos Cidade e
+					Estado não são solicitados, pois o sistema é somente para a cidade
+					de São Paulo!
+				</div>
+			</fieldset>
+			<h:commandButton value="Cadastrar"
 				action="#{cadastroMedicoMB.salvarMedico}">
 			</h:commandButton>
-                                        
+
 		</h:form>
 
 		<h:form>

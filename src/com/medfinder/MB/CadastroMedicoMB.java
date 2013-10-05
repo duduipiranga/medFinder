@@ -1,10 +1,14 @@
 package com.medfinder.MB;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 import javax.faces.bean.ViewScoped;
+
+import org.primefaces.event.FileUploadEvent;
 import org.primefaces.model.DualListModel;
 import com.medfinder.dao.impl.EspecialidadeDAO;
 import com.medfinder.dao.impl.MedicoDAO;
@@ -17,8 +21,11 @@ import com.medfinder.entity.Plano;
 import com.medfinder.entity.TelefoneConsultorio;
 
 @ManagedBean
-@ViewScoped
-public class CadastroMedicoMB {
+@SessionScoped
+public class CadastroMedicoMB implements Serializable{
+
+	
+	private static final long serialVersionUID = 1L;
 
 	private Medico medico;
 
@@ -155,6 +162,19 @@ public class CadastroMedicoMB {
 		especialidades = new ArrayList<Especialidade>();
 		dualEspecialidades = new DualListModel<Especialidade>(todasEspecialidades, especialidades);
 	}
+	
+	public void processFileUpload(FileUploadEvent event) {
+		
+		System.out.println("Cheguei no file");
+		 
+        try {
+            medico.setFoto(event.getFile().getContents()); 
+            System.out.println(event.getFile().getFileName());
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+ 
+    }
 
 	public void salvarMedico() {
 
@@ -176,8 +196,10 @@ public class CadastroMedicoMB {
 		for (Especialidade e : especialidades) {
 			System.out.println("Especialidade do médico: "+e.getDs_especialidade());
 		}
+		System.out.println(medico.getFoto().toString());
 		
 		System.out.println("Salvou o médico :)");
+		
 
 		medao.insert(medico);
 
