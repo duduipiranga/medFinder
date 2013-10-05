@@ -33,7 +33,7 @@ public class Consultorio implements Serializable {
 
 	private String nome;
 
-	@JoinColumn(name = "ID_CONSULTORIO")
+	@JoinColumn(name = "ID_TELEFONE")
 	@OneToOne(targetEntity = TelefoneConsultorio.class, cascade = CascadeType.ALL)
 	private TelefoneConsultorio telefone;
 
