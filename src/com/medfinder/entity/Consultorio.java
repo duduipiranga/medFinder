@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
@@ -37,8 +38,8 @@ public class Consultorio implements Serializable {
 	@OneToOne(targetEntity = TelefoneConsultorio.class, cascade = CascadeType.ALL)
 	private TelefoneConsultorio telefone;
 
-	@Transient
-	private FotoConsultorio[] fotos;
+	@Lob
+	private byte[] foto;
 	
 	
 	@OneToMany(mappedBy = "consultorio", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
@@ -50,20 +51,20 @@ public class Consultorio implements Serializable {
 	
 	
 
+	public byte[] getFoto() {
+		return foto;
+	}
+
+	public void setFoto(byte[] foto) {
+		this.foto = foto;
+	}
+
 	public TelefoneConsultorio getTelefone() {
 		return telefone;
 	}
 
 	public void setTelefone(TelefoneConsultorio telefone) {
 		this.telefone = telefone;
-	}
-
-	public FotoConsultorio[] getFotos() {
-		return fotos;
-	}
-
-	public void setFotos(FotoConsultorio[] fotos) {
-		this.fotos = fotos;
 	}
 
 	public List<Medico> getMedicos() {

@@ -89,7 +89,7 @@
 				<h:outputLabel value="Foto Perfil  : " styleClass="control-label" />
 				
 						<div>
-							<p:fileUpload fileUploadListener="#{cadastroMedicoMB.processFileUpload}" mode="advanced" dragDropSupport="false"  
+							<p:fileUpload fileUploadListener="#{cadastroMedicoMB.fileUploadMedico}" mode="advanced" dragDropSupport="false"  
                   sizeLimit="100000" fileLimit="3" allowTypes="/(\.|\/)(gif|jpe?g|png)$/" /> 
 						</div>
 					</div>
@@ -110,6 +110,20 @@
 							value="#{cadastroMedicoMB.especialidades}">
 							<f:selectItems value="#{cadastroMedicoMB.todasEspecialidades}"
 								var="o" itemValue="#{o}" itemLabel="#{o.nm_especialidade}" />
+						</h:selectManyMenu>
+
+					</div>
+				</div>
+				<div class="formSep control-group">
+					<h:outputLabel value="Planos aceitos  : "
+						for="filtroPlanos" styleClass="control-label" />
+					<div class="controls">
+
+						<h:selectManyMenu id="filtroPlanos"
+							converter="ConversorPlano"
+							value="#{cadastroMedicoMB.escolhidosPlanos}">
+							<f:selectItems value="#{cadastroMedicoMB.todosPlanos}"
+								var="p" itemValue="#{p}" itemLabel="#{p.operadora.ds_operadora} #{p.ds_plano}" />
 						</h:selectManyMenu>
 
 					</div>
@@ -214,20 +228,10 @@
 					<h:outputLabel value="Foto Consultório  : "
 						styleClass="control-label" />
 					<div class="span4">
-						<div data-provides="fileupload" class="fileupload fileupload-new">
-							<input type="hidden" />
-							<div style="width: 200px; height: 150px; line-height: 150px;"
-								class="fileupload-preview thumbnail"></div>
-							<div>
-								<span class="btn btn-file"><span class="fileupload-new">Selecionar
-										Imagem</span><span class="fileupload-exists">Alterar</span> <p:fileUpload
-										id="filtroFotoConsultorio" mode="simple" /> </span> <a
-									data-dismiss="fileupload" class="btn fileupload-exists"
-									href="#">Remover</a>
+						<p:fileUpload id="filtroFotoConsultorio" fileUploadListener="#{cadastroMedicoMB.fileUploadConsultorio}" mode="advanced" />
 							</div>
 						</div>
-					</div>
-				</div>
+					
 
 				<div class="alert alert-info">
 					<a class="close" data-dismiss="alert">×</a> Os campos Cidade e

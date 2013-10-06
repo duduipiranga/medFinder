@@ -163,7 +163,7 @@ public class CadastroMedicoMB implements Serializable{
 		dualEspecialidades = new DualListModel<Especialidade>(todasEspecialidades, especialidades);
 	}
 	
-	public void processFileUpload(FileUploadEvent event) {
+	public void fileUploadMedico(FileUploadEvent event) {
 		
 		System.out.println("Cheguei no file");
 		 
@@ -175,10 +175,23 @@ public class CadastroMedicoMB implements Serializable{
         }
  
     }
+	
+public void fileUploadConsultorio(FileUploadEvent event) {
+		
+		System.out.println("Cheguei no file");
+		 
+        try {
+            consultorio.setFoto(event.getFile().getContents()); 
+            System.out.println(event.getFile().getFileName());
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+ 
+    }
 
 	public void salvarMedico() {
 
-		escolhidosPlanos = this.dualPlanos.getTarget();
+		//escolhidosPlanos = this.dualPlanos.getTarget();
 
 		medico.setPlanos(escolhidosPlanos);
 
@@ -186,7 +199,7 @@ public class CadastroMedicoMB implements Serializable{
 			System.out.println(p.getDs_plano());
 		}
 
-		especialidades = this.dualEspecialidades.getTarget();
+		//especialidades = this.dualEspecialidades.getTarget();
 
 		medico.setEspecialidades(especialidades);
 		consultorio.setEndereco(endereco);
