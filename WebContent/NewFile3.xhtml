@@ -24,13 +24,10 @@
 										<h:form>
 										<h:outputLabel for="id_medico_busca"/>
 										
-										<h:inputText id="id_medico_busca"  value="#{chamaPerfilMedico.id_medico}">
+										<h:outputText id="id_medico_busca"  value="#{perfilMedicoBean.medico.id_medico}">
 											
-										</h:inputText>
-											<h:commandButton value="Buscar Medico"
-												action="#{chamaPerfilMedico.chamaPerfilMedico}">
-												
-												</h:commandButton>
+										</h:outputText>
+											
 
 										</h:form>
 
