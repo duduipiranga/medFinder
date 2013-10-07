@@ -21,9 +21,7 @@
 
 							<div class="span12">
 								<div class="span2">
-									<img
-										src="http://semprematerna.uol.com.br/imagens/boletim-medico/corrimento-secrecao/018-medica-grande.jpg"
-										width="200" height="200" />
+									<p:graphicImage value="#{perfilMedicoBean.medico.foto}" />
 								</div>
 								<div class="span6">
 									<h3 class="heading">Cadastro de Usuário</h3>
@@ -127,7 +125,7 @@
 																			<div class="controls text_line">
 																				<strong> <ui:repeat var="p"
 																						value="#{perfilMedicoBean.planos}">
-																						<h:outputText value="#{e.ds_plano}" />
+																						<h:outputText value="#{p.ds_plano}" />
 																					</ui:repeat>
 																				</strong>
 																			</div>
