@@ -10,6 +10,7 @@
 <h:head></h:head>
 	<h:body>
 		<h:form>
+		
 
 
 			<div class="formSep control-group">
@@ -89,8 +90,8 @@
 				<h:outputLabel value="Foto Perfil  : " styleClass="control-label" />
 				
 						<div>
-							<p:fileUpload fileUploadListener="#{cadastroMedicoMB.fileUploadMedico}" mode="advanced" dragDropSupport="false"  
-                  sizeLimit="100000" fileLimit="3" allowTypes="/(\.|\/)(gif|jpe?g|png)$/" /> 
+							<p:fileUpload id="teste555" fileUploadListener="#{cadastroMedicoMB.fileUploadMedico}" mode="advanced" dragDropSupport="false"  
+                  sizeLimit="100000" fileLimit="3" allowTypes="/(\.|\/)(gif|jpe?g|png)$/" auto="true" /> 
 						</div>
 					</div>
 				
@@ -228,7 +229,7 @@
 					<h:outputLabel value="Foto Consultório  : "
 						styleClass="control-label" />
 					<div class="span4">
-						<p:fileUpload id="filtroFotoConsultorio" fileUploadListener="#{cadastroMedicoMB.fileUploadConsultorio}" mode="advanced" />
+						<p:fileUpload id="filtroFotoConsultorio" fileUploadListener="#{cadastroMedicoMB.fileUploadConsultorio}" mode="advanced" auto="true" />
 							</div>
 						</div>
 					

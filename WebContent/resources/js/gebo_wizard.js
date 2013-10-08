@@ -1,4 +1,4 @@
-/* [ ---- Gebo Admin Panel - wizard ---- ] */
+	/* [ ---- Gebo Admin Panel - wizard ---- ] */
 
 	$(document).ready(function() {
 		//* simple wizard
@@ -59,7 +59,7 @@
 					},
 					'filtroCpf'	: {
 						required	: true,
-						minlength	: 14
+						minlength	: 11
 					},
 					'filtroEmail'	: {
 						required: true, email: true
@@ -99,6 +99,7 @@
 					'filtroSobrenome'	: { required:  'Digite seu sobrenome',minlength: 'Minimo de 3 caracteres' },
 					'filtroRg'	: { required:  'Digite seu RG',minlength: 'Minimo de 5 caracteres' },
 					'filtroEmail'	: { required:  'Digite seu email',email: 'Por favor insira um e-mail valido' },
+					'filtroCpf'	: { required:  'Digite seu CPF',minlength: 'Minimo de 11 caracteres' },
 					'filtroSenha'	: { required:  'Digite sua senha',minlength: 'Minimo de 5 caracteres' },
 					'filtroCSenha'	: { required:  'Digite sua confirma&ccedil;&atilde;o de senha',minlength: 'Minimo de 5 caracteres',equalTo: "O Campo Confirma Senha tem que ser igual ao campo senha" },
 					'filtroDataNasc'	: { required:  'Digite sua data de nascimento',minlength: 'Minimo de 10 caracteres' },

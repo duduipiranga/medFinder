@@ -190,7 +190,7 @@ public void fileUploadConsultorio(FileUploadEvent event) {
     }
 
 	public void salvarMedico() {
-
+		
 		//escolhidosPlanos = this.dualPlanos.getTarget();
 
 		medico.setPlanos(escolhidosPlanos);
