@@ -7,12 +7,16 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 
+import org.primefaces.model.DefaultStreamedContent;
+import org.primefaces.model.StreamedContent;
+
 import com.medfinder.dao.impl.MedicoDAO;
 import com.medfinder.entity.Consultorio;
 import com.medfinder.entity.Endereco;
 import com.medfinder.entity.Especialidade;
 import com.medfinder.entity.Medico;
 import com.medfinder.entity.Plano;
+import com.medfinder.utils.ImageConverter;
 
 @ManagedBean
 @SessionScoped
@@ -22,6 +26,10 @@ public class PerfilMedicoBean {
 	private String id_medico;
 
 	private Medico medico;
+	
+	private StreamedContent imagemMedico;
+	
+	private StreamedContent imagemConsultorio;
 
 	private List<Especialidade> especialidades;
 
@@ -30,6 +38,26 @@ public class PerfilMedicoBean {
 	private Consultorio consultorio;
 
 	private Endereco endereco;
+	
+	
+
+	
+
+	public StreamedContent getImagemMedico() {
+		return imagemMedico;
+	}
+
+	public void setImagemMedico(StreamedContent imagemMedico) {
+		this.imagemMedico = imagemMedico;
+	}
+
+	public StreamedContent getImagemConsultorio() {
+		return imagemConsultorio;
+	}
+
+	public void setImagemConsultorio(StreamedContent imagemConsultorio) {
+		this.imagemConsultorio = imagemConsultorio;
+	}
 
 	public Endereco getEndereco() {
 		return endereco;
@@ -82,12 +110,16 @@ public class PerfilMedicoBean {
 	@PostConstruct
 	public void init() {
 		MedicoDAO mdao = new MedicoDAO();
+		ImageConverter im = new ImageConverter();
 		System.out.println("id do medico é: " + id_medico);
 		medico = mdao.find(id_medico);
 		planos = medico.getPlanos();
 		especialidades = medico.getEspecialidades();
 		consultorio = medico.getConsultorio();
 		endereco = consultorio.getEndereco();
+		
+		imagemMedico = im.getImage(medico.getFoto());
+		imagemConsultorio = im.getImage(consultorio.getFoto());
 
 	}
 
