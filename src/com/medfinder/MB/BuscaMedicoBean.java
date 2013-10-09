@@ -9,6 +9,10 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.model.SelectItem;
 
+import org.primefaces.model.map.LatLng;
+import org.primefaces.model.map.MapModel;
+import org.primefaces.model.map.Marker;
+
 import com.medfinder.dao.impl.EspecialidadeDAO;
 import com.medfinder.dao.impl.MedicoDAO;
 import com.medfinder.dao.impl.OperadoraDAO;
@@ -33,10 +37,20 @@ public class BuscaMedicoBean implements Serializable {
 	private List<SelectItem> planosList;	
 
 	private Plano plano;
-
 	
+	private MapModel locMedicos;
 
 	private Especialidade especialidade;
+	
+	
+	
+	public MapModel getLocMedicos() {
+		return locMedicos;
+	}
+
+	public void setLocMedicos(MapModel locMedicos) {
+		this.locMedicos = locMedicos;
+	}
 
 	public List<Especialidade> getEspecialidades() {
 		return especialidades;
@@ -123,16 +137,27 @@ public class BuscaMedicoBean implements Serializable {
 		}		
 		plano = new Plano();
 		especialidade = new Especialidade();
-
+		
+		
 	}
 
 	
 
 	public void buscarMedicos() {
+		
+		double lat = 0;
+		double lon = 0;
+		
 		if (plano == null) {
 			medicos = mdao.retornaMedicosSoPorEspecialidade(especialidade);
 		} else {
 			medicos = mdao.retornaMedicosPorEspecialidadePorPlano(especialidade, plano);
+		}
+		
+		for (Medico m : medicos) {
+			lat = Double.parseDouble(m.getConsultorio().getEndereco().getLatitude());
+			lon = Double.parseDouble(m.getConsultorio().getEndereco().getLongitude());
+			locMedicos.addOverlay(new Marker(new LatLng(lat, lon)));
 		}
 
 	}
