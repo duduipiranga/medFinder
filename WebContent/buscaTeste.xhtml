@@ -48,30 +48,29 @@
 
 									<h:selectOneMenu id="filtroEspecialidade"
 										converter="ConversorEspecialidade"
-										value="#{cadastroMedicoMB.especialidade}">
-										<f:selectItem id="especialidadeDefault"
-											itemLabel="Selecione a Especialidade" itemValue="0" />
-										<f:selectItems value="#{cadastroMedicoMB.todasEspecialidades}"
+										value="#{buscaMedicoBean.especialidade}">										
+										<f:selectItems value="#{buscaMedicoBean.especialidades}"
 											var="o" itemValue="#{o}" itemLabel="#{o.nm_especialidade}" />
 									</h:selectOneMenu>
 
-									<button class="btn" type="submit">Filtrar</button>
+									<p:commandButton value="Filtrar" update="mapa" id="filtraAjax"  
+             actionListener="#{buscaMedicoBean.buscarMedicos}" />
 								</form>
 
 								<div class="span11">
-									<h:form>
+									<h:form id="mapa">
 										<p:gmap center="-23.54267195958869,-46.62620671318359" zoom="12" type="ROAD"
-											model="#{mapBean.advancedModel}"
+											model="#{buscaMedicoBean.locMedicos}"
 											style="width:100%;height:400px">
 
 											<p:ajax event="overlaySelect"
-												listener="#{mapBean.onMarkerSelect}" />
+												listener="#{buscaMedicoBean.chamarPerfil}" />
 
 											<p:gmapInfoWindow>
 												<p:outputPanel
 													style="text-align:center;display:block;margin:auto:">													
 													
-													<h:outputText value="#{mapBean.marker.title}" />
+													<h:outputText value="#{buscaMedicoBean.marker.title}" />
 
 												</p:outputPanel>
 

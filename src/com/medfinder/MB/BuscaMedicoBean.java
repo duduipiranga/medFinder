@@ -7,6 +7,7 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.event.ActionEvent;
 import javax.faces.model.SelectItem;
 
 import org.primefaces.model.map.LatLng;
@@ -41,6 +42,8 @@ public class BuscaMedicoBean implements Serializable {
 	private MapModel locMedicos;
 
 	private Especialidade especialidade;
+	
+	private String endereco;
 	
 	
 	
@@ -142,24 +145,40 @@ public class BuscaMedicoBean implements Serializable {
 	}
 
 	
-
-	public void buscarMedicos() {
-		
+	 
+ 
+	public void buscarMedicos(ActionEvent actionEvent) {
+		System.out.println("Opa!");
 		double lat = 0;
 		double lon = 0;
 		
-		if (plano == null) {
+		/*if (plano.getId_plano() == 0) {
 			medicos = mdao.retornaMedicosSoPorEspecialidade(especialidade);
 		} else {
 			medicos = mdao.retornaMedicosPorEspecialidadePorPlano(especialidade, plano);
-		}
+		} */
+		
+		medicos = new ArrayList<Medico>();
+		
+		Medico med = mdao.find("29506084120");
+		medicos.add(med);
 		
 		for (Medico m : medicos) {
 			lat = Double.parseDouble(m.getConsultorio().getEndereco().getLatitude());
 			lon = Double.parseDouble(m.getConsultorio().getEndereco().getLongitude());
-			locMedicos.addOverlay(new Marker(new LatLng(lat, lon)));
+			System.out.println(lat);
+			System.out.println(lon);
+			
+			locMedicos.addOverlay(new Marker(new LatLng(lat, lon),m.getNome(),"","http://maps.google.com/mapfiles/ms/micons/red-dot.png"));
 		}
+		
+		
 
+	}
+	
+	public void chamarPerfil(){
+		
+		
 	}
 
 }
