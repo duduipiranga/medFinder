@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<ui:composition template="_template_mini.xhtml">
+	<ui:define name="title"> Med Finder SP</ui:define>
+	<ui:define name="content">
+		<f:view>
+			<!-- main content -->
+			<div id="contentwrapper">
+				<div class="main_content">
+
+					<div class="row-fluid">
+						<div class="span12">
+
+							<div class="row-fluid">
+								<div class="span12">
+									<h3 class="heading">Cadastro Médico</h3>
+									<div class="row-fluid">
+										<div class="span2"></div>
+										<div class="span8">
+											<h:form styleClass="stepy-wizzard form-horizontal">
+												<fieldset>
+												<div class="formSep control-group">
+													<h:outputLabel value="Gostaria de escolher uma foto para seu perfil? " for=""
+														styleClass="control-label" />
+													<div class="controls">
+														<h:commandButton value="Sim"
+												styleClass="finish btn btn-primary"
+												action="#{cadastroMedicoBean.irParaConsultorio}">
+											</h:commandButton>
+											<h:commandButton value="Não"
+												styleClass="finish btn btn-primary"
+												action="#{cadastroMedicoFotoBean.irParaCadastro}">
+											</h:commandButton>
+													</div>
+												</div>
+													<div class="formSep control-group">
+														<h:outputLabel value="Foto Perfil  : "
+															styleClass="control-label" />
+
+														<div>
+															<p:fileUpload id="teste555"
+																fileUploadListener="#{cadastroMedicoFotoBean.fileUploadMedico}"
+																mode="advanced" sizeLimit="100000" fileLimit="1"
+																allowTypes="/(\.|\/)(gif|jpe?g|png)$/" />
+														</div>
+													</div>
+
+
+
+												</fieldset>
+
+											</h:form>
+
+
+
+
+
+
+
+
+										</div>
+									</div>
+								</div>
+							</div>
+
+
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</f:view>
+	</ui:define>
+</ui:composition>
+
+</html>

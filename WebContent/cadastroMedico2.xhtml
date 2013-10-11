@@ -18,7 +18,7 @@
 					styleClass="control-label" />
 				<div class="controls">
 					<p:inputText id="filtroNome"
-						value="#{cadastroMedicoMB.medico.nome}" size="60"
+						value="#{cadastroMedicoBean.medico.nome}" size="60"
 						styleClass="span10" />
 				</div>
 			</div>
@@ -27,7 +27,7 @@
 					styleClass="control-label" />
 				<div class="controls">
 					<p:inputText id="filtroSobrenome"
-						value="#{cadastroMedicoMB.medico.sobrenome}" size="60"
+						value="#{cadastroMedicoBean.medico.sobrenome}" size="60"
 						styleClass="span10" />
 				</div>
 			</div>
@@ -36,14 +36,14 @@
 					styleClass="control-label" />
 				<div class="controls">
 					<p:inputText id="filtroCpf"
-						value="#{cadastroMedicoMB.medico.id_medico}" styleClass="span5" />
+						value="#{cadastroMedicoBean.medico.id_medico}" styleClass="span5" />
 				</div>
 			</div>
 			<div class="formSep control-group">
 				<h:outputLabel value="CRM : " for="filtroCrm"
 					styleClass="control-label" />
 				<div class="controls">
-					<p:inputText id="filtroCrm" value="#{cadastroMedicoMB.medico.crm}"
+					<p:inputText id="filtroCrm" value="#{cadastroMedicoBean.medico.crm}"
 						styleClass="span3" />
 				</div>
 			</div>
@@ -52,7 +52,7 @@
 					styleClass="control-label" />
 				<div class="controls">
 					<p:inputText id="filtroEmail"
-						value="#{cadastroMedicoMB.medico.email}" size="60"
+						value="#{cadastroMedicoBean.medico.email}" size="60"
 						styleClass="span10" />
 				</div>
 			</div>
@@ -61,7 +61,7 @@
 					styleClass="control-label" />
 				<div class="controls">
 					<p:password id="filtroSenha"
-						value="#{cadastroMedicoMB.medico.senha}" styleClass="span8" />
+						value="#{cadastroMedicoBean.medico.senha}" styleClass="span8" />
 					<div id="pass_progress" class="progress progress-danger"
 						style="width: 60%">
 						<div class="bar" style="width: 0"></div>
@@ -82,7 +82,7 @@
 					for="filtroDescricaoFormacao" styleClass="control-label" />
 				<div class="controls">
 					<h:inputTextarea id="filtroDescricaoFormacao"
-						value="#{cadastroMedicoMB.medico.ds_formacao}" styleClass="span10"></h:inputTextarea>
+						value="#{cadastroMedicoBean.medico.ds_formacao}" styleClass="span10"></h:inputTextarea>
 				</div>
 			</div>
 
@@ -90,7 +90,7 @@
 				<h:outputLabel value="Foto Perfil  : " styleClass="control-label" />
 				
 						<div>
-							<p:fileUpload id="teste555" fileUploadListener="#{cadastroMedicoMB.fileUploadMedico}" mode="advanced" dragDropSupport="false"  
+							<p:fileUpload id="teste555" fileUploadListener="#{cadastroMedicoBean.fileUploadMedico}" mode="advanced" dragDropSupport="false"  
                   sizeLimit="100000" fileLimit="3" allowTypes="/(\.|\/)(gif|jpe?g|png)$/" auto="true" /> 
 						</div>
 					</div>
@@ -108,8 +108,8 @@
 
 						<h:selectManyMenu id="filtroEspecialidades"
 							converter="ConversorEspecialidade"
-							value="#{cadastroMedicoMB.especialidades}">
-							<f:selectItems value="#{cadastroMedicoMB.todasEspecialidades}"
+							value="#{cadastroMedicoBean.especialidades}">
+							<f:selectItems value="#{cadastroMedicoBean.todasEspecialidades}"
 								var="o" itemValue="#{o}" itemLabel="#{o.nm_especialidade}" />
 						</h:selectManyMenu>
 
@@ -122,8 +122,8 @@
 
 						<h:selectManyMenu id="filtroPlanos"
 							converter="ConversorPlano"
-							value="#{cadastroMedicoMB.escolhidosPlanos}">
-							<f:selectItems value="#{cadastroMedicoMB.todosPlanos}"
+							value="#{cadastroMedicoBean.escolhidosPlanos}">
+							<f:selectItems value="#{cadastroMedicoBean.todosPlanos}"
 								var="p" itemValue="#{p}" itemLabel="#{p.operadora.ds_operadora} #{p.ds_plano}" />
 						</h:selectManyMenu>
 
@@ -135,7 +135,7 @@
 						for="filtroDescricaoProf" styleClass="control-label" />
 					<div class="controls">
 						<h:inputTextarea id="filtroDescricaoProf"
-							value="#{cadastroMedicoMB.medico.resumo_profissional}"
+							value="#{cadastroMedicoBean.medico.resumo_profissional}"
 							styleClass="span10"></h:inputTextarea>
 					</div>
 				</div>
@@ -145,7 +145,7 @@
 						for="filtroValorConsulta" styleClass="control-label" />
 					<div class="controls">
 						<p:inputText id="filtroValorConsulta"
-							value="#{cadastroMedicoMB.medico.vl_consulta}" size="10"
+							value="#{cadastroMedicoBean.medico.vl_consulta}" size="10"
 							styleClass="span3" />
 					</div>
 				</div>
@@ -161,7 +161,7 @@
 						for="filtroNomeConsultorio" styleClass="control-label" />
 					<div class="controls">
 						<p:inputText id="filtroNomeConsultorio"
-							value="#{cadastroMedicoMB.consultorio.nome}" size="60"
+							value="#{cadastroMedicoBean.consultorio.nome}" size="60"
 							styleClass="span10" />
 					</div>
 				</div>
@@ -171,7 +171,7 @@
 						for="filtroTelConsultorio" styleClass="control-label" />
 					<div class="controls">
 						<p:inputText id="filtroTelConsultorio"
-							value="#{cadastroMedicoMB.telefone.numero}" size="60"
+							value="#{cadastroMedicoBean.telefone.numero}" size="60"
 							styleClass="span10" />
 					</div>
 				</div>
@@ -181,7 +181,7 @@
 						styleClass="control-label" />
 					<div class="controls">
 						<p:inputText id="filtroCEP"
-							value="#{cadastroMedicoMB.endereco.cep}" styleClass="span10"
+							value="#{cadastroMedicoBean.endereco.cep}" styleClass="span10"
 							onblur="getEndereco()" />
 					</div>
 				</div>
@@ -191,7 +191,7 @@
 						styleClass="control-label" />
 					<div class="controls">
 						<p:inputText id="filtroEndereco"
-							value="#{cadastroMedicoMB.endereco.logradouro}"
+							value="#{cadastroMedicoBean.endereco.logradouro}"
 							styleClass="span10" />
 					</div>
 				</div>
@@ -201,7 +201,7 @@
 						styleClass="control-label" />
 					<div class="controls">
 						<p:inputText id="filtroNumero"
-							value="#{cadastroMedicoMB.endereco.numero}" styleClass="span10" />
+							value="#{cadastroMedicoBean.endereco.numero}" styleClass="span10" />
 					</div>
 				</div>
 
@@ -210,7 +210,7 @@
 						styleClass="control-label" />
 					<div class="controls">
 						<p:inputText id="filtroComplemento"
-							value="#{cadastroMedicoMB.endereco.complemento}"
+							value="#{cadastroMedicoBean.endereco.complemento}"
 							styleClass="span10" />
 					</div>
 				</div>
@@ -220,7 +220,7 @@
 						styleClass="control-label" />
 					<div class="controls">
 						<p:inputText id="filtroBairro"
-							value="#{cadastroMedicoMB.endereco.bairro}" size="60"
+							value="#{cadastroMedicoBean.endereco.bairro}" size="60"
 							styleClass="span10" />
 					</div>
 				</div>
@@ -229,7 +229,7 @@
 					<h:outputLabel value="Foto Consultório  : "
 						styleClass="control-label" />
 					<div class="span4">
-						<p:fileUpload id="filtroFotoConsultorio" fileUploadListener="#{cadastroMedicoMB.fileUploadConsultorio}" mode="advanced" auto="true" />
+						<p:fileUpload id="filtroFotoConsultorio" fileUploadListener="#{cadastroMedicoBean.fileUploadConsultorio}" mode="advanced" auto="true" />
 							</div>
 						</div>
 					
@@ -241,7 +241,7 @@
 				</div>
 			</fieldset>
 			<h:commandButton value="Cadastrar"
-				action="#{cadastroMedicoMB.salvarMedico}">
+				action="#{cadastroMedicoBean.salvarMedico}">
 			</h:commandButton>
 
 		</h:form>
