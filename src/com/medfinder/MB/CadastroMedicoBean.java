@@ -7,7 +7,7 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
-
+import org.primefaces.context.RequestContext;
 import org.primefaces.event.FileUploadEvent;
 import org.primefaces.model.DualListModel;
 import com.medfinder.dao.impl.EspecialidadeDAO;
@@ -22,10 +22,7 @@ import com.medfinder.entity.TelefoneConsultorio;
 
 @ManagedBean
 @SessionScoped
-public class CadastroMedicoBean implements Serializable{
-
-	
-	
+public class CadastroMedicoBean implements Serializable {
 
 	/**
 	 * 
@@ -45,22 +42,18 @@ public class CadastroMedicoBean implements Serializable{
 	private List<Especialidade> especialidades;
 
 	private DualListModel<Especialidade> dualEspecialidades;
-	
+
 	private Especialidade especialidade;
-	
+
 	private Consultorio consultorio;
-	
+
 	private Endereco endereco;
-	
+
 	private TelefoneConsultorio telefone;
 
 	MedicoDAO medao = new MedicoDAO();
 	PlanoDAO pldao = new PlanoDAO();
 	EspecialidadeDAO espdao = new EspecialidadeDAO();
-	
-	
-	
-	
 
 	public TelefoneConsultorio getTelefone() {
 		return telefone;
@@ -158,34 +151,55 @@ public class CadastroMedicoBean implements Serializable{
 		consultorio = new Consultorio();
 		endereco = new Endereco();
 		telefone = new TelefoneConsultorio();
-		
+
 		todosPlanos = pldao.listAll();
-		escolhidosPlanos = new ArrayList<Plano>();		
+		escolhidosPlanos = new ArrayList<Plano>();
 		dualPlanos = new DualListModel<Plano>(todosPlanos, escolhidosPlanos);
 
 		todasEspecialidades = espdao.listAll();
 		especialidades = new ArrayList<Especialidade>();
-		dualEspecialidades = new DualListModel<Especialidade>(todasEspecialidades, especialidades);
+		dualEspecialidades = new DualListModel<Especialidade>(
+				todasEspecialidades, especialidades);
 	}
-	
+
+	public void abrirDialogMedico() {
+		System.out.println("cheguei no abrir dialog");
+		RequestContext.getCurrentInstance().openDialog("cadastroMedicoFoto");
+	}
+
 	public void fileUploadMedico(FileUploadEvent event) {
-		
+
 		System.out.println("Cheguei no file");
-		 
-        try {
-            medico.setFoto(event.getFile().getContents()); 
-            System.out.println(event.getFile().getFileName());
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-        
-    }
-	
 
+		try {
+			medico.setFoto(event.getFile().getContents());
+			System.out.println(event.getFile().getFileName());
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
 
-	public String irParaConsultorio() {
-		
-		//escolhidosPlanos = this.dualPlanos.getTarget();
+	}
+
+	public void abrirDialogConsultorio() {
+		System.out.println("cheguei no abrir dialog");
+		RequestContext.getCurrentInstance().openDialog(
+				"cadastroMedicoFotoConsultorio");
+	}
+
+	public void fileUploadConsultorio(FileUploadEvent event) {
+
+		System.out.println("Cheguei no file");
+
+		try {
+			consultorio.setFoto(event.getFile().getContents());
+			System.out.println(event.getFile().getFileName());
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+
+	}
+
+	public String salvarMedico() {
 
 		medico.setPlanos(escolhidosPlanos);
 
@@ -193,20 +207,24 @@ public class CadastroMedicoBean implements Serializable{
 			System.out.println(p.getDs_plano());
 		}
 
-		//especialidades = this.dualEspecialidades.getTarget();
-
 		medico.setEspecialidades(especialidades);
-		
 
 		for (Especialidade e : especialidades) {
-			System.out.println("Especialidade do médico: "+e.getDs_especialidade());
+			System.out.println("Especialidade do médico: "
+					+ e.getDs_especialidade());
 		}
-		System.out.println(medico.getFoto().toString());
-		
-		System.out.println("Salvou o médico :)");
-		
 
-		return "cadastroMedicoConsultorio";
+		consultorio.setEndereco(endereco);
+		consultorio.setTelefone(telefone);
+		medico.setConsultorio(consultorio);
+
+		System.out.println(medico.getFoto().toString());
+
+		System.out.println("Salvou o médico :)");
+
+		medao.insert(medico);
+		
+		return "index?faces-redirect=true";
 
 	}
 }

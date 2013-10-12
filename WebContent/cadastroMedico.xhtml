@@ -23,17 +23,6 @@
 								<div class="row-fluid">
 									<div class="span2"></div>
 									<div class="span8">
-										<h:form
-											enctype="multipart/form-data">
-											<p:fileUpload
-																	id="foto_medico"
-																	fileUploadListener="#{cadastroMedicoBean.fileUploadMedico}"
-																	mode="advanced" auto="true" 
-																	sizeLimit="100000" fileLimit="1"
-																	allowTypes="/(\.|\/)(gif|jpe?g|png)$/" />
-															
-										</h:form>
-
 
 										<!-- <form id="validate_wizard_1" class="stepy-wizzard form-horizontal"> -->
 										<h:form prependId="false" id="validate_wizard"
@@ -42,6 +31,20 @@
 
 											<fieldset title="Pessoais">
 												<legend class="hide">Dados Pessoais!</legend>
+
+
+												<div class="formSep control-group">
+													<h:outputLabel value="Foto : " for="filtroNome"
+														styleClass="control-label" />
+													<div class="controls">
+														<p:commandButton value="Selecione a foto" icon="ui-icon-extlink"
+															actionListener="#{cadastroMedicoBean.abrirDialogMedico}">
+															<!-- <p:ajax event="dialogReturn"
+																listener="" /> -->
+														</p:commandButton>
+													</div>
+												</div>
+
 
 												<div class="formSep control-group">
 													<h:outputLabel value="Nome : " for="filtroNome"
@@ -180,9 +183,98 @@
 
 
 											</fieldset>
+											<fieldset title="Consultório">
+												<legend class="hide">Dados Consultório!</legend>
+
+												<div class="formSep control-group">
+													<h:outputLabel value="Nome do Consultório : "
+														for="filtroNomeConsultorio" styleClass="control-label" />
+													<div class="controls">
+														<p:inputText id="filtroNomeConsultorio"
+															value="#{cadastroMedicoBean.consultorio.nome}" size="60"
+															styleClass="span10" />
+													</div>
+												</div>
+
+												<div class="formSep control-group">
+													<h:outputLabel value="Telefone do Consultório : "
+														for="filtroTelConsultorio" styleClass="control-label" />
+													<div class="controls">
+														<p:inputText id="filtroTelConsultorio"
+															value="#{cadastroMedicoBean.telefone.numero}" size="60"
+															styleClass="span10" />
+													</div>
+												</div>
+
+												<div class="formSep control-group">
+													<h:outputLabel value="CEP: " for="filtroCEP"
+														styleClass="control-label" />
+													<div class="controls">
+														<p:inputText id="filtroCEP"
+															value="#{cadastroMedicoBean.endereco.cep}"
+															styleClass="span10" onblur="getEndereco()" />
+													</div>
+												</div>
+
+												<div class="formSep control-group">
+													<h:outputLabel value="Endereço : " for="filtroEndereco"
+														styleClass="control-label" />
+													<div class="controls">
+														<p:inputText id="filtroEndereco"
+															value="#{cadastroMedicoBean.endereco.logradouro}"
+															styleClass="span10" />
+													</div>
+												</div>
+
+												<div class="formSep control-group">
+													<h:outputLabel value="Número : " for="filtroNumero"
+														styleClass="control-label" />
+													<div class="controls">
+														<p:inputText id="filtroNumero"
+															value="#{cadastroMedicoBean.endereco.numero}"
+															styleClass="span10" />
+													</div>
+												</div>
+
+												<div class="formSep control-group">
+													<h:outputLabel value="Complemento : "
+														for="filtroComplemento" styleClass="control-label" />
+													<div class="controls">
+														<p:inputText id="filtroComplemento"
+															value="#{cadastroMedicoBean.endereco.complemento}"
+															styleClass="span10" />
+													</div>
+												</div>
+
+												<div class="formSep control-group">
+													<h:outputLabel value="Bairro : " for="filtroBairro"
+														styleClass="control-label" />
+													<div class="controls">
+														<p:inputText id="filtroBairro"
+															value="#{cadastroMedicoBean.endereco.bairro}" size="60"
+															styleClass="span10" />
+													</div>
+												</div>
+
+												<div class="formSep control-group">
+													<h:outputLabel value="Foto Consultório  : "
+														styleClass="control-label" />
+													<div class="controls">
+														<p:commandButton value="Selecione a foto" icon="ui-icon-extlink"
+															actionListener="#{cadastroMedicoBean.abrirDialogConsultorio}">															
+														</p:commandButton>
+													</div>
+												</div>
+
+												<div class="alert alert-info">
+													<a class="close" data-dismiss="alert">×</a> Os campos
+													Cidade e Estado não são solicitados, pois o sistema é
+													somente para a cidade de São Paulo!
+												</div>
+											</fieldset>
 											<h:commandButton value="Continuar"
 												styleClass="finish btn btn-primary"
-												action="#{cadastroMedicoBean.irParaConsultorio}">
+												action="#{cadastroMedicoBean.salvarMedico}">
 											</h:commandButton>
 
 										</h:form>
