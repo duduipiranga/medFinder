@@ -10,7 +10,6 @@
 
 <ui:composition template="_template.xhtml">
 
-
 	<ui:define name="title"> Med Finder SP</ui:define>
 	<ui:define name="content">
 		<!-- main content -->
@@ -33,60 +32,53 @@
 									<p:inputText id="filtroEndereco" styleClass="span3"
 										onfocus="if(this.value=='Endereço') {this.value='';};"
 										onblur="if(this.value=='') {this.value='Endereço';};geraCoordenadas(this.value);"
-										value="Endereço"/>
+										value="Endereço" />
 										
-									<p:inputText id="lat"  />
-									<p:inputText id="long"  />
+									<h:inputHidden id="lat"></h:inputHidden>
+									<h:inputHidden id="long"></h:inputHidden>
 
 
-									<h:selectOneMenu id="filtroOperadora"
-										converter="ConversorOperadora"
-										styleClass="field select medium" value="#{homeBean.operadora}">
-										<p:ajax listener="#{homeBean.listaPlanosAjax}"
-											update="filtroPlano" process="@this" />
-										<f:selectItem id="default" itemLabel="Selecione sua Operadora"
-											itemValue="Selecione" />
-										<f:selectItems value="#{homeBean.operadoras}" var="o"
-											itemValue="#{o}" itemLabel="#{o.ds_operadora}" />
-
-									</h:selectOneMenu>
-
-									<h:selectOneMenu id="filtroPlano" value="#{homeBean.plano}"
+									<h:selectOneMenu id="filtroPlano"
+										value="#{buscaMedicoBean.plano}"
 										converter="ConversorPlano" styleClass="field select medium"
 										tabindex="1">
-										<f:selectItem id="planoDefault"
-											itemLabel="Selecione seu Plano" itemValue="0" />
-										<f:selectItems value="#{homeBean.planos}" var="p"
-											itemValue="#{p}" itemLabel="#{p.ds_plano}" />
+										<f:selectItem id="planoDefault" itemLabel="0" itemValue="0" />
+										<f:selectItems value="#{buscaMedicoBean.planos}" var="p"
+											itemValue="#{p}"
+											itemLabel="#{p.operadora.ds_operadora} #{p.ds_plano}" />
 
 									</h:selectOneMenu>
 
 									<h:selectOneMenu id="filtroEspecialidade"
 										converter="ConversorEspecialidade"
-										value="#{cadastroMedicoMB.especialidade}">
-										<f:selectItem id="especialidadeDefault"
-											itemLabel="Selecione a Especialidade" itemValue="0" />
-										<f:selectItems value="#{cadastroMedicoMB.todasEspecialidades}"
+										value="#{buscaMedicoBean.especialidade}">										
+										<f:selectItems value="#{buscaMedicoBean.especialidades}"
 											var="o" itemValue="#{o}" itemLabel="#{o.nm_especialidade}" />
 									</h:selectOneMenu>
 
-									<button class="btn" type="submit">Filtrar</button>
+									<p:commandButton value="Filtrar" update="mapa" id="filtraAjax"  
+             actionListener="#{buscaMedicoBean.buscarMedicos}" />
 								</form>
 
 								<div class="span11">
-									<h:form>
-										<m:map width="100%" latitude="-23.54267195958869"
-											longitude="-46.62620671318359" zoom="12">
-											<ui:repeat var="med" value="#{buscaMedicoMB.medicos}">
-												<m:marker latitude="#{med.consultorio.endereco.latitude}"
-													longitude="#{med.consultorio.endereco.longitude}" />
-												<m:icon imageURL="http://www.google.com/mapfiles/marker.png" />
-												<m:htmlInformationWindow
-													latitude="#{med.consultorio.endereco.latitude}"
-													longitude="#{med.consultorio.endereco.longitude}"
-													htmlText="&lt;b&gt;#{med.nome} #{med.sobrenome}&lt;/b&gt;" />
-											</ui:repeat>
-										</m:map>
+									<h:form id="mapa">
+										<p:gmap center="-23.54267195958869,-46.62620671318359" zoom="12" type="ROAD"
+											model="#{buscaMedicoBean.locMedicos}"
+											style="width:100%;height:400px">
+
+											<p:ajax event="overlaySelect"
+												listener="#{buscaMedicoBean.chamarPerfil}" />
+
+											<p:gmapInfoWindow>
+												<p:outputPanel
+													style="text-align:center;display:block;margin:auto:">													
+													
+													<h:outputText value="#{buscaMedicoBean.marker.title}" />
+
+												</p:outputPanel>
+
+											</p:gmapInfoWindow>
+										</p:gmap>
 									</h:form>
 
 								</div>
