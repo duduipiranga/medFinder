@@ -34,16 +34,17 @@
 		<!-- wizard -->
 		<h:outputStylesheet name="lib/stepy/css/jquery.stepy.css" />
 		<!-- upload -->
-		<h:outputStylesheet name="lib/plupload/js/jquery.plupload.queue/css/plupload-gebo.css" />
+		<h:outputStylesheet
+			name="lib/plupload/js/jquery.plupload.queue/css/plupload-gebo.css" />
 		<!-- multiselect -->
 		<h:outputStylesheet name="lib/multi-select/css/multi-select.css" />
 		<!-- enhanced select -->
-        <h:outputStylesheet name="lib/chosen/chosen.css" />
+		<h:outputStylesheet name="lib/chosen/chosen.css" />
 
-		<link rel="stylesheet"
-			href="http://fonts.googleapis.com/css?family=PT+Sans" />
+		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans" />
+
+		<!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=true" /> -->
 			
-		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=true" />
 
 		<!-- Favicon -->
 		<link rel="shortcut icon" href="favicon.ico" />
@@ -59,7 +60,7 @@
 		<h:outputStylesheet name="css/demo.css" />
 		<h:outputScript library="js" name="jquery.min.js" />
 		<h:outputScript library="js" name="responsiveslides.min.js" />
-		
+
 		<script>
 			// You can also use "$(window).load(function() {"
 			$(function() {
@@ -69,7 +70,7 @@
 					pager : false,
 					nav : false,
 					speed : 2000,
-					pause: true
+					pause : true
 				});
 
 			});
@@ -86,7 +87,11 @@
 	<h:body class="sidebar_hidden menu_hover">
 		<f:loadBundle var="templateBundle"
 			basename="com.medfinder.utils.bundle.templateBundle" />
-<div id="loading_layer" style="display:none"><img src="http://www.shopcwinformatica.com.br/gebo_admin/img/ajax_loader.gif" alt="" /></div>
+		<div id="loading_layer" style="display: none">
+			<img
+				src="http://www.shopcwinformatica.com.br/gebo_admin/img/ajax_loader.gif"
+				alt="" />
+		</div>
 
 
 		<div id="maincontainer" class="clearfix">
@@ -248,12 +253,18 @@
 		<h:outputScript library="js" name="gebo_forms.js" />
 		<!-- CEP functions -->
 		<h:outputScript library="js" name="cep.js" />
-
+		<!-- Mapa functions -->
+		<h:outputScript library="js" name="geo.js" />
+		
 		<script>
 			$(document).ready(function() {
 				setTimeout('$("html").removeClass("js")', 1000);
 			});
 		</script>
+
+
+
+
 
 	</h:body>
 </f:view>

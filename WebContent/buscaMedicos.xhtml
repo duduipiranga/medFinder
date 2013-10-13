@@ -10,6 +10,7 @@
 
 <ui:composition template="_template.xhtml">
 
+
 	<ui:define name="title"> Med Finder SP</ui:define>
 	<ui:define name="content">
 		<!-- main content -->
@@ -31,8 +32,11 @@
 
 									<p:inputText id="filtroEndereco" styleClass="span3"
 										onfocus="if(this.value=='Endereço') {this.value='';};"
-										onblur="if(this.value=='') {this.value='Endereço';}"
-										value="Endereço" />
+										onblur="if(this.value=='') {this.value='Endereço';};geraCoordenadas(this.value);"
+										value="Endereço"/>
+										
+									<p:inputText id="lat"  />
+									<p:inputText id="long"  />
 
 
 									<h:selectOneMenu id="filtroOperadora"
