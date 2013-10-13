@@ -1,74 +1,30 @@
 package com.medfinder.teste;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.rmi.RemoteException;
 
-import com.medfinder.dao.impl.MedicoDAO;
-import com.medfinder.entity.HorarioAtendimento;
-import com.medfinder.entity.Medico;
-import com.medfinder.entity.Plano;
+import com.medfinder.bo.EspecialidadeBOProxy;
+import com.medfinder.to.Especialidade;
+
 
 public class Teste1 {
-	
 	public static void main(String[] args) {
 		
-		/*ConsultorioDAO cdao = new ConsultorioDAO();
+		int id = 9;
 		
-		List<Consultorio> c = cdao.listAll();
-		
-		List<TelefoneConsultorio> telefones = null;
-		
-		for (Consultorio consultorio : c) {
-			
-			telefones = consultorio.getTelefones();
-			
-			for (TelefoneConsultorio telefoneConsultorio : telefones) {
-				System.out.println(telefoneConsultorio.getNumero());
-			}
-			
-		}*/
-		
-		/*OperadoraDAO opdao = new OperadoraDAO();
+		EspecialidadeBOProxy ebo = new EspecialidadeBOProxy();
 		
 		
-		List<Operadora> op = opdao.listAll();
-		
-		for (Operadora operadora : op) {
-			System.out.println(operadora.getDs_operadora());
-		}*/
-		
-		
-		MedicoDAO mdao= new MedicoDAO();
-		
-		
-		
-		List<Medico> meds = mdao.listAll();
-		
-		List<HorarioAtendimento> horarios = new ArrayList<HorarioAtendimento>();
-		
-		List<Plano> planos = new ArrayList<Plano>();
-		
-		for (Medico m : meds) {
-			planos = m.getPlanos();
-			
-			for (Plano plano : planos) {
-				System.out.println(plano.getId_plano());
-			}
+		try {
+			Especialidade e;
+			e = ebo.consultarEspecialidade(id);
+			System.out.println(e.getNm_especialidade());
+		} catch (RemoteException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
 		}
 		
 		
 		
-		
-		/*for (int i = 0; i < meds.size(); i++) {			
-			horarios = meds.get(i).getHorarios();
-			
-			
-			for (HorarioAtendimento horarioAtendimento : horarios) {
-				System.out.println("dia: "+horarioAtendimento.getDia_semana()+" Horario: "+horarioAtendimento.getHorario());
-				System.out.println("Proximo");
-			}
-		}
-		*/
 		
 		
 	}

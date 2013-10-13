@@ -1,0 +1,11 @@
+eclipse.preferences.version=1
+encoding//src/com/medfinder/bo/EspecialidadeBO.java=UTF-8
+encoding//src/com/medfinder/bo/EspecialidadeBOService.java=UTF-8
+encoding//src/com/medfinder/bo/EspecialidadeBOServiceLocator.java=UTF-8
+encoding//src/com/medfinder/bo/EspecialidadeBOSoapBindingStub.java=UTF-8
+encoding//src/com/medfinder/bo/OperadoraBO.java=UTF-8
+encoding//src/com/medfinder/bo/OperadoraBOService.java=UTF-8
+encoding//src/com/medfinder/bo/OperadoraBOServiceLocator.java=UTF-8
+encoding//src/com/medfinder/bo/OperadoraBOSoapBindingStub.java=UTF-8
+encoding//src/com/medfinder/to/Especialidade.java=UTF-8
+encoding//src/com/medfinder/to/Operadora.java=UTF-8

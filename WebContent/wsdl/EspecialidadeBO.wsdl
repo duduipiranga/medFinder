@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://bo.medfinder.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://bo.medfinder.com" xmlns:intf="http://bo.medfinder.com" xmlns:tns1="http://to.medfinder.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://bo.medfinder.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://to.medfinder.com"/>
+   <element name="inserirEspecialidade">
+    <complexType>
+     <sequence>
+      <element name="especialidade" type="tns1:Especialidade"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="inserirEspecialidadeResponse">
+    <complexType/>
+   </element>
+   <element name="consultarEspecialidade">
+    <complexType>
+     <sequence>
+      <element name="id" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="consultarEspecialidadeResponse">
+    <complexType>
+     <sequence>
+      <element name="consultarEspecialidadeReturn" type="tns1:Especialidade"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="listarEspecialidades">
+    <complexType/>
+   </element>
+   <element name="listarEspecialidadesResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="listarEspecialidadesReturn" type="tns1:Especialidade"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="deletarEspecialidade">
+    <complexType>
+     <sequence>
+      <element name="id" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="deletarEspecialidadeResponse">
+    <complexType/>
+   </element>
+  </schema>
+  <schema elementFormDefault="qualified" targetNamespace="http://to.medfinder.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <complexType name="Especialidade">
+    <sequence>
+     <element name="ds_especialidade" nillable="true" type="xsd:string"/>
+     <element name="id_especialidade" type="xsd:int"/>
+     <element name="nm_especialidade" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="deletarEspecialidadeRequest">
+
+      <wsdl:part element="impl:deletarEspecialidade" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="inserirEspecialidadeResponse">
+
+      <wsdl:part element="impl:inserirEspecialidadeResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="listarEspecialidadesResponse">
+
+      <wsdl:part element="impl:listarEspecialidadesResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="consultarEspecialidadeResponse">
+
+      <wsdl:part element="impl:consultarEspecialidadeResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="inserirEspecialidadeRequest">
+
+      <wsdl:part element="impl:inserirEspecialidade" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="deletarEspecialidadeResponse">
+
+      <wsdl:part element="impl:deletarEspecialidadeResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="consultarEspecialidadeRequest">
+
+      <wsdl:part element="impl:consultarEspecialidade" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="listarEspecialidadesRequest">
+
+      <wsdl:part element="impl:listarEspecialidades" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="EspecialidadeBO">
+
+      <wsdl:operation name="inserirEspecialidade">
+
+         <wsdl:input message="impl:inserirEspecialidadeRequest" name="inserirEspecialidadeRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:inserirEspecialidadeResponse" name="inserirEspecialidadeResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="consultarEspecialidade">
+
+         <wsdl:input message="impl:consultarEspecialidadeRequest" name="consultarEspecialidadeRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:consultarEspecialidadeResponse" name="consultarEspecialidadeResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="listarEspecialidades">
+
+         <wsdl:input message="impl:listarEspecialidadesRequest" name="listarEspecialidadesRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:listarEspecialidadesResponse" name="listarEspecialidadesResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="deletarEspecialidade">
+
+         <wsdl:input message="impl:deletarEspecialidadeRequest" name="deletarEspecialidadeRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:deletarEspecialidadeResponse" name="deletarEspecialidadeResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="EspecialidadeBOSoapBinding" type="impl:EspecialidadeBO">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="inserirEspecialidade">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="inserirEspecialidadeRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="inserirEspecialidadeResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="consultarEspecialidade">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="consultarEspecialidadeRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="consultarEspecialidadeResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="listarEspecialidades">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="listarEspecialidadesRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="listarEspecialidadesResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="deletarEspecialidade">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="deletarEspecialidadeRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="deletarEspecialidadeResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="EspecialidadeBOService">
+
+      <wsdl:port binding="impl:EspecialidadeBOSoapBinding" name="EspecialidadeBO">
+
+         <wsdlsoap:address location="http://localhost:8080/medFinderProvider/services/EspecialidadeBO"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

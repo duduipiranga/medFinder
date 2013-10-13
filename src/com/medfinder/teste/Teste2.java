@@ -1,27 +1,32 @@
 package com.medfinder.teste;
 
-import java.util.List;
+import java.rmi.RemoteException;
 
-import com.medfinder.dao.impl.OperadoraDAO;
-import com.medfinder.dao.impl.PlanoDAO;
-import com.medfinder.entity.Operadora;
-import com.medfinder.entity.Plano;
+import com.medfinder.bo.OperadoraBOProxy;
+import com.medfinder.to.Operadora;
 
 public class Teste2 {
+
+	
 	public static void main(String[] args) {
-		PlanoDAO pdao = new PlanoDAO();
-		OperadoraDAO opdao = new OperadoraDAO(); 
+		int id = 12;
 		
-		List<Operadora> operadoras = opdao.listAll();
-		
-		Operadora op = operadoras.get(7);
+		OperadoraBOProxy ob = new OperadoraBOProxy();
 		
 		
-		
-		List<Plano> planos = pdao.getPlanosByOperadora(op);
-		
-		for (Plano plano : planos) {
-			System.out.println(plano.getId_plano());
+		try {
+			Operadora o;
+			o = ob.consultarOperadora(id);
+			System.out.println(o.getDs_operadora());
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
+		
+		
+		
+		
+
 	}
+
 }

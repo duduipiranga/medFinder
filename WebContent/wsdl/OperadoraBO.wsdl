@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://bo.medfinder.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://bo.medfinder.com" xmlns:intf="http://bo.medfinder.com" xmlns:tns1="http://to.medfinder.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://bo.medfinder.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://to.medfinder.com"/>
+   <element name="consultarOperadora">
+    <complexType>
+     <sequence>
+      <element name="id" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="consultarOperadoraResponse">
+    <complexType>
+     <sequence>
+      <element name="consultarOperadoraReturn" type="tns1:Operadora"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="deletarOperadora">
+    <complexType>
+     <sequence>
+      <element name="id" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="deletarOperadoraResponse">
+    <complexType/>
+   </element>
+   <element name="listarOperadoras">
+    <complexType/>
+   </element>
+   <element name="listarOperadorasResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="listarOperadorasReturn" type="tns1:Operadora"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="inserirOperadora">
+    <complexType>
+     <sequence>
+      <element name="operadora" type="tns1:Operadora"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="inserirOperadoraResponse">
+    <complexType/>
+   </element>
+  </schema>
+  <schema elementFormDefault="qualified" targetNamespace="http://to.medfinder.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <complexType name="Operadora">
+    <sequence>
+     <element name="ds_operadora" nillable="true" type="xsd:string"/>
+     <element name="id_operadora" type="xsd:int"/>
+    </sequence>
+   </complexType>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="listarOperadorasResponse">
+
+      <wsdl:part element="impl:listarOperadorasResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="deletarOperadoraRequest">
+
+      <wsdl:part element="impl:deletarOperadora" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="inserirOperadoraResponse">
+
+      <wsdl:part element="impl:inserirOperadoraResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="consultarOperadoraResponse">
+
+      <wsdl:part element="impl:consultarOperadoraResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="deletarOperadoraResponse">
+
+      <wsdl:part element="impl:deletarOperadoraResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="inserirOperadoraRequest">
+
+      <wsdl:part element="impl:inserirOperadora" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="listarOperadorasRequest">
+
+      <wsdl:part element="impl:listarOperadoras" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="consultarOperadoraRequest">
+
+      <wsdl:part element="impl:consultarOperadora" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="OperadoraBO">
+
+      <wsdl:operation name="consultarOperadora">
+
+         <wsdl:input message="impl:consultarOperadoraRequest" name="consultarOperadoraRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:consultarOperadoraResponse" name="consultarOperadoraResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="deletarOperadora">
+
+         <wsdl:input message="impl:deletarOperadoraRequest" name="deletarOperadoraRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:deletarOperadoraResponse" name="deletarOperadoraResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="listarOperadoras">
+
+         <wsdl:input message="impl:listarOperadorasRequest" name="listarOperadorasRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:listarOperadorasResponse" name="listarOperadorasResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="inserirOperadora">
+
+         <wsdl:input message="impl:inserirOperadoraRequest" name="inserirOperadoraRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:inserirOperadoraResponse" name="inserirOperadoraResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="OperadoraBOSoapBinding" type="impl:OperadoraBO">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="consultarOperadora">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="consultarOperadoraRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="consultarOperadoraResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="deletarOperadora">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="deletarOperadoraRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="deletarOperadoraResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="listarOperadoras">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="listarOperadorasRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="listarOperadorasResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="inserirOperadora">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="inserirOperadoraRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="inserirOperadoraResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="OperadoraBOService">
+
+      <wsdl:port binding="impl:OperadoraBOSoapBinding" name="OperadoraBO">
+
+         <wsdlsoap:address location="http://localhost:8080/medFinderProvider/services/OperadoraBO"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
