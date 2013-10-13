@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="_template.xhtml">
+
+	<ui:define name="title"> Med Finder SP</ui:define>
+	<ui:define name="content">
+		<!-- main content -->
+		<div id="contentwrapper">
+			<div class="main_content">
+
+				<div class="row-fluid">
+					<div class="span12">
+
+						<div class="row-fluid">
+							<div class="span12">
+								<h3 class="heading">RSS</h3>
+
+								<p:feedReader value="http://br.noticias.yahoo.com/rss/saude" var="feed">
+									<h:outputText value="#{feed.title}" style="font-weight: bold" />
+									<br />
+									<h:outputText value="#{feed.description.value}" escape="false" />
+									<p:separator />
+								</p:feedReader>
+								
+								
+
+							</div>
+						</div>
+
+
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+	</ui:define>
+</ui:composition>
+</html>
