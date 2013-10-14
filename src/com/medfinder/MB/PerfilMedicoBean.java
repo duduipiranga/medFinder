@@ -6,6 +6,7 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 
 import org.primefaces.model.DefaultStreamedContent;
 import org.primefaces.model.StreamedContent;
@@ -22,7 +23,7 @@ import com.medfinder.utils.ImageConverter;
 @SessionScoped
 public class PerfilMedicoBean {
 
-	@ManagedProperty(value = "#{chamaPerfilMedico.id_medico}")
+	@ManagedProperty(value = "#{buscaMedicoBean.id_medico}")
 	private String id_medico;
 
 	private Medico medico;
@@ -118,8 +119,14 @@ public class PerfilMedicoBean {
 		consultorio = medico.getConsultorio();
 		endereco = consultorio.getEndereco();
 		
-		imagemMedico = im.getImage(medico.getFoto());
-		imagemConsultorio = im.getImage(consultorio.getFoto());
+		if(medico.getFoto() != null){
+			imagemMedico = im.getImage(medico.getFoto());
+		}
+		
+		if(consultorio.getFoto() != null){
+			imagemConsultorio = im.getImage(consultorio.getFoto());
+		}
+		
 
 	}
 
