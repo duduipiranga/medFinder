@@ -188,11 +188,7 @@ public class BuscaMedicoBean implements Serializable {
 	@PostConstruct
 	public void init() {
 		
-		HttpSession session = (HttpSession) FacesContext.getCurrentInstance()
-			    .getExternalContext().getSession(true);
-			    session.removeAttribute("buscaMedicoBean");
-			    
-			    session.invalidate();
+		
 		
 		
 		
