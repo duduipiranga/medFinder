@@ -112,22 +112,33 @@
 																		<div class="control-group formSep">
 																			<div class="control-label">Especialidades:</div>
 																			<div class="controls text_line">
-																				<strong> <ui:repeat var="e"
+																				<ul>
+
+
+
+																					<ui:repeat var="e"
 																						value="#{perfilMedicoBean.especialidades}">
-																						<h:outputText value="#{e.nm_especialidade}" />
+																						<li><strong> <h:outputText
+																									value="#{e.nm_especialidade}" />
+																						</strong></li>
 																					</ui:repeat>
-																				</strong>
+
+																				</ul>
 																			</div>
 																		</div>
-																		
+
 																		<div class="control-group formSep">
 																			<div class="control-label">Planos atendidos:</div>
 																			<div class="controls text_line">
-																				<strong> <ui:repeat var="p"
+																				<ul>
+																					<ui:repeat var="p"
 																						value="#{perfilMedicoBean.planos}">
-																						<h:outputText value="#{p.ds_plano}" />
+																						<li><strong> <h:outputText
+																									value="#{p.ds_plano}" />
+																						</strong></li>
 																					</ui:repeat>
-																				</strong>
+																				</ul>
+
 																			</div>
 																		</div>
 
@@ -163,7 +174,8 @@
 																	<fieldset>
 
 																		<div class="control-group formSep">
-																			<p:graphicImage value="#{perfilMedicoBean.imagemConsultorio}" />
+																			<p:graphicImage
+																				value="#{perfilMedicoBean.imagemConsultorio}" />
 																		</div>
 
 																		<div class="control-group formSep">
