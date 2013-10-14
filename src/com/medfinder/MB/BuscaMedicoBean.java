@@ -238,22 +238,24 @@ public class BuscaMedicoBean implements Serializable {
 			medicos = mdao.retornaMedicosPorEspecialidadePorPlano(especialidade, plano);
 		} 	
 		
-		System.out.println(latitude);
-		System.out.println(longitude);
+		System.out.println("Usuario Latitude "+ latitude);
+		System.out.println("Usuario Lon "+ longitude);
 		
 		locMedicos.addOverlay(new Marker(new LatLng(latitude, longitude),"Você","","http://maps.google.com/mapfiles/ms/micons/red-dot.png"));
 		
 		//Medico med = mdao.find("29506084120");
 		//medicos.add(med);
 		
-		for (Medico med : medicos) {
-			lat = Double.parseDouble(med.getConsultorio().getEndereco().getLatitude());
-			lon = Double.parseDouble(med.getConsultorio().getEndereco().getLongitude());
-			System.out.println(lat);
-			System.out.println(lon);
-			
-			locMedicos.addOverlay(new Marker(new LatLng(lat, lon),med.getId_medico(),med,"http://maps.google.com/mapfiles/ms/micons/blue-dot.png"));
-		}
+			for (Medico med : medicos) {
+				System.out.println(med.getId_medico());
+				System.out.println(med.getNome());
+				System.out.println("Lat Medico"+lat);
+				System.out.println("Long Medico"+lon);
+				lat = Double.parseDouble(med.getConsultorio().getEndereco().getLatitude());
+				lon = Double.parseDouble(med.getConsultorio().getEndereco().getLongitude());
+				locMedicos.addOverlay(new Marker(new LatLng(lat, lon),med.getId_medico(),med,"http://maps.google.com/mapfiles/ms/micons/blue-dot.png"));
+			}
+
 	}
 	public void onMarkerSelect(OverlaySelectEvent event) {  
 

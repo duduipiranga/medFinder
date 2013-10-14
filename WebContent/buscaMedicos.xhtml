@@ -27,14 +27,15 @@
 								<h:form class="well form-inline">
 									<p class="f_legend">Preencha os campos abaixo conforme sua
 										necessidade.</p>
-										<h:commandButton action="#{buscaMedicoBean.limpaForm}" value="Limpar"/>
+										
 
 									<p:inputText id="filtroEndereco" styleClass="span3"
 										onfocus="if(this.value=='Endereço') {this.value='';};"
 										onblur="if(this.value=='') {this.value='Endereço';};geraCoordenadas(this.value);"
 										value="Endereço" />
-									<h:inputText styleClass="lat" value="#{buscaMedicoBean.latitude}"></h:inputText>
-									<h:inputText styleClass="long" value="#{buscaMedicoBean.longitude}"></h:inputText>
+										
+									<h:inputText styleClass="lat" value="#{buscaMedicoBean.latitude}" style="display:none;"></h:inputText>
+									<h:inputText styleClass="long" value="#{buscaMedicoBean.longitude}" style="display:none;"></h:inputText>
 
 
 
@@ -56,7 +57,10 @@
 									</h:selectOneMenu>
 
 									<h:commandButton value="Filtrar" id="filtraAjax"
-										action="#{buscaMedicoBean.buscarMedicos}" />
+										action="#{buscaMedicoBean.buscarMedicos}" styleClass="btn btn-gebo" style="margin-right:3px;margin-left:5px;" />
+									
+									<h:commandButton action="#{buscaMedicoBean.limpaForm}" value="Limpar" styleClass="btn btn-danger" />
+									
 								</h:form>
 
 								<div class="span11">
