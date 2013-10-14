@@ -34,8 +34,9 @@ function geraCoordenadas(endereco) {
 							console.log(results[0].geometry.location.lat());
 							console.log(results[0].geometry.location.lng());
 							
-							$("#lat").val(results[0].geometry.location.lat());
-							$("#long").val(results[0].geometry.location.lng());
+							$(".lat").val(results[0].geometry.location.lat());
+							$(".long").val(results[0].geometry.location.lng());
+							console.log("Ola");
 							
 					}
 				} else {

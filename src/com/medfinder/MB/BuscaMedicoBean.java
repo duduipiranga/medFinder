@@ -7,9 +7,10 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
-import javax.faces.event.ActionEvent;
 import javax.faces.model.SelectItem;
 
+import org.primefaces.event.map.OverlaySelectEvent;
+import org.primefaces.model.map.DefaultMapModel;
 import org.primefaces.model.map.LatLng;
 import org.primefaces.model.map.MapModel;
 import org.primefaces.model.map.Marker;
@@ -20,14 +21,16 @@ import com.medfinder.dao.impl.OperadoraDAO;
 import com.medfinder.dao.impl.PlanoDAO;
 import com.medfinder.entity.Especialidade;
 import com.medfinder.entity.Medico;
-import com.medfinder.entity.Operadora;
 import com.medfinder.entity.Plano;
 
 @ManagedBean
 @ViewScoped
 public class BuscaMedicoBean implements Serializable {
 
-	private static final long serialVersionUID = 2814850488945255572L;
+	
+
+	
+	private static final long serialVersionUID = 1366274330306826385L;
 
 	private List<Medico> medicos;
 
@@ -43,10 +46,30 @@ public class BuscaMedicoBean implements Serializable {
 
 	private Especialidade especialidade;
 	
-	private String endereco;
+	private double latitude;
+	
+	private double longitude;
 	
 	
 	
+	
+
+	public double getLatitude() {
+		return latitude;
+	}
+
+	public void setLatitude(double latitude) {
+		this.latitude = latitude;
+	}
+
+	public double getLongitude() {
+		return longitude;
+	}
+
+	public void setLongitude(double longitude) {
+		this.longitude = longitude;
+	}
+
 	public MapModel getLocMedicos() {
 		return locMedicos;
 	}
@@ -141,39 +164,58 @@ public class BuscaMedicoBean implements Serializable {
 		plano = new Plano();
 		especialidade = new Especialidade();
 		
+		latitude = 0;
+		longitude = 0;
+		
 		
 	}
-
+	
+	public void valores(){
+		System.out.println(latitude);
+		System.out.println(longitude);
+	}
 	
 	 
  
-	public void buscarMedicos(ActionEvent actionEvent) {
-		System.out.println("Opa!");
+	public void buscarMedicos() {
+		System.out.println("Chegou na busca!");
 		double lat = 0;
 		double lon = 0;
 		
-		/*if (plano.getId_plano() == 0) {
-			medicos = mdao.retornaMedicosSoPorEspecialidade(especialidade);
-		} else {
-			medicos = mdao.retornaMedicosPorEspecialidadePorPlano(especialidade, plano);
-		} */
+		
+		locMedicos = new DefaultMapModel();
 		
 		medicos = new ArrayList<Medico>();
 		
-		Medico med = mdao.find("29506084120");
-		medicos.add(med);
+		if(plano.getId_plano() == 0) {
+			medicos = mdao.retornaMedicosSoPorEspecialidade(especialidade);
+		} else {
+			medicos = mdao.retornaMedicosPorEspecialidadePorPlano(especialidade, plano);
+		} 	
 		
-		for (Medico m : medicos) {
-			lat = Double.parseDouble(m.getConsultorio().getEndereco().getLatitude());
-			lon = Double.parseDouble(m.getConsultorio().getEndereco().getLongitude());
+		System.out.println(latitude);
+		System.out.println(longitude);
+		
+		locMedicos.addOverlay(new Marker(new LatLng(latitude, longitude),"Você","","http://maps.google.com/mapfiles/ms/micons/red-dot.png"));
+		
+		//Medico med = mdao.find("29506084120");
+		//medicos.add(med);
+		
+		for (Medico med : medicos) {
+			lat = Double.parseDouble(med.getConsultorio().getEndereco().getLatitude());
+			lon = Double.parseDouble(med.getConsultorio().getEndereco().getLongitude());
 			System.out.println(lat);
 			System.out.println(lon);
 			
-			locMedicos.addOverlay(new Marker(new LatLng(lat, lon),m.getNome(),"","http://maps.google.com/mapfiles/ms/micons/red-dot.png"));
+			locMedicos.addOverlay(new Marker(new LatLng(lat, lon),med.getNome(),"","http://maps.google.com/mapfiles/ms/micons/blue-dot.png"));
 		}
-		
-		
+	}
+	public void onMarkerSelect(OverlaySelectEvent event) {  
 
+	    Marker marker = (Marker) event.getOverlay();
+	    if (marker!=null) {
+	        System.out.println(marker.getId());
+	    }
 	}
 	
 	public void chamarPerfil(){

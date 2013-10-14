@@ -5,8 +5,7 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:p="http://primefaces.org/ui"
-	xmlns:m="http://code.google.com/p/gmaps4jsf/">
+	xmlns:p="http://primefaces.org/ui">
 
 <ui:composition template="_template.xhtml">
 
@@ -25,7 +24,7 @@
 								<h3 class="heading">Busca</h3>
 
 
-								<form class="well form-inline">
+								<h:form class="well form-inline">
 									<p class="f_legend">Preencha os campos abaixo conforme sua
 										necessidade.</p>
 
@@ -33,15 +32,14 @@
 										onfocus="if(this.value=='Endereço') {this.value='';};"
 										onblur="if(this.value=='') {this.value='Endereço';};geraCoordenadas(this.value);"
 										value="Endereço" />
-										
-									<h:inputHidden id="lat"></h:inputHidden>
-									<h:inputHidden id="long"></h:inputHidden>
+									<h:inputText styleClass="lat" value="#{buscaMedicoBean.latitude}"></h:inputText>
+									<h:inputText styleClass="long" value="#{buscaMedicoBean.longitude}"></h:inputText>
+
 
 
 									<h:selectOneMenu id="filtroPlano"
-										value="#{buscaMedicoBean.plano}"
-										converter="ConversorPlano" styleClass="field select medium"
-										tabindex="1">
+										value="#{buscaMedicoBean.plano}" converter="ConversorPlano"
+										styleClass="field select medium" tabindex="1">
 										<f:selectItem id="planoDefault" itemLabel="0" itemValue="0" />
 										<f:selectItems value="#{buscaMedicoBean.planos}" var="p"
 											itemValue="#{p}"
@@ -51,34 +49,35 @@
 
 									<h:selectOneMenu id="filtroEspecialidade"
 										converter="ConversorEspecialidade"
-										value="#{buscaMedicoBean.especialidade}">										
+										value="#{buscaMedicoBean.especialidade}">
 										<f:selectItems value="#{buscaMedicoBean.especialidades}"
 											var="o" itemValue="#{o}" itemLabel="#{o.nm_especialidade}" />
 									</h:selectOneMenu>
 
-									<p:commandButton value="Filtrar" update="mapa" id="filtraAjax"  
-             actionListener="#{buscaMedicoBean.buscarMedicos}" />
-								</form>
+									<h:commandButton value="Filtrar" id="filtraAjax"
+										action="#{buscaMedicoBean.buscarMedicos}" />
+								</h:form>
 
 								<div class="span11">
 									<h:form id="mapa">
-										<p:gmap center="-23.54267195958869,-46.62620671318359" zoom="12" type="ROAD"
-											model="#{buscaMedicoBean.locMedicos}"
+										<p:gmap center="-23.54267195958869,-46.62620671318359"
+											zoom="11" type="ROAD" model="#{buscaMedicoBean.locMedicos}"
 											style="width:100%;height:400px">
 
-											<p:ajax event="overlaySelect"
-												listener="#{buscaMedicoBean.chamarPerfil}" />
+											<p:ajax event="overlaySelect" listener="#{buscaMedicoBean.onMarkerSelect}"/>
 
 											<p:gmapInfoWindow>
 												<p:outputPanel
-													style="text-align:center;display:block;margin:auto:">													
-													
+													style="text-align:center;display:block;margin:auto:">
+
 													<h:outputText value="#{buscaMedicoBean.marker.title}" />
 
 												</p:outputPanel>
 
 											</p:gmapInfoWindow>
 										</p:gmap>
+									</h:form>
+									<h:form prependId="false">
 									</h:form>
 
 								</div>
