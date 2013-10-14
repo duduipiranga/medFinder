@@ -1,13 +1,18 @@
 package com.medfinder.MB;
 
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.faces.application.NavigationHandler;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
 import javax.faces.model.SelectItem;
+import javax.servlet.http.HttpSession;
 
 import org.primefaces.event.map.OverlaySelectEvent;
 import org.primefaces.model.map.DefaultMapModel;
@@ -24,7 +29,7 @@ import com.medfinder.entity.Medico;
 import com.medfinder.entity.Plano;
 
 @ManagedBean
-@ViewScoped
+@SessionScoped
 public class BuscaMedicoBean implements Serializable {
 
 	
@@ -50,9 +55,39 @@ public class BuscaMedicoBean implements Serializable {
 	
 	private double longitude;
 	
+	private Marker marker; 
+	
+	private Medico medico;
+	
+	private String id_medico;
 	
 	
 	
+	
+
+	public String getId_medico() {
+		return id_medico;
+	}
+
+	public void setId_medico(String id_medico) {
+		this.id_medico = id_medico;
+	}
+
+	public Medico getMedico() {
+		return medico;
+	}
+
+	public void setMedico(Medico medico) {
+		this.medico = medico;
+	}
+
+	public Marker getMarker() {
+		return marker;
+	}
+
+	public void setMarker(Marker marker) {
+		this.marker = marker;
+	}
 
 	public double getLatitude() {
 		return latitude;
@@ -153,6 +188,14 @@ public class BuscaMedicoBean implements Serializable {
 	@PostConstruct
 	public void init() {
 		
+		HttpSession session = (HttpSession) FacesContext.getCurrentInstance()
+			    .getExternalContext().getSession(true);
+			    session.removeAttribute("buscaMedicoBean");
+			    
+			    session.invalidate();
+		
+		
+		
 		especialidades = espdao.listAll();
 		
 		planosList = new ArrayList<SelectItem>();
@@ -170,9 +213,11 @@ public class BuscaMedicoBean implements Serializable {
 		
 	}
 	
-	public void valores(){
-		System.out.println(latitude);
-		System.out.println(longitude);
+	public String limpaForm(){
+		FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
+		
+		
+		return "buscaMedicos";
 	}
 	
 	 
@@ -207,20 +252,29 @@ public class BuscaMedicoBean implements Serializable {
 			System.out.println(lat);
 			System.out.println(lon);
 			
-			locMedicos.addOverlay(new Marker(new LatLng(lat, lon),med.getNome(),"","http://maps.google.com/mapfiles/ms/micons/blue-dot.png"));
+			locMedicos.addOverlay(new Marker(new LatLng(lat, lon),med.getId_medico(),med,"http://maps.google.com/mapfiles/ms/micons/blue-dot.png"));
 		}
 	}
 	public void onMarkerSelect(OverlaySelectEvent event) {  
 
 	    Marker marker = (Marker) event.getOverlay();
 	    if (marker!=null) {
-	        System.out.println(marker.getId());
+	        System.out.println(marker.getTitle());
+	        medico = new Medico();
+	        medico = (Medico)marker.getData();
+	        System.out.println(medico.getNome());
+	        
+	        id_medico = medico.getId_medico();
+	        
 	    }
+	    
+	    FacesContext ctx = FacesContext.getCurrentInstance();
+        NavigationHandler handler = ctx.getApplication().getNavigationHandler();
+        handler.handleNavigation(ctx, null, "perfilMedico?faces-redirect=true");
+
+        ctx.renderResponse();
 	}
 	
-	public void chamarPerfil(){
-		
-		
-	}
+	
 
 }

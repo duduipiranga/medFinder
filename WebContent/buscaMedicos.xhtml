@@ -27,6 +27,7 @@
 								<h:form class="well form-inline">
 									<p class="f_legend">Preencha os campos abaixo conforme sua
 										necessidade.</p>
+										<h:commandButton action="#{buscaMedicoBean.limpaForm}" value="Limpar"/>
 
 									<p:inputText id="filtroEndereco" styleClass="span3"
 										onfocus="if(this.value=='Endereço') {this.value='';};"
@@ -66,20 +67,10 @@
 
 											<p:ajax event="overlaySelect" listener="#{buscaMedicoBean.onMarkerSelect}"/>
 
-											<p:gmapInfoWindow>
-												<p:outputPanel
-													style="text-align:center;display:block;margin:auto:">
-
-													<h:outputText value="#{buscaMedicoBean.marker.title}" />
-
-												</p:outputPanel>
-
-											</p:gmapInfoWindow>
+											
+											
 										</p:gmap>
-									</h:form>
-									<h:form prependId="false">
-									</h:form>
-
+									</h:form>								
 								</div>
 
 
