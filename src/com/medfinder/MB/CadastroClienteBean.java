@@ -16,6 +16,11 @@ import com.medfinder.entity.Cliente;
 import com.medfinder.entity.Endereco;
 import com.medfinder.entity.Plano;
 
+
+import javax.faces.application.FacesMessage;  
+import javax.faces.context.FacesContext;  
+  
+
 @ViewScoped
 @ManagedBean
 public class CadastroClienteBean implements Serializable{	
@@ -114,7 +119,10 @@ public class CadastroClienteBean implements Serializable{
 		cliente.setPlano(plano);
 		cliente.setEndereco(endereco);
 		
-		cdao.insert(cliente);		
+		cdao.insert(cliente);
+		
+		 FacesContext context = FacesContext.getCurrentInstance(); 
+		 context.addMessage(null, new FacesMessage("Sucesso", "Usuário cadastrado com sucesso! "));  
 	}
 	
 	

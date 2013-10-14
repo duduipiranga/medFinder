@@ -258,6 +258,10 @@
                 //* optgroup
                 $('#filtroEspecialidades').multiSelect();
             }
+            if($('#filtroPlanos').length) {
+                //* optgroup
+                $('#filtroPlanos').multiSelect();
+            }
 			if($('#custom-headers').length) {
                 //* custom headers
                 $('#custom-headers').multiSelect({

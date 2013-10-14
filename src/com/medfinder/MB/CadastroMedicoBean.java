@@ -3,13 +3,17 @@ package com.medfinder.MB;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 
 import org.primefaces.context.RequestContext;
 import org.primefaces.event.FileUploadEvent;
 import org.primefaces.model.DualListModel;
+
 import com.medfinder.dao.impl.EspecialidadeDAO;
 import com.medfinder.dao.impl.MedicoDAO;
 import com.medfinder.dao.impl.PlanoDAO;
@@ -199,7 +203,7 @@ public class CadastroMedicoBean implements Serializable {
 
 	}
 
-	public String salvarMedico() {
+	public void salvarMedico() {
 
 		medico.setPlanos(escolhidosPlanos);
 
@@ -224,7 +228,10 @@ public class CadastroMedicoBean implements Serializable {
 
 		medao.insert(medico);
 		
-		return "index?faces-redirect=true";
+		FacesContext context = FacesContext.getCurrentInstance(); 
+		context.addMessage(null, new FacesMessage("Sucesso", "Médico cadastrado com sucesso! ")); 
+		
+		//return "index?faces-redirect=true";
 
 	}
 }
