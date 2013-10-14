@@ -23,8 +23,8 @@
 								<div class="row-fluid">
 									<div class="span2"></div>
 									<div class="span8">
-									
-									<p:growl id="growl" showDetail="true" sticky="true" />
+
+										<p:growl id="growl" showDetail="true" sticky="true" />
 
 										<!-- <form id="validate_wizard_1" class="stepy-wizzard form-horizontal"> -->
 										<h:form prependId="false" id="validate_wizard"
@@ -39,7 +39,8 @@
 													<h:outputLabel value="Foto : " for="filtroNome"
 														styleClass="control-label" />
 													<div class="controls">
-														<p:commandButton value="Selecione a foto" icon="ui-icon-extlink"
+														<p:commandButton value="Selecione a foto"
+															icon="ui-icon-extlink"
 															actionListener="#{cadastroMedicoBean.abrirDialogMedico}">
 															<!-- <p:ajax event="dialogReturn"
 																listener="" /> -->
@@ -224,6 +225,7 @@
 													<div class="controls">
 														<p:inputText id="filtroEndereco"
 															value="#{cadastroMedicoBean.endereco.logradouro}"
+															onblur="geraCoordenadas(this.value);"
 															styleClass="span10" />
 													</div>
 												</div>
@@ -262,8 +264,9 @@
 													<h:outputLabel value="Foto Consultório  : "
 														styleClass="control-label" />
 													<div class="controls">
-														<p:commandButton value="Selecione a foto" icon="ui-icon-extlink"
-															actionListener="#{cadastroMedicoBean.abrirDialogConsultorio}">															
+														<p:commandButton value="Selecione a foto"
+															icon="ui-icon-extlink"
+															actionListener="#{cadastroMedicoBean.abrirDialogConsultorio}">
 														</p:commandButton>
 													</div>
 												</div>
@@ -274,6 +277,12 @@
 													somente para a cidade de São Paulo!
 												</div>
 											</fieldset>
+											<h:inputText styleClass="lat"
+												value="#{buscaMedicoBean.latitude}" style="display:none;"></h:inputText>
+											<h:inputText styleClass="long"
+												value="#{buscaMedicoBean.longitude}" style="display:none;"></h:inputText>
+
+
 											<h:commandButton value="Continuar"
 												styleClass="finish btn btn-primary"
 												action="#{cadastroMedicoBean.salvarMedico}">
