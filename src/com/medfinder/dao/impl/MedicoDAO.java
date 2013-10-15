@@ -6,13 +6,14 @@ import java.util.List;
 
 import javax.persistence.Query;
 
+import com.medfinder.entity.Cliente;
 import com.medfinder.entity.Especialidade;
 import com.medfinder.entity.Medico;
 import com.medfinder.entity.Plano;
 
-public class MedicoDAO extends HibernateDAO<Medico, String> implements Serializable{
+public class MedicoDAO extends HibernateDAO<Medico, String> implements
+		Serializable {
 
-	
 	private static final long serialVersionUID = -9162816324974680263L;
 	List<Medico> medicos = new ArrayList<Medico>();
 
@@ -38,14 +39,31 @@ public class MedicoDAO extends HibernateDAO<Medico, String> implements Serializa
 
 		return medicos;
 	}
-	public List<Medico> sortearEspecialidades(){
-		Query q = em
-				.createQuery("from Medico");
-		
+
+	public List<Medico> sortearEspecialidades() {
+		Query q = em.createQuery("from Medico");
+
 		medicos = q.getResultList();
 
 		return medicos;
 	}
-	
+
+	Medico medico = new Medico();
+
+	public boolean validarUsuario(String email, String senha) {
+
+		Query q = em.createQuery(
+				"from Medico m where m.email = :email and m.senha = :senha",
+				Medico.class);
+		q.setParameter("email", email);
+		q.setParameter("senha", senha);
+
+		try {
+			medico = (Medico) q.getSingleResult();
+			return true;
+		} catch (javax.persistence.NoResultException e) {
+			return false;
+		}
+	}
 
 }

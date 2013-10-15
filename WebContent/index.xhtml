@@ -14,6 +14,7 @@
 		<!-- main content -->
 		<div id="contentwrapper">
 			<div class="main_content">
+			<p:growl id="mensagem" showDetail="true" sticky="false" />
 
 				<div class="row-fluid">
 					<div class="span6">
@@ -36,52 +37,52 @@
 							</ul>
 							<div class="tab-content">
 								<div class="tab-pane active" id="tab1">
-									<form class="form-horizontal well">
+									<h:form class="form-horizontal well">
 										<fieldset>
-											<p class="f_legend">Informe corretamente seus dados nos campos abaixo:</p>
+											<p class="f_legend">Informe corretamente seus dados nos campos abaixo: médico</p>
 											<div class="control-group">
 												<h:outputLabel value="E-mail : " for="loginEmailMedico" styleClass="control-label" />
 												<div class="controls">
-													<p:inputText id="loginEmailMedico" styleClass="span10" />
+													<p:inputText id="loginEmailMedico" styleClass="span10" value="#{loginBean.medico.email}"/>
 												</div>
 											</div>
 											<div class="control-group">
 												<h:outputLabel value="Senha : " for="loginSenhaMedico" styleClass="control-label" />
 												<div class="controls">
-													 <p:password id="loginSenhaMedico" styleClass="span10"   />
+													 <p:password id="loginSenhaMedico" styleClass="span10" value="#{loginBean.medico.senha}"  />
 												</div>
 											</div>
 											<div class="control-group">
 												<div class="controls">
-													<button class="btn btn-inverse" type="submit">Acessar</button>
+													<h:commandButton styleClass="btn btn-inverse" action="#{loginBean.logarMedico}" value="Médico acessar" >Acessar</h:commandButton>
 												</div>
 											</div>
 										</fieldset>
-									</form>
+									</h:form>
 								</div>
 								<div class="tab-pane" id="tab2">
-									<form class="form-horizontal well">
+									<h:form class="form-horizontal well">
 										<fieldset>
-											<p class="f_legend">Informe corretamente seus dados nos campos abaixo:</p>
+											<p class="f_legend">Informe corretamente seus dados nos campos abaixo: cliente</p>
 											<div class="control-group">
 												<h:outputLabel value="E-mail : " for="loginEmailUsuario" styleClass="control-label" />
 												<div class="controls">
-													<p:inputText id="loginEmailUsuario" styleClass="span10" />
+													<p:inputText id="loginEmailUsuario" styleClass="span10" value="#{loginBean.cliente.email}" />
 												</div>
 											</div>
 											<div class="control-group">
 												<h:outputLabel value="Senha : " for="loginSenhaUsuario" styleClass="control-label" />
 												<div class="controls">
-													 <p:password id="loginSenhaUsuario" styleClass="span10"   />
+													 <p:password id="loginSenhaUsuario" styleClass="span10" value="#{loginBean.cliente.senha}"  />
 												</div>
 											</div>
 											<div class="control-group">
 												<div class="controls">
-													<button class="btn btn-gebo" type="submit">Acessar</button>
+													<h:commandButton styleClass="btn btn-inverse" action="#{loginBean.logarCliente}" value="Cliente Acessar" >Acessar</h:commandButton>
 												</div>
 											</div>
 										</fieldset>
-									</form>
+									</h:form>
 									
 										<div class="alert alert-error">
 											<a class="close" data-dismiss="alert">×</a> 
